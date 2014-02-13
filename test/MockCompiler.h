@@ -25,7 +25,7 @@
 
 class MockCompiler : public Compiler {
 public:
-    MOCK_METHOD0(execute, void());
+    MOCK_METHOD0 ( execute, void() );
 };
 
 #endif // MOCKCOMPILER_H

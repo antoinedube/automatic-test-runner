@@ -29,7 +29,7 @@
 
 TEST ( Notifier, CanBeCreated ) {
     Notifier *notifier = new Notifier ( );
-    EXPECT_TRUE ( notifier!=NULL );
+    EXPECT_TRUE ( notifier != NULL );
     delete notifier;
 }
 

@@ -29,7 +29,7 @@
 
 TEST ( Compiler, CanBeCreated ) {
     Compiler *compiler = new Compiler ();
-    EXPECT_TRUE ( compiler!=NULL );
+    EXPECT_TRUE ( compiler != NULL );
     delete compiler;
 }
 

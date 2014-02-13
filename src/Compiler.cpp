@@ -20,10 +20,10 @@
 #include "Compiler.h"
 
 Compiler::Compiler ( ) {
-    this->commands.push_back("rm -rf *");
-    this->commands.push_back("cmake ..");
-    this->commands.push_back("make clean");
-    this->commands.push_back("make");
+    this->commands.push_back ( "echo 'rm -rf *'" );
+    this->commands.push_back ( "echo 'cmake ..'" );
+    this->commands.push_back ( "echo 'make clean'" );
+    this->commands.push_back ( "echo 'make'" );
 }
 
 
@@ -31,9 +31,20 @@ Compiler::~Compiler() {
 
 }
 
-void Compiler::execute()
-{
-    for (const auto& value : this->commands) {
-        std::cout << value << std::endl;
+
+void Compiler::execute() {
+    FILE *popenOutput;
+    char buffer[500];
+    std::string commandOutput;
+
+    for ( auto & value : this->commands ) {
+        popenOutput = popen(value.c_str(), "r");
+
+        fgets(buffer, 500, popenOutput);
+
+        pclose(popenOutput);
+
+        commandOutput = std::string(buffer);
+        std::cout << "Command output : " << commandOutput;
     }
 }

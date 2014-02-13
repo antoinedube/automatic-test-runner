@@ -26,8 +26,8 @@ Monitor::Monitor ( ) {
 
 
 Monitor::Monitor ( Compiler &compiler, Notifier &notifier ) {
-    this->compiler = new Compiler(compiler);
-    this->notifier = new Notifier(notifier);
+    this->compiler = new Compiler ( compiler );
+    this->notifier = new Notifier ( notifier );
 }
 
 
@@ -38,27 +38,22 @@ Monitor::~Monitor() {
 
 
 bool Monitor::isValid() {
-    return (this->compiler!=NULL) && (this->notifier!=NULL);
+    return ( this->compiler != NULL ) && ( this->notifier != NULL );
 }
 
-void Monitor::startWatch()
-{
+void Monitor::startWatch() {
     std::string fileModified;
     std::string watchPath = "../test";
-    this->notifier->addPath(watchPath);
+    this->notifier->addPath ( watchPath );
     watchPath = "../src";
-    this->notifier->addPath(watchPath);
+    this->notifier->addPath ( watchPath );
 
     this->notifier->initialize();
 
-    fileModified = this->notifier->waitForChange();
-    std::cout << fileModified << " has been modified" << std::endl;
-//     if (fileModified[0]!='.' && fileModified.length()>0) {
-//         std::cout << fileModified << " has been modified" << std::endl;
-//     }
-//     else {
-//         std::cout << "Error in fileModified : " << fileModified << std::endl;
-//     }
-
+    while ( 1 ) {
+        fileModified = this->notifier->waitForChange();
+        std::cout << fileModified << " has been modified" << std::endl;
+        this->compiler->execute();
+    }
     this->notifier->terminate();
 }

@@ -33,7 +33,7 @@
 
 TEST ( Monitor, CanBeCreated ) {
     Monitor *monitor = new Monitor ( );
-    EXPECT_TRUE ( monitor!=NULL );
+    EXPECT_TRUE ( monitor != NULL );
     delete monitor;
 }
 

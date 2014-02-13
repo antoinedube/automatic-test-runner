@@ -27,13 +27,12 @@
 #include <vector>
 
 
-class Notifier
-{
+class Notifier {
 public:
     Notifier();
     virtual ~Notifier();
 
-    virtual void addPath(std::string &path);
+    virtual void addPath ( std::string &path );
     virtual void initialize();
     std::string waitForChange();
     virtual void terminate();
