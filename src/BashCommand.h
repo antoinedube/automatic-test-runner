@@ -17,25 +17,22 @@
  *
  */
 
-#ifndef COMPILER_H
-#define COMPILER_H
+#ifndef BASHCOMMAND_H
+#define BASHCOMMAND_H
 
-#include <iostream>
 #include <string>
-#include <vector>
-
-#include "BashCommand.h"
+#include <stdio.h>
 
 
-class Compiler {
+class BashCommand {
 public:
-    Compiler ();
-    virtual ~Compiler();
-    virtual void execute();
+    BashCommand ( std::string &command );
+    virtual ~BashCommand();
+
+    virtual std::string execute();
 
 private:
-    std::vector<std::string> commands;
-    BashCommand *bashCommand;
+    std::string command;
 };
 
-#endif // MONITOR_H
+#endif // BASHCOMMAND_H

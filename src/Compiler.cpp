@@ -19,6 +19,7 @@
 
 #include "Compiler.h"
 
+
 Compiler::Compiler ( ) {
     this->commands.push_back ( "echo 'rm -rf *'" );
     this->commands.push_back ( "echo 'cmake ..'" );
@@ -33,18 +34,12 @@ Compiler::~Compiler() {
 
 
 void Compiler::execute() {
-    FILE *popenOutput;
-    char buffer[500];
     std::string commandOutput;
 
     for ( auto & value : this->commands ) {
-        popenOutput = popen(value.c_str(), "r");
-
-        fgets(buffer, 500, popenOutput);
-
-        pclose(popenOutput);
-
-        commandOutput = std::string(buffer);
+        this->bashCommand = new BashCommand(value);
+        commandOutput = this->bashCommand->execute();
         std::cout << "Command output : " << commandOutput;
+        delete this->bashCommand;
     }
 }

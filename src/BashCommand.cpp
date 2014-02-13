@@ -17,25 +17,30 @@
  *
  */
 
-#ifndef COMPILER_H
-#define COMPILER_H
-
-#include <iostream>
-#include <string>
-#include <vector>
-
 #include "BashCommand.h"
 
 
-class Compiler {
-public:
-    Compiler ();
-    virtual ~Compiler();
-    virtual void execute();
+BashCommand::BashCommand ( std::string &command ) {
+    this->command = command;
+}
 
-private:
-    std::vector<std::string> commands;
-    BashCommand *bashCommand;
-};
 
-#endif // MONITOR_H
+BashCommand::~BashCommand()
+{
+
+}
+
+
+std::string BashCommand::execute()
+{
+    FILE *popenOutput;
+    char buffer[500];
+
+    popenOutput = popen(this->command.c_str(), "r");
+
+    fgets(buffer, 500, popenOutput);
+
+    pclose(popenOutput);
+
+    return std::string(buffer);
+}

@@ -41,12 +41,12 @@ void Notifier::addPath ( std::string &path ) {
 void Notifier::initialize() {
     fileDescriptor = inotify_init();
 
-    for ( const auto & value : this->paths ) {
+    for ( auto & value : this->paths ) {
         watchDescriptor = inotify_add_watch ( fileDescriptor, value.c_str(), IN_CREATE | IN_MODIFY );
     }
 
     std::cout << "Start watch on " << std::endl;
-    for ( const auto & value : this->paths ) {
+    for ( auto & value : this->paths ) {
         std::cout << value << std::endl;
     }
 }
