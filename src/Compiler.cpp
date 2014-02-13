@@ -20,9 +20,20 @@
 #include "Compiler.h"
 
 Compiler::Compiler ( ) {
-
+    this->commands.push_back("rm -rf *");
+    this->commands.push_back("cmake ..");
+    this->commands.push_back("make clean");
+    this->commands.push_back("make");
 }
+
 
 Compiler::~Compiler() {
 
+}
+
+void Compiler::execute()
+{
+    for (const auto& value : this->commands) {
+        std::cout << value << std::endl;
+    }
 }

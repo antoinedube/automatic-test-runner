@@ -26,16 +26,28 @@
 #include <unistd.h>
 #include <vector>
 
+#include "Compiler.h"
+
 class Monitor {
 public:
     Monitor ( );
+    Monitor ( Compiler &compiler );
     virtual ~Monitor();
     virtual bool isValid();
     virtual void startWatch();
     virtual void addPath(std::string &path);
 
+    virtual void initialize();
+    virtual void waitForChange();
+    virtual void analyzeChange();
+    virtual void terminate();
+    virtual bool filenameIsValid(std::string &filename);
+
 private:
     std::vector<std::string> paths;
+
+    Compiler *compiler;
+
     int EVENT_SIZE;
     int EVENT_BUF_LEN;
     char *buffer;
@@ -43,11 +55,6 @@ private:
     int watchDescriptor;
     int length;
 
-    void initialize();
-    void waitForChange();
-    void analyzeChange();
-    void terminate();
-    bool filenameIsValid(std::string &filename);
 };
 
 #endif // MONITOR_H

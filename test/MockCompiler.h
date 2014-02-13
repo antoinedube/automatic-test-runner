@@ -17,21 +17,15 @@
  *
  */
 
-#ifndef COMPILER_H
-#define COMPILER_H
+#ifndef MOCKCOMPILER_H
+#define MOCKCOMPILER_H
 
-#include <iostream>
-#include <vector>
+#include "gmock/gmock.h"
+#include "Compiler.h"
 
-
-class Compiler {
+class MockCompiler : public Compiler {
 public:
-    Compiler ();
-    virtual ~Compiler();
-    virtual void execute();
-
-private:
-    std::vector<std::string> commands;
+    MOCK_METHOD0(execute, void());
 };
 
-#endif // MONITOR_H
+#endif // MOCKCOMPILER_H

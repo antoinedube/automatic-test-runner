@@ -21,13 +21,11 @@
 #include "Monitor.h"
 
 int main() {
-    std::string watchPath1 = "../src";
-    std::string watchPath2 = "../test";
+    std::string watchPath = "../test";
 
     Monitor *monitor = new Monitor ( );
 
-    monitor->addPath(watchPath1);
-    monitor->addPath(watchPath2);
+    monitor->addPath(watchPath);
 
     monitor->startWatch();
 

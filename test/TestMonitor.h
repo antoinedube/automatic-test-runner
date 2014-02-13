@@ -25,7 +25,11 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
+#include "MockCompiler.h"
 #include "Monitor.h"
+
+using ::testing::AtLeast;
+
 
 TEST ( Monitor, CanBeCreated ) {
     std::string watchPath = ".";
@@ -35,5 +39,13 @@ TEST ( Monitor, CanBeCreated ) {
     delete monitor;
 }
 
-#endif // TESTMONITOR_H
+TEST(Monitor, AnalyzeChangeCallsCompilerExecution) {
+    MockCompiler mockCompiler;
+    EXPECT_CALL(mockCompiler, execute()).Times(AtLeast(1));
 
+    Monitor monitor(mockCompiler);
+    mockCompiler.execute();
+}
+
+
+#endif // TESTMONITOR_H
