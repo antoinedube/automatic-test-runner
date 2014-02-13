@@ -17,20 +17,20 @@
  *
  */
 
-#ifndef TESTCOMPILER_H
-#define TESTCOMPILER_H
+#ifndef TESTNOTIFIER_H
+#define TESTNOTIFIER_H
 
 #include <iostream>
 
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
-#include "Compiler.h"
+#include "Notifier.h"
 
-TEST ( Compiler, CanBeCreated ) {
-    Compiler *compiler = new Compiler ();
-    EXPECT_TRUE ( compiler!=NULL );
-    delete compiler;
+TEST ( Notifier, CanBeCreated ) {
+    Notifier *notifier = new Notifier ( );
+    EXPECT_TRUE ( notifier!=NULL );
+    delete notifier;
 }
 
-#endif // TESTCOMPILER_H
+#endif // TESTNOTIFIER_H

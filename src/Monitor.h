@@ -20,41 +20,23 @@
 #ifndef MONITOR_H
 #define MONITOR_H
 
-#include <iostream>
 #include <string>
-#include <sys/inotify.h>
-#include <unistd.h>
-#include <vector>
 
 #include "Compiler.h"
+#include "Notifier.h"
 
 class Monitor {
 public:
     Monitor ( );
-    Monitor ( Compiler &compiler );
+    Monitor ( Compiler &compiler, Notifier &notifier );
     virtual ~Monitor();
-    virtual bool isValid();
-    virtual void startWatch();
-    virtual void addPath(std::string &path);
 
-    virtual void initialize();
-    virtual void waitForChange();
-    virtual void analyzeChange();
-    virtual void terminate();
-    virtual bool filenameIsValid(std::string &filename);
+    virtual void startWatch();
+    virtual bool isValid();
 
 private:
-    std::vector<std::string> paths;
-
     Compiler *compiler;
-
-    int EVENT_SIZE;
-    int EVENT_BUF_LEN;
-    char *buffer;
-    int fileDescriptor;
-    int watchDescriptor;
-    int length;
-
+    Notifier *notifier;
 };
 
 #endif // MONITOR_H

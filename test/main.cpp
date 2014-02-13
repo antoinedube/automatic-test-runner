@@ -20,7 +20,9 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
+#include "TestCompiler.h"
 #include "TestMonitor.h"
+#include "TestNotifier.h"
 
 int main ( int argc, char **argv ) {
     // The following line must be executed to initialize Google Mock (and Google Test) before running the tests.

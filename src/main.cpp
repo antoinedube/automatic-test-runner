@@ -21,11 +21,8 @@
 #include "Monitor.h"
 
 int main() {
-    std::string watchPath = "../test";
 
     Monitor *monitor = new Monitor ( );
-
-    monitor->addPath(watchPath);
 
     monitor->startWatch();
 

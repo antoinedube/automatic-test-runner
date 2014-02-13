@@ -20,100 +20,45 @@
 #include "Monitor.h"
 
 Monitor::Monitor ( ) {
-    this->EVENT_SIZE = sizeof ( struct inotify_event );
-    this->EVENT_BUF_LEN = 1024 * ( EVENT_SIZE + 16 );
-    this->buffer = new char[EVENT_BUF_LEN];
-
     this->compiler = new Compiler();
+    this->notifier = new Notifier();
 }
 
 
-Monitor::Monitor ( Compiler &compiler ) {
-    this->EVENT_SIZE = sizeof ( struct inotify_event );
-    this->EVENT_BUF_LEN = 1024 * ( EVENT_SIZE + 16 );
-    this->buffer = new char[EVENT_BUF_LEN];
-
+Monitor::Monitor ( Compiler &compiler, Notifier &notifier ) {
     this->compiler = new Compiler(compiler);
+    this->notifier = new Notifier(notifier);
 }
 
 
 Monitor::~Monitor() {
-    delete[] this->buffer;
     delete this->compiler;
+    delete this->notifier;
 }
 
 
 bool Monitor::isValid() {
-    return true;
+    return (this->compiler!=NULL) && (this->notifier!=NULL);
 }
 
-
-void Monitor::startWatch() {
-    std::cout << "Start watch on " << std::endl;
-    for (const auto& value : this->paths) {
-        std::cout << value << std::endl;
-    }
-
-    initialize();
-
-    while(1) {
-        waitForChange();
-        analyzeChange();
-        break;
-    }
-
-    terminate();
-}
-
-
-void Monitor::addPath(std::string &path) {
-    this->paths.push_back(path);
-}
-
-
-void Monitor::initialize() {
-    fileDescriptor = inotify_init();
-
-    for (const auto& value : this->paths) {
-        watchDescriptor = inotify_add_watch ( fileDescriptor, value.c_str(), IN_CREATE | IN_MODIFY );
-    }
-}
-
-
-void Monitor::waitForChange() {
-    length = read ( fileDescriptor, buffer, EVENT_BUF_LEN );
-}
-
-
-void Monitor::analyzeChange() {
-    int i = 0;
-    std::string filename;
-    while ( i < length ) {
-        struct inotify_event *event = ( struct inotify_event * ) &buffer[i];
-        filename = std::string ( event->name, event->len);
-
-        if ( event->len && filenameIsValid(filename)) {
-            std::cout << "File " << filename << " has changed" << std::endl;
-            this->compiler->execute();
-        }
-        i += EVENT_SIZE + event->len;
-    }
-}
-
-
-void Monitor::terminate() {
-    inotify_rm_watch ( fileDescriptor, watchDescriptor );
-    close ( fileDescriptor );
-}
-
-
-bool Monitor::filenameIsValid(std::string &filename)
+void Monitor::startWatch()
 {
-    bool status = false;
+    std::string fileModified;
+    std::string watchPath = "../test";
+    this->notifier->addPath(watchPath);
+    watchPath = "../src";
+    this->notifier->addPath(watchPath);
 
-    if (filename[0]!='.' && filename.length()>0) {
-        status = true;
-    }
+    this->notifier->initialize();
 
-    return status;
+    fileModified = this->notifier->waitForChange();
+    std::cout << fileModified << " has been modified" << std::endl;
+//     if (fileModified[0]!='.' && fileModified.length()>0) {
+//         std::cout << fileModified << " has been modified" << std::endl;
+//     }
+//     else {
+//         std::cout << "Error in fileModified : " << fileModified << std::endl;
+//     }
+
+    this->notifier->terminate();
 }

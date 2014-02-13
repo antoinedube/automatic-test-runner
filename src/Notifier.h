@@ -17,20 +17,36 @@
  *
  */
 
-#ifndef TESTCOMPILER_H
-#define TESTCOMPILER_H
+#ifndef NOTIFIER_H
+#define NOTIFIER_H
 
 #include <iostream>
+#include <string>
+#include <sys/inotify.h>
+#include <unistd.h>
+#include <vector>
 
-#include <gmock/gmock.h>
-#include <gtest/gtest.h>
 
-#include "Compiler.h"
+class Notifier
+{
+public:
+    Notifier();
+    virtual ~Notifier();
 
-TEST ( Compiler, CanBeCreated ) {
-    Compiler *compiler = new Compiler ();
-    EXPECT_TRUE ( compiler!=NULL );
-    delete compiler;
-}
+    virtual void addPath(std::string &path);
+    virtual void initialize();
+    std::string waitForChange();
+    virtual void terminate();
 
-#endif // TESTCOMPILER_H
+private:
+    std::vector<std::string> paths;
+
+    int EVENT_SIZE;
+    int EVENT_BUF_LEN;
+    char *buffer;
+    int fileDescriptor;
+    int watchDescriptor;
+    int length;
+};
+
+#endif // NOTIFIER_H
