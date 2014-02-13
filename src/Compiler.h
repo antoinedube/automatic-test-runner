@@ -17,21 +17,19 @@
  *
  */
 
+#ifndef MONITOR_H
+#define MONITOR_H
+
 #include <iostream>
-#include "Monitor.h"
 
-int main() {
-    std::string watchPath1 = "../src";
-    std::string watchPath2 = "../test";
 
-    Monitor *monitor = new Monitor ( );
+class Compiler {
+public:
+    Compiler ( );
+    virtual ~Compiler();
 
-    monitor->addPath(watchPath1);
-    monitor->addPath(watchPath2);
+private:
 
-    monitor->startWatch();
+};
 
-    delete monitor;
-
-    return 0;
-}
+#endif // MONITOR_H

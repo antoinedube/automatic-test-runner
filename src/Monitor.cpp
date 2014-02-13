@@ -19,77 +19,111 @@
 
 #include "Monitor.h"
 
-Monitor::Monitor ( std::string &path ) {
-    this->path = path;
+Monitor::Monitor ( ) {
     this->EVENT_SIZE = sizeof ( struct inotify_event );
     this->EVENT_BUF_LEN = 1024 * ( EVENT_SIZE + 16 );
     this->buffer = new char[EVENT_BUF_LEN];
 }
 
+
 Monitor::~Monitor() {
     delete[] this->buffer;
 }
+
 
 bool Monitor::isValid() {
     return true;
 }
 
+
 void Monitor::startWatch() {
-    std::cout << "Start watch on " << path << std::endl;
+    std::cout << "Start watch on " << std::endl;
+    for (const auto& value : this->paths) {
+        std::cout << value << std::endl;
+    }
+
     initialize();
-    waitForChange();
-    analyzeChange();
+
+    while(1) {
+        waitForChange();
+        analyzeChange();
+    }
+
     terminate();
 }
 
+
+void Monitor::addPath(std::string &path) {
+    this->paths.push_back(path);
+}
+
+
 void Monitor::initialize() {
     fileDescriptor = inotify_init();
-    watchDescriptor = inotify_add_watch ( fileDescriptor, path.c_str(), IN_CREATE | IN_DELETE | IN_MODIFY );
+
+    for (const auto& value : this->paths) {
+        watchDescriptor = inotify_add_watch ( fileDescriptor, value.c_str(), IN_CREATE | IN_DELETE | IN_MODIFY );
+    }
 }
+
 
 void Monitor::waitForChange() {
     length = read ( fileDescriptor, buffer, EVENT_BUF_LEN );
 }
 
+
 void Monitor::analyzeChange() {
     int i = 0;
+    std::string filename;
     while ( i < length ) {
         struct inotify_event *event = ( struct inotify_event * ) &buffer[i];
-        std::cout << "if event->len" << std::endl;
-        if ( event->len ) {
+        filename = std::string ( event->name, event->len);
 
+        if ( event->len && filenameIsValid(filename)) {
             if ( event->mask & IN_CREATE ) {
                 if ( event->mask & IN_ISDIR ) {
-                    std::cout << "Directory created" << std::endl;
+                    std::cout << "Directory " << filename << " created" << std::endl;
+
                 }
                 else {
-                    std::cout << "File is created" << std::endl;
+                    std::cout << "File " << filename << " is created" << std::endl;
                 }
             }
-            else
-                if ( event->mask & IN_DELETE ) {
-                    if ( event->mask & IN_ISDIR ) {
-                        std::cout << "Directory is deleted" << std::endl;
-                    }
-                    else {
-                        std::cout << "File is deleted" << std::endl;
-                    }
+            else if ( event->mask & IN_DELETE ) {
+                if ( event->mask & IN_ISDIR ) {
+                    std::cout << "Directory " << filename << " is deleted" << std::endl;
                 }
-                else
-                    if ( event->mask & IN_MODIFY ) {
-                        if ( event->mask & IN_ISDIR ) {
-                            std::cout << "Directory is modified" << std::endl;
-                        }
-                        else {
-                            std::cout << "File is modified" << std::endl;
-                        }
-                    }
+                else {
+                    std::cout << "File " << filename << " is deleted" << std::endl;
+                }
+            }
+            else if ( event->mask & IN_MODIFY ) {
+                if ( event->mask & IN_ISDIR ) {
+                    std::cout << "Directory " << filename << " is modified" << std::endl;
+                }
+                else {
+                    std::cout << "File " << filename << " is modified" << std::endl;
+                }
+            }
         }
         i += EVENT_SIZE + event->len;
     }
 }
 
+
 void Monitor::terminate() {
     inotify_rm_watch ( fileDescriptor, watchDescriptor );
     close ( fileDescriptor );
+}
+
+
+bool Monitor::filenameIsValid(std::string &filename)
+{
+    bool status = false;
+
+    if (filename[0]!='.') {
+        status = true;
+    }
+
+    return status;
 }

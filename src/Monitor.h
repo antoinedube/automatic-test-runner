@@ -24,16 +24,18 @@
 #include <string>
 #include <sys/inotify.h>
 #include <unistd.h>
+#include <vector>
 
 class Monitor {
 public:
-    Monitor ( std::string &path );
+    Monitor ( );
     virtual ~Monitor();
     virtual bool isValid();
     virtual void startWatch();
+    virtual void addPath(std::string &path);
 
 private:
-    std::string path;
+    std::vector<std::string> paths;
     int EVENT_SIZE;
     int EVENT_BUF_LEN;
     char *buffer;
@@ -45,6 +47,7 @@ private:
     void waitForChange();
     void analyzeChange();
     void terminate();
+    bool filenameIsValid(std::string &filename);
 };
 
 #endif // MONITOR_H

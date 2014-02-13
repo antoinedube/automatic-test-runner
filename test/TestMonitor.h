@@ -29,9 +29,11 @@
 
 TEST ( Monitor, CanBeCreated ) {
     std::string watchPath = ".";
-    Monitor *monitor = new Monitor ( watchPath );
+    Monitor *monitor = new Monitor ( );
+    monitor->addPath(watchPath);
     EXPECT_TRUE ( monitor->isValid() );
     delete monitor;
 }
 
 #endif // TESTMONITOR_H
+

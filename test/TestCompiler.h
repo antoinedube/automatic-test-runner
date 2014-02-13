@@ -17,21 +17,20 @@
  *
  */
 
+#ifndef TESTMONITOR_H
+#define TESTMONITOR_H
+
 #include <iostream>
-#include "Monitor.h"
 
-int main() {
-    std::string watchPath1 = "../src";
-    std::string watchPath2 = "../test";
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
 
-    Monitor *monitor = new Monitor ( );
+#include "Compiler.h"
 
-    monitor->addPath(watchPath1);
-    monitor->addPath(watchPath2);
-
-    monitor->startWatch();
-
-    delete monitor;
-
-    return 0;
+TEST ( Compiler, CanBeCreated ) {
+    Compiler *compiler = new Compiler ();
+    EXPECT_TRUE ( compiler!=NULL );
+    delete compiler;
 }
+
+#endif // TESTMONITOR_H

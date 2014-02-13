@@ -17,21 +17,12 @@
  *
  */
 
-#include <iostream>
-#include "Monitor.h"
+#include "Compiler.h"
 
-int main() {
-    std::string watchPath1 = "../src";
-    std::string watchPath2 = "../test";
+Compiler::Compiler ( ) {
 
-    Monitor *monitor = new Monitor ( );
+}
 
-    monitor->addPath(watchPath1);
-    monitor->addPath(watchPath2);
+Compiler::~Compiler() {
 
-    monitor->startWatch();
-
-    delete monitor;
-
-    return 0;
 }
