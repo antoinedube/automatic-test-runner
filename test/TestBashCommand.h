@@ -17,19 +17,22 @@
  *
  */
 
+#ifndef TESTBASHCOMMAND_H
+#define TESTBASHCOMMAND_H
+
+#include <iostream>
+#include <string>
+
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
-#include "TestBashCommand.h"
-#include "TestCompiler.h"
-#include "TestMonitor.h"
-#include "TestNotifier.h"
-#include "Test.h"
-#include "TestSuite.h"
+#include "BashCommand.h"
 
-
-int main ( int argc, char **argv ) {
-    ::testing::InitGoogleMock ( &argc, argv );
-    return RUN_ALL_TESTS();
+TEST ( BashCommand, CanBeCreated ) {
+    std::string testCommand = "ls -lah";
+    BashCommand *bashCommand = new BashCommand (testCommand);
+    EXPECT_TRUE ( bashCommand != NULL );
+    delete bashCommand;
 }
 
+#endif // TESTBASHCOMMAND_H

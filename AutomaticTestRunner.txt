@@ -1,14 +1,12 @@
 Programme pour rouler les tests automatiquement
 
-Utiliser la bibliothèque inotify pour surveiller les changements dans un
-dossier
-
-Si changement : 
+Si changement :
 - Compiler ("make")
 - Rouler les tests
 - Afficher les résultats (Affichage par défaut ou autre)
 
+Ajouter :
 
-Transférer une partie du code de Monitor dans une classe Notifier
-
-Ajouter Compiler (utiliser popen pour rouler les commandes Bash), BashOutputParser
+Ajouter la lecture d'un fichier de config:
+- Dossier a ajouter au Notifier
+- 

@@ -17,19 +17,19 @@
  *
  */
 
+#define TESTTESTSUITE_H
+
+#include <iostream>
+
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
-#include "TestBashCommand.h"
-#include "TestCompiler.h"
-#include "TestMonitor.h"
-#include "TestNotifier.h"
-#include "Test.h"
 #include "TestSuite.h"
 
-
-int main ( int argc, char **argv ) {
-    ::testing::InitGoogleMock ( &argc, argv );
-    return RUN_ALL_TESTS();
+TEST ( TestSuite, CanBeCreated ) {
+    TestSuite *testSuite = new TestSuite ();
+    EXPECT_TRUE ( testSuite != NULL );
+    delete testSuite;
 }
 
+#endif // TESTTESTSUITE_H

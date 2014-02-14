@@ -17,19 +17,19 @@
  *
  */
 
-#include <gmock/gmock.h>
-#include <gtest/gtest.h>
-
-#include "TestBashCommand.h"
-#include "TestCompiler.h"
-#include "TestMonitor.h"
-#include "TestNotifier.h"
 #include "Test.h"
-#include "TestSuite.h"
 
 
-int main ( int argc, char **argv ) {
-    ::testing::InitGoogleMock ( &argc, argv );
-    return RUN_ALL_TESTS();
+Test::Test ( ) {
+
 }
 
+
+Test::~Test ( ) {
+
+}
+
+
+void Test::execute() {
+
+}

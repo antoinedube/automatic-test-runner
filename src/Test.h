@@ -17,19 +17,22 @@
  *
  */
 
-#include <gmock/gmock.h>
-#include <gtest/gtest.h>
+#ifndef TEST_H
+#define TEST_H
 
-#include "TestBashCommand.h"
-#include "TestCompiler.h"
-#include "TestMonitor.h"
-#include "TestNotifier.h"
-#include "Test.h"
-#include "TestSuite.h"
+#include <iostream>
+#include <vector>
 
 
-int main ( int argc, char **argv ) {
-    ::testing::InitGoogleMock ( &argc, argv );
-    return RUN_ALL_TESTS();
-}
+class Test {
+public:
+    Test ();
+    virtual ~Test();
+    virtual void execute();
 
+private:
+    std::string name;
+    bool status;
+};
+
+#endif // TEST_H

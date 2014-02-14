@@ -20,7 +20,9 @@
 #include <iostream>
 #include "Monitor.h"
 
+
 int main() {
+    // Create all objects here, instead of using "new Class()" everywhere
 
     Monitor *monitor = new Monitor ( );
 

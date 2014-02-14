@@ -24,11 +24,12 @@
 
 #include "Compiler.h"
 #include "Notifier.h"
+#include "TestSuite.h"
 
 class Monitor {
 public:
     Monitor ( );
-    Monitor ( Compiler &compiler, Notifier &notifier );
+    Monitor ( Compiler &compiler, Notifier &notifier, TestSuite &testSuite );
     virtual ~Monitor();
 
     virtual void startWatch();
@@ -37,6 +38,7 @@ public:
 private:
     Compiler *compiler;
     Notifier *notifier;
+    TestSuite *testSuite;
 };
 
 #endif // MONITOR_H

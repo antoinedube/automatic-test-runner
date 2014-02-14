@@ -22,23 +22,26 @@
 Monitor::Monitor ( ) {
     this->compiler = new Compiler();
     this->notifier = new Notifier();
+    this->testSuite = new TestSuite();
 }
 
 
-Monitor::Monitor ( Compiler &compiler, Notifier &notifier ) {
+Monitor::Monitor ( Compiler &compiler, Notifier &notifier, TestSuite &testSuite ) {
     this->compiler = new Compiler ( compiler );
     this->notifier = new Notifier ( notifier );
+    this->testSuite = new TestSuite ( testSuite );
 }
 
 
 Monitor::~Monitor() {
     delete this->compiler;
     delete this->notifier;
+    delete this->testSuite;
 }
 
 
 bool Monitor::isValid() {
-    return ( this->compiler != NULL ) && ( this->notifier != NULL );
+    return ( this->compiler != NULL ) && ( this->notifier != NULL ) && ( this->testSuite != NULL );
 }
 
 
@@ -53,10 +56,13 @@ void Monitor::startWatch() {
 
     while ( 1 ) {
         fileModified = this->notifier->waitForChange();
-        if (fileModified[0]!='.') {
+
+//        if (fileModified[0]!='.') {
             std::cout << fileModified << " has been modified" << std::endl;
             this->compiler->execute();
-        }
+            this->testSuite->execute();
+//        }
+
         break;
     }
 
