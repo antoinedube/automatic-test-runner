@@ -41,6 +41,7 @@ bool Monitor::isValid() {
     return ( this->compiler != NULL ) && ( this->notifier != NULL );
 }
 
+
 void Monitor::startWatch() {
     std::string fileModified;
     std::string watchPath = "../test";
