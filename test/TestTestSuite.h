@@ -17,6 +17,7 @@
  *
  */
 
+#ifndef TESTTESTSUITE_H
 #define TESTTESTSUITE_H
 
 #include <iostream>

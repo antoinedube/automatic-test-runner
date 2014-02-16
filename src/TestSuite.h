@@ -23,7 +23,7 @@
 #include <iostream>
 #include <vector>
 
-#include <Test.h>
+#include "BashCommand.h"
 
 class TestSuite {
 public:
@@ -32,8 +32,9 @@ public:
     virtual void execute ( );
 
 private:
-    std::string executable;
-    std::vector<Test *> suite;
+    std::string commandOutput;
+    BashCommand *bashCommand;
+//     std::vector<Test *> suite;
 
 //     virtual void addTest(std::string &testName, bool status);
 };

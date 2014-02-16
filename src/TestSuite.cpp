@@ -21,16 +21,20 @@
 
 
 TestSuite::TestSuite ( ) {
-    this->executable = "./testautomatictestrunner";
+    std::string command = "./testautomatictestrunner";
+    this->bashCommand = new BashCommand( command );
 }
 
 
 TestSuite::~TestSuite ( ) {
-
+    delete this->bashCommand;
 }
 
 
 void TestSuite::execute() {
-    std::cout << "Running : " << this->executable << std::endl;
+    
+    std::cout << "Running Test Suite" << std::endl;
+    this->commandOutput = this->bashCommand->execute();
+    std::cout << this->commandOutput << std::endl;
 }
 

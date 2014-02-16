@@ -101,7 +101,8 @@ TestSuite	TestSuite.h	/^    TestSuite ( );$/;"	p	class:TestSuite	access:public	s
 TestSuite	TestSuite.h	/^class TestSuite {$/;"	c
 TestSuite::TestSuite	TestSuite.cpp	/^TestSuite::TestSuite ( ) {$/;"	f	class:TestSuite	signature:( )
 TestSuite::TestSuite	TestSuite.h	/^    TestSuite ( );$/;"	p	class:TestSuite	access:public	signature:( )
-TestSuite::executable	TestSuite.h	/^    std::string executable;$/;"	m	class:TestSuite	access:private
+TestSuite::bashCommand	TestSuite.h	/^    BashCommand *bashCommand;$/;"	m	class:TestSuite	access:private
+TestSuite::commandOutput	TestSuite.h	/^    std::string commandOutput;$/;"	m	class:TestSuite	access:private
 TestSuite::execute	TestSuite.cpp	/^void TestSuite::execute() {$/;"	f	class:TestSuite	signature:()
 TestSuite::execute	TestSuite.h	/^    virtual void execute ( );$/;"	p	class:TestSuite	access:public	signature:( )
 TestSuite::suite	TestSuite.h	/^    std::vector<Test *> suite;$/;"	m	class:TestSuite	access:private
@@ -111,18 +112,19 @@ addPath	Monitor.cpp	/^    this->notifier->addPath ( watchPath );$/;"	p	file:	sig
 addPath	Notifier.cpp	/^void Notifier::addPath ( std::string &path ) {$/;"	f	class:Notifier	signature:( std::string &path )
 addPath	Notifier.h	/^    virtual void addPath ( std::string &path );$/;"	p	class:Notifier	access:public	signature:( std::string &path )
 bashCommand	Compiler.h	/^    BashCommand *bashCommand;$/;"	m	class:Compiler	access:private
+bashCommand	TestSuite.h	/^    BashCommand *bashCommand;$/;"	m	class:TestSuite	access:private
 buffer	BashCommand.cpp	/^    char buffer[500];$/;"	l
 buffer	Notifier.h	/^    char *buffer;$/;"	m	class:Notifier	access:private
 command	BashCommand.h	/^    std::string command;$/;"	m	class:BashCommand	access:private
-commandOutput	Compiler.cpp	/^        std::cout << "Command output : " << commandOutput;$/;"	l
+command	TestSuite.cpp	/^    std::string command = ".\/testautomatictestrunner";$/;"	l
 commandOutput	Compiler.cpp	/^    std::string commandOutput;$/;"	l
+commandOutput	TestSuite.h	/^    std::string commandOutput;$/;"	m	class:TestSuite	access:private
 commands	Compiler.h	/^    std::vector<std::string> commands;$/;"	m	class:Compiler	access:private
 compiler	Monitor.h	/^    Compiler *compiler;$/;"	m	class:Monitor	access:private
 endl	Monitor.cpp	/^            std::cout << fileModified << " has been modified" << std::endl;$/;"	m	class:std	file:
 endl	Notifier.cpp	/^        std::cout << value << std::endl;$/;"	m	class:std	file:
 endl	Notifier.cpp	/^    std::cout << "Start watch on " << std::endl;$/;"	m	class:std	file:
 event	Notifier.cpp	/^    struct inotify_event *event = ( struct inotify_event * ) &buffer[i];$/;"	l
-executable	TestSuite.h	/^    std::string executable;$/;"	m	class:TestSuite	access:private
 execute	BashCommand.cpp	/^std::string BashCommand::execute()$/;"	f	class:BashCommand	signature:()
 execute	BashCommand.h	/^    virtual std::string  execute();$/;"	p	class:BashCommand	access:public	signature:()
 execute	Compiler.cpp	/^void Compiler::execute() {$/;"	f	class:Compiler	signature:()
@@ -150,6 +152,7 @@ parser	Compiler.h	/^    Parser *parser;$/;"	m	class:Compiler	access:private
 paths	Notifier.h	/^    std::vector<std::string> paths;$/;"	m	class:Notifier	access:private
 popenOutput	BashCommand.cpp	/^    FILE *popenOutput;$/;"	l
 push_back	Notifier.cpp	/^    this->paths.push_back ( path );$/;"	p	file:	signature:( path )
+run	Compiler.cpp	/^        this->parser->run();$/;"	p	file:	signature:()
 run	Parser.cpp	/^void Parser::run( ) {$/;"	f	class:Parser	signature:( )
 run	Parser.h	/^    virtual void run();$/;"	p	class:Parser	access:public	signature:()
 startWatch	Monitor.cpp	/^void Monitor::startWatch() {$/;"	f	class:Monitor	signature:()

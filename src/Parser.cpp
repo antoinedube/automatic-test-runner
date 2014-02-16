@@ -30,6 +30,6 @@ Parser::~Parser( )
 }
 
 void Parser::run( ) {
-    std::cout << "Parser text: " << this->text << std::endl;
+//    std::cout << "Parser text: " << this->text << std::endl;
 }
 

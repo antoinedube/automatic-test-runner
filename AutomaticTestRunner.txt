@@ -5,7 +5,7 @@ Si changement :
 - Rouler les tests
 - Afficher les résultats (Affichage par défaut ou autre)
 
-Ajouter :
+https://code.google.com/p/googletest/source/browse/trunk/samples/sample9_unittest.cc
 
 Ajouter la lecture d'un fichier de config:
 - Dossier a ajouter au Notifier
