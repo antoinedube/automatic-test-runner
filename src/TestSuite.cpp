@@ -21,20 +21,43 @@
 
 
 TestSuite::TestSuite ( ) {
-    std::string command = "./testautomatictestrunner";
-    this->bashCommand = new BashCommand( command );
+
 }
 
 
 TestSuite::~TestSuite ( ) {
-    delete this->bashCommand;
+
 }
 
 
-void TestSuite::execute() {
-    
+void TestSuite::runAllTests() {
     std::cout << "Running Test Suite" << std::endl;
-    this->commandOutput = this->bashCommand->execute();
-    std::cout << this->commandOutput << std::endl;
 }
 
+
+void TestSuite::OnTestProgramStart(const UnitTest& /* unit_test */) {
+    std::cout << "TestProgramStart" << std::endl;
+}
+
+
+void TestSuite::OnTestProgramEnd(const UnitTest& unit_test) {
+    std::cout << "TestProgramEnd: " << unit_test.Passed() << std::endl;
+}
+
+
+void TestSuite::OnTestStart(const TestInfo& test_info) {
+    std::cout << "Test starting: " << test_info.test_case_name() << ", " << test_info.name() << std::endl;
+}
+
+
+void TestSuite::OnTestPartResult(const TestPartResult& test_part_result) {
+    std::cout << "TestPartResult" << std::endl;
+    std::cout << test_part_result.failed() << std::endl;
+    std::cout << test_part_result.summary() << std::endl;
+}
+
+
+void TestSuite::OnTestEnd(const TestInfo& test_info) {
+    const TestResult *testResult = test_info.result();
+    std::cout << "TestEnd: " << test_info.test_case_name() << "." << test_info.name() << "\t" << testResult->Passed() << std::endl;
+}

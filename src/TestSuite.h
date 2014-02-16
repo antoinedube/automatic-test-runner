@@ -23,20 +23,30 @@
 #include <iostream>
 #include <vector>
 
-#include "BashCommand.h"
+#include <gtest/gtest.h>
 
-class TestSuite {
+using ::testing::EmptyTestEventListener;
+using ::testing::TestEventListeners;
+using ::testing::TestInfo;
+using ::testing::TestPartResult;
+using ::testing::TestResult;
+using ::testing::UnitTest;
+
+
+class TestSuite : public EmptyTestEventListener {
 public:
     TestSuite ( );
     virtual ~TestSuite ( );
-    virtual void execute ( );
+    virtual void runAllTests ( );
 
 private:
-    std::string commandOutput;
-    BashCommand *bashCommand;
-//     std::vector<Test *> suite;
+//     std::vector<TestCase *> testCases;
 
-//     virtual void addTest(std::string &testName, bool status);
+    virtual void OnTestProgramStart(const UnitTest& /* unit_test */);
+    virtual void OnTestProgramEnd(const UnitTest& unit_test);
+    virtual void OnTestStart(const TestInfo& test_info);
+    virtual void OnTestPartResult(const TestPartResult& test_part_result);
+    virtual void OnTestEnd(const TestInfo& test_info);
 };
 
 #endif // TESTSUITE_H

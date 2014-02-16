@@ -36,7 +36,7 @@ list(REMOVE_ITEM src_files "src/main.cpp")
 add_library(srcautomatictestrunner ${src_files})
 
 add_executable(automatictestrunner src/main.cpp)
-target_link_libraries(automatictestrunner srcautomatictestrunner)
+target_link_libraries(automatictestrunner srcautomatictestrunner gtest pthread gmock)
 
 add_executable(testautomatictestrunner test/main.cpp)
 target_link_libraries(testautomatictestrunner srcautomatictestrunner gtest pthread gmock)
