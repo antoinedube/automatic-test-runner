@@ -31,11 +31,11 @@ class Compiler {
 public:
     Compiler ();
     virtual ~Compiler();
-    virtual void execute();
+    virtual void  execute();
 
 private:
     std::vector<std::string> commands;
     BashCommand *bashCommand;
 };
 
-#endif // MONITOR_H
+#endif // COMPILER_H

@@ -29,7 +29,7 @@ public:
     BashCommand ( std::string &command );
     virtual ~BashCommand();
 
-    virtual std::string execute();
+    virtual std::string  execute();
 
 private:
     std::string command;
