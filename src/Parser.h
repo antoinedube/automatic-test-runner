@@ -17,32 +17,21 @@
  *
  */
 
-#include "Compiler.h"
+#ifndef PARSER_H
+#define PARSER_H
+
+#include <iostream>
+#include <string>
 
 
-Compiler::Compiler ( ) {
-    this->commands.push_back ( "echo 'rm -rf *'" );
-    this->commands.push_back ( "echo 'cmake ..'" );
-    this->commands.push_back ( "echo 'make clean'" );
-    this->commands.push_back ( "echo 'make'" );
-}
+class Parser {
+public:
+    Parser ( std::string &text );
+    virtual ~Parser();
+    virtual void run();
 
+private:
+    std::string text;
+};
 
-Compiler::~Compiler() {
-
-}
-
-
-void Compiler::execute() {
-    std::string commandOutput;
-
-    for ( auto & value : this->commands ) {
-        this->bashCommand = new BashCommand(value);
-        commandOutput = this->bashCommand->execute();
-        delete this->bashCommand;
-    
-        this->parser = new Parser(commandOutput);
-        this->parser->run();
-        delete this->parser;
-    }
-}
+#endif // PARSER_H

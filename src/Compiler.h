@@ -25,6 +25,7 @@
 #include <vector>
 
 #include "BashCommand.h"
+#include "Parser.h"
 
 
 class Compiler {
@@ -36,6 +37,7 @@ public:
 private:
     std::vector<std::string> commands;
     BashCommand *bashCommand;
+    Parser *parser;
 };
 
 #endif // COMPILER_H
