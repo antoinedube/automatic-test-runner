@@ -6,6 +6,8 @@ Si changement :
 - Afficher les résultats (Affichage par défaut ou autre)
 
 https://code.google.com/p/googletest/source/browse/trunk/samples/sample9_unittest.cc
+- Les methodes ont ete redefinies
+- Reste a enlever le defaultListener (voir exemple)
 
 Ajouter la lecture d'un fichier de config:
 - Dossier a ajouter au Notifier
