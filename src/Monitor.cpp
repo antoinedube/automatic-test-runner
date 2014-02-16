@@ -19,6 +19,7 @@
 
 #include "Monitor.h"
 
+
 Monitor::Monitor ( ) {
     this->compiler = new Compiler();
     this->notifier = new Notifier();
@@ -45,14 +46,23 @@ bool Monitor::isValid() {
 }
 
 
-void Monitor::startWatch() {
-    std::string fileModified;
+void Monitor::initialize(int argc, char **argv) {
     std::string watchPath = "../test";
     this->notifier->addPath ( watchPath );
     watchPath = "../src";
     this->notifier->addPath ( watchPath );
-
     this->notifier->initialize();
+
+    InitGoogleTest(&argc, argv);
+    UnitTest& unit_test = *UnitTest::GetInstance();
+    TestEventListeners& listeners = unit_test.listeners();
+    delete listeners.Release(listeners.default_result_printer());
+    listeners.Append(new TestSuite(*this->testSuite));
+}
+
+
+void Monitor::startWatch() {
+    std::string fileModified;
 
     while ( 1 ) {
         fileModified = this->notifier->waitForChange();

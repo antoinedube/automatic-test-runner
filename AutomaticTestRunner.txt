@@ -9,6 +9,8 @@ https://code.google.com/p/googletest/source/browse/trunk/samples/sample9_unittes
 - Les methodes ont ete redefinies
 - Reste a enlever le defaultListener (voir exemple)
 
+Reusinage pour la partie GoogleTest et TestSuite
+
 Ajouter la lecture d'un fichier de config:
 - Dossier a ajouter au Notifier
-- 
+-

@@ -30,8 +30,17 @@ TestSuite::~TestSuite ( ) {
 }
 
 
+void TestSuite::initialize() {
+//     TestEventListeners& listeners = unit_test.listeners();
+//     delete listeners.Release(listeners.default_result_printer());
+//     listeners.Append(new TersePrinter);
+}
+
+
 void TestSuite::runAllTests() {
     std::cout << "Running Test Suite" << std::endl;
+    int returnValue = RUN_ALL_TESTS();
+    std::cout << "Return value RUN_ALL_TESTS: " << returnValue << std::endl;
 }
 
 

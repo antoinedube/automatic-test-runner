@@ -21,11 +21,12 @@
 #include "Monitor.h"
 
 
-int main() {
+int main(int argc, char **argv) {
     // Create all objects here, instead of using "new Class()" everywhere
 
     Monitor *monitor = new Monitor ( );
 
+    monitor->initialize(argc, argv);
     monitor->startWatch();
 
     delete monitor;

@@ -22,9 +22,14 @@
 
 #include <string>
 
+#include <gtest/gtest.h>
+
 #include "Compiler.h"
 #include "Notifier.h"
 #include "TestSuite.h"
+
+using ::testing::InitGoogleTest;
+
 
 class Monitor {
 public:
@@ -32,6 +37,7 @@ public:
     Monitor ( Compiler &compiler, Notifier &notifier, TestSuite &testSuite );
     virtual ~Monitor();
 
+    virtual void initialize(int argc, char **argv);
     virtual void startWatch();
     virtual bool isValid();
 

@@ -37,6 +37,7 @@ class TestSuite : public EmptyTestEventListener {
 public:
     TestSuite ( );
     virtual ~TestSuite ( );
+    virtual void initialize ( );
     virtual void runAllTests ( );
 
 private:
