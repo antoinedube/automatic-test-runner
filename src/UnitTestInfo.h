@@ -21,15 +21,21 @@
 #define UNITTESTINFO_H
 
 #include <iostream>
+#include <string>
 
 
 class UnitTestInfo {
 public:
-    UnitTestInfo ( );
+    UnitTestInfo ( std::string &test_case_name, std::string &test_name, bool &status, std::string &summary );
     virtual ~UnitTestInfo ( );
 
-private:
+    virtual std::string printResults( );
 
+private:
+    std::string test_case_name;
+    std::string test_name;
+    bool status;
+    std::string summary;
 };
 
 #endif // UNITTESTINFO_H

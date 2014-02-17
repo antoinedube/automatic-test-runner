@@ -20,13 +20,20 @@
 #include "UnitTestInfo.h"
 
 
-UnitTestInfo::UnitTestInfo()
+UnitTestInfo::UnitTestInfo ( std::string &test_case_name, std::string &test_name, bool &status, std::string &summary )
 {
-
+    this->test_case_name = test_case_name;
+    this->test_name = test_name;
+    this->status = status;
+    this->summary = summary;
 }
 
 
 UnitTestInfo::~UnitTestInfo()
 {
 
+}
+
+std::string UnitTestInfo::printResults() {
+    return "TestInfo";
 }
