@@ -42,7 +42,7 @@ void Monitor::startWatch() {
 
     while ( 1 ) {
 //         fileModified = this->notifier->waitForChange();
-        fileModified = "Blablabla";
+        fileModified = "Blablablablablabla";
 
 //        if (fileModified[0]!='.') {
             std::cout << fileModified << " has been modified" << std::endl;
