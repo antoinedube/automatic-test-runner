@@ -26,16 +26,14 @@
 
 class UnitTestInfo {
 public:
-    UnitTestInfo ( std::string &test_case_name, std::string &test_name, bool &status, std::string &summary );
+    UnitTestInfo ( std::string &test_case_name, std::string &test_name, bool &status, std::string &summary, long long int &timeInMillis);
     virtual ~UnitTestInfo ( );
 
-    virtual std::string printResults( );
-
-private:
     std::string test_case_name;
     std::string test_name;
     bool status;
     std::string summary;
+    long long int timeInMillis;
 };
 
 #endif // UNITTESTINFO_H
