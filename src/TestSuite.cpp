@@ -42,7 +42,7 @@ void TestSuite::initialize(int argc, char **argv) {
 
 
 void TestSuite::runAllTests() {
-    std::cout << "Running Test Suite" << std::endl;
+    std::cout << "\n\nRunning Test Suite" << std::endl;
     int returnValue = RUN_ALL_TESTS();
     std::cout << "Return value RUN_ALL_TESTS: " << returnValue << std::endl;
 }
@@ -63,14 +63,16 @@ void TestSuite::OnTestStart(const TestInfo& test_info) {
 }
 
 
+// Called after failed assertion or SUCCEED()
 void TestSuite::OnTestPartResult(const TestPartResult& test_part_result) {
     std::cout << "TestPartResult" << std::endl;
-    std::cout << test_part_result.failed() << std::endl;
-    std::cout << test_part_result.summary() << std::endl;
+    std::cout << "\tfailed(): " << test_part_result.failed() << std::endl;
+    std::cout << "\tsummary(): " << test_part_result.summary() << std::endl;
+    std::cout << "End of TestPartResult" << std::endl;
 }
 
 
 void TestSuite::OnTestEnd(const TestInfo& test_info) {
     const TestResult *testResult = test_info.result();
-    std::cout << "TestEnd: " << test_info.test_case_name() << "." << test_info.name() << "\t" << testResult->Passed() << std::endl;
+    std::cout << "TestEnd: " << test_info.test_case_name() << "." << test_info.name() << "\t" << testResult->Passed() << "\n\n" << std::endl;
 }
