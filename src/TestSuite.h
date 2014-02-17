@@ -26,6 +26,7 @@
 #include <gtest/gtest.h>
 
 using ::testing::EmptyTestEventListener;
+using ::testing::InitGoogleTest;
 using ::testing::TestEventListeners;
 using ::testing::TestInfo;
 using ::testing::TestPartResult;
@@ -37,7 +38,7 @@ class TestSuite : public EmptyTestEventListener {
 public:
     TestSuite ( );
     virtual ~TestSuite ( );
-    virtual void initialize ( );
+    virtual void initialize (int argc, char **argv);
     virtual void runAllTests ( );
 
 private:

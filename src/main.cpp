@@ -18,18 +18,34 @@
  */
 
 #include <iostream>
+
+#include "Compiler.h"
 #include "Monitor.h"
+#include "Notifier.h"
+#include "TestSuite.h"
 
 
 int main(int argc, char **argv) {
-    // Create all objects here, instead of using "new Class()" everywhere
 
-    Monitor *monitor = new Monitor ( );
+    Compiler *compiler = new Compiler();
 
-    monitor->initialize(argc, argv);
+    Notifier *notifier = new Notifier();
+    std::string watchPath = "../test";
+    notifier->addPath ( watchPath );
+    watchPath = "../src";
+    notifier->addPath ( watchPath );
+    notifier->initialize();
+
+    TestSuite *testSuite = new TestSuite();
+    testSuite->initialize(argc, argv);
+
+    Monitor *monitor = new Monitor (*compiler, *notifier, *testSuite);
     monitor->startWatch();
 
     delete monitor;
+    delete testSuite;
+    delete notifier;
+    delete compiler;
 
     return 0;
 }

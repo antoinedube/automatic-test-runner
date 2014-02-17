@@ -32,9 +32,10 @@
 
 
 TEST ( Monitor, CanBeCreated ) {
-    Monitor *monitor = new Monitor ( );
-    EXPECT_TRUE ( monitor != NULL );
-    delete monitor;
+//     Monitor *monitor = new Monitor ( );
+    EXPECT_TRUE ( 1==2 );
+//     EXPECT_TRUE ( monitor != NULL );
+//     delete monitor;
 }
 
 // TEST(Monitor, AnalyzeChangeCallsCompilerExecution) {

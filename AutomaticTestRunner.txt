@@ -1,15 +1,6 @@
 Programme pour rouler les tests automatiquement
 
-Si changement :
-- Compiler ("make")
-- Rouler les tests
-- Afficher les résultats (Affichage par défaut ou autre)
-
 https://code.google.com/p/googletest/source/browse/trunk/samples/sample9_unittest.cc
-- Les methodes ont ete redefinies
-- Reste a enlever le defaultListener (voir exemple)
-
-Reusinage pour la partie GoogleTest et TestSuite
 
 Ajouter la lecture d'un fichier de config:
 - Dossier a ajouter au Notifier

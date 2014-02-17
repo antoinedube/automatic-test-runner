@@ -29,7 +29,6 @@ Notifier::Notifier() {
 
 Notifier::~Notifier() {
     delete[] this->buffer;
-
 }
 
 

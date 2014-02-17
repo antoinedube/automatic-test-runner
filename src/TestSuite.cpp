@@ -19,6 +19,8 @@
 
 #include "TestSuite.h"
 
+#include "SampleTestCase.h"
+
 
 TestSuite::TestSuite ( ) {
 
@@ -30,10 +32,12 @@ TestSuite::~TestSuite ( ) {
 }
 
 
-void TestSuite::initialize() {
-//     TestEventListeners& listeners = unit_test.listeners();
-//     delete listeners.Release(listeners.default_result_printer());
-//     listeners.Append(new TersePrinter);
+void TestSuite::initialize(int argc, char **argv) {
+    InitGoogleTest(&argc, argv);
+    UnitTest& unit_test = *UnitTest::GetInstance();
+    TestEventListeners& listeners = unit_test.listeners();
+    delete listeners.Release(listeners.default_result_printer());
+    listeners.Append(new TestSuite(*this));
 }
 
 

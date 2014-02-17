@@ -17,30 +17,26 @@
  *
  */
 
-#ifndef MONITOR_H
-#define MONITOR_H
+#ifndef SAMPLETESTCASE_H
+#define SAMPLETESTCASE_H
 
-#include <string>
+#include <iostream>
 
-// #include <gtest/gtest.h>
-
-#include "Compiler.h"
-#include "Notifier.h"
-#include "TestSuite.h"
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
 
 
-class Monitor {
-public:
-    Monitor ( Compiler &compiler, Notifier &notifier, TestSuite &testSuite );
-    virtual ~Monitor();
+TEST(CustomOutputTest, PrintsMessage) {
+  printf("Printing something from the test body...\n");
+}
 
-    virtual void startWatch();
-    virtual bool isValid();
+TEST(CustomOutputTest, Succeeds) {
+  SUCCEED() << "SUCCEED() has been invoked from here";
+}
 
-private:
-    Compiler *compiler;
-    Notifier *notifier;
-    TestSuite *testSuite;
-};
+TEST(CustomOutputTest, Fails) {
+  EXPECT_EQ(1, 2) << "This test fails in order to demonstrate alternative failure messages";
+}
 
-#endif // MONITOR_H
+
+#endif // SAMPLETESTCASE_H

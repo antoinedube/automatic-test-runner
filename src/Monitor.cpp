@@ -20,44 +20,20 @@
 #include "Monitor.h"
 
 
-Monitor::Monitor ( ) {
-    this->compiler = new Compiler();
-    this->notifier = new Notifier();
-    this->testSuite = new TestSuite();
-}
-
-
 Monitor::Monitor ( Compiler &compiler, Notifier &notifier, TestSuite &testSuite ) {
-    this->compiler = new Compiler ( compiler );
-    this->notifier = new Notifier ( notifier );
-    this->testSuite = new TestSuite ( testSuite );
+    this->compiler = &compiler;
+    this->notifier = &notifier;
+    this->testSuite = &testSuite;
 }
 
 
 Monitor::~Monitor() {
-    delete this->compiler;
-    delete this->notifier;
-    delete this->testSuite;
+
 }
 
 
 bool Monitor::isValid() {
     return ( this->compiler != NULL ) && ( this->notifier != NULL ) && ( this->testSuite != NULL );
-}
-
-
-void Monitor::initialize(int argc, char **argv) {
-    std::string watchPath = "../test";
-    this->notifier->addPath ( watchPath );
-    watchPath = "../src";
-    this->notifier->addPath ( watchPath );
-    this->notifier->initialize();
-
-    InitGoogleTest(&argc, argv);
-    UnitTest& unit_test = *UnitTest::GetInstance();
-    TestEventListeners& listeners = unit_test.listeners();
-    delete listeners.Release(listeners.default_result_printer());
-    listeners.Append(new TestSuite(*this->testSuite));
 }
 
 
