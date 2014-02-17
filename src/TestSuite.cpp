@@ -42,7 +42,7 @@ void TestSuite::initialize(int argc, char **argv) {
 
 
 void TestSuite::runAllTests() {
-    std::cout << "\n\nRunning Test Suite" << std::endl;
+//     std::cout << "\n\nRunning Test Suite" << std::endl;
     int returnValue = RUN_ALL_TESTS();
     std::cout << "Return value RUN_ALL_TESTS: " << returnValue << std::endl;
 }
@@ -59,7 +59,7 @@ void TestSuite::OnTestProgramEnd(const UnitTest& unit_test) {
 
 
 void TestSuite::OnTestStart(const TestInfo& test_info) {
-    std::cout << "Test starting: " << test_info.test_case_name() << ", " << test_info.name() << std::endl;
+    std::cout << "TestStart: " << test_info.test_case_name() << ", " << test_info.name() << std::endl;
 }
 
 
@@ -69,6 +69,11 @@ void TestSuite::OnTestPartResult(const TestPartResult& test_part_result) {
     std::cout << "\tfailed(): " << test_part_result.failed() << std::endl;
     std::cout << "\tsummary(): " << test_part_result.summary() << std::endl;
     std::cout << "End of TestPartResult" << std::endl;
+
+//     if (test_part_result.failed()) {
+//         std::string name = test_part_result.
+//         this->unitTests.push_back();
+//     }
 }
 
 

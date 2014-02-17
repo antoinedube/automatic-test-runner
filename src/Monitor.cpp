@@ -45,9 +45,9 @@ void Monitor::startWatch() {
         fileModified = "Blablablablablabla";
 
 //        if (fileModified[0]!='.') {
-            std::cout << fileModified << " has been modified" << std::endl;
-            this->compiler->execute();
-            this->testSuite->runAllTests();
+        std::cout << fileModified << " has been modified" << std::endl;
+        this->compiler->execute();
+        this->testSuite->runAllTests();
 //        }
 
         break;

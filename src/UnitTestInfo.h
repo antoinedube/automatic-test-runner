@@ -17,32 +17,19 @@
  *
  */
 
-#include "Compiler.h"
+#ifndef UNITTESTINFO_H
+#define UNITTESTINFO_H
+
+#include <iostream>
 
 
-Compiler::Compiler ( ) {
-    this->commands.push_back ( "echo 'rm -rf *'" );
-    this->commands.push_back ( "echo 'cmake ..'" );
-    this->commands.push_back ( "echo 'make clean'" );
-    this->commands.push_back ( "echo 'make'" );
-}
+class UnitTestInfo {
+public:
+    UnitTestInfo ( );
+    virtual ~UnitTestInfo ( );
 
+private:
 
-Compiler::~Compiler() {
+};
 
-}
-
-
-void Compiler::execute() {
-    std::string commandOutput;
-
-    for ( auto & value : this->commands ) {
-        this->bashCommand = new BashCommand(value);
-        commandOutput = this->bashCommand->execute();
-        delete this->bashCommand;
-
-        this->parser = new Parser(commandOutput);
-        this->parser->run();
-        delete this->parser;
-    }
-}
+#endif // UNITTESTINFO_H

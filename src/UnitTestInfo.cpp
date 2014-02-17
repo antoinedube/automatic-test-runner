@@ -17,32 +17,16 @@
  *
  */
 
-#include "Compiler.h"
+#include "UnitTestInfo.h"
 
 
-Compiler::Compiler ( ) {
-    this->commands.push_back ( "echo 'rm -rf *'" );
-    this->commands.push_back ( "echo 'cmake ..'" );
-    this->commands.push_back ( "echo 'make clean'" );
-    this->commands.push_back ( "echo 'make'" );
-}
-
-
-Compiler::~Compiler() {
+UnitTestInfo::UnitTestInfo()
+{
 
 }
 
 
-void Compiler::execute() {
-    std::string commandOutput;
+UnitTestInfo::~UnitTestInfo()
+{
 
-    for ( auto & value : this->commands ) {
-        this->bashCommand = new BashCommand(value);
-        commandOutput = this->bashCommand->execute();
-        delete this->bashCommand;
-
-        this->parser = new Parser(commandOutput);
-        this->parser->run();
-        delete this->parser;
-    }
 }

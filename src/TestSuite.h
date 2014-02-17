@@ -25,6 +25,8 @@
 
 #include <gtest/gtest.h>
 
+#include "UnitTestInfo.h"
+
 using ::testing::EmptyTestEventListener;
 using ::testing::InitGoogleTest;
 using ::testing::TestEventListeners;
@@ -42,7 +44,8 @@ public:
     virtual void runAllTests ( );
 
 private:
-//     std::vector<TestCase *> testCases;
+    UnitTestInfo *currentTestInfo;
+    std::vector<UnitTestInfo *> unitTestsInfo;
 
     virtual void OnTestProgramStart(const UnitTest& /* unit_test */);
     virtual void OnTestProgramEnd(const UnitTest& unit_test);

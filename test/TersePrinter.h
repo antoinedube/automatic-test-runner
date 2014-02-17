@@ -34,9 +34,9 @@ using ::testing::UnitTest;
 // Provides alternative output mode which produces minimal amount of
 // information about tests.
 class TersePrinter : public EmptyTestEventListener {
-    private:
+private:
 
-        // Called before any test activity starts.
+    // Called before any test activity starts.
     virtual void OnTestProgramStart(const UnitTest& /* unit_test */) {
 
     }
