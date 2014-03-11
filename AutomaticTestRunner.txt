@@ -5,3 +5,6 @@ https://code.google.com/p/googletest/source/browse/trunk/samples/sample9_unittes
 Ajouter la lecture d'un fichier de config:
 - Dossier a ajouter au Notifier
 -
+http://qt-project.org/doc/qt-5/qtablewidget.html
+
+http://qt-project.org/doc/qt-5/qtwidgets-mainwindows-sdi-mainwindow-cpp.html
