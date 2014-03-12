@@ -21,7 +21,8 @@
 
 
 TestRunner::TestRunner() {
-    this->command = "echo './testRunner'";
+//     this->command = "pwd";
+    this->command = "./testrunner";
 }
 
 
@@ -31,15 +32,9 @@ TestRunner::~TestRunner() {
 
 
 void TestRunner::execute() {
-    std::string commandOutput;
-
     std::cout << "Running all tests" << std::endl;
 
     this->bashCommand = new BashCommand(this->command);
-    commandOutput = this->bashCommand->execute();
+    this->bashCommand->execute();
     delete this->bashCommand;
-
-    this->parser = new Parser(commandOutput);
-    this->parser->run();
-    delete this->parser;
 }

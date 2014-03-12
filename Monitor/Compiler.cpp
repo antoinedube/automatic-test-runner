@@ -21,10 +21,8 @@
 
 
 Compiler::Compiler ( ) {
-//     this->commands.push_back ( "echo 'rm -rf ../buildTestRunner/*'" );
-//     this->commands.push_back ( "echo 'cmake ../TestRunner'" );
-//     this->commands.push_back ( "echo 'make clean'" );
-    this->commands.push_back ( "echo 'make testrunner'" );
+    this->commands.push_back ( "make clean" );
+    this->commands.push_back ( "make" );
 }
 
 
@@ -34,15 +32,9 @@ Compiler::~Compiler() {
 
 
 void Compiler::execute() {
-    std::string commandOutput;
-
     for ( auto & value : this->commands ) {
         this->bashCommand = new BashCommand(value);
-        commandOutput = this->bashCommand->execute();
+        this->bashCommand->execute();
         delete this->bashCommand;
-
-        this->parser = new Parser(commandOutput);
-        this->parser->run();
-        delete this->parser;
     }
 }

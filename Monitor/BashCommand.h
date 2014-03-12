@@ -20,8 +20,11 @@
 #ifndef BASHCOMMAND_H
 #define BASHCOMMAND_H
 
+#include <iostream>
 #include <string>
 #include <stdio.h>
+
+#include "Parser.h"
 
 
 class BashCommand {
@@ -29,10 +32,11 @@ public:
     BashCommand ( std::string &command );
     virtual ~BashCommand();
 
-    virtual std::string  execute();
+    virtual void execute();
 
 private:
     std::string command;
+    Parser *parser;
 };
 
 #endif // BASHCOMMAND_H

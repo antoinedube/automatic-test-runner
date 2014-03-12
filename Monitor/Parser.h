@@ -26,9 +26,9 @@
 
 class Parser {
 public:
-    Parser ( std::string &text );
+    Parser ( );
     virtual ~Parser();
-    virtual void run();
+    virtual void parse(FILE *file);
 
 private:
     std::string text;

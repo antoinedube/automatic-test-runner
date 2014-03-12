@@ -20,17 +20,35 @@
 #include "Parser.h"
 
 
-Parser::Parser ( std::string &text ) {
-    this->text = text;
+Parser::Parser ( ) {
 }
 
 
-Parser::~Parser( )
-{
+Parser::~Parser( ) {
 }
 
 
-void Parser::run( ) {
-   std::cout << "Parser text: " << this->text << std::endl;
+void Parser::parse( FILE *file ) {
+    int testValue;
+    char valueToWrite[100];
+    std::string currentString;
+    std::cout << "Parser" << std::endl;
+
+    while (1) {
+        testValue = fgetc(file);
+
+        if (testValue==-1) break;
+        else if (testValue=='\n') {
+            std::cout << "currentString: " << currentString << std::endl;
+            currentString = "";
+        }
+        else {
+            sprintf(valueToWrite, "%c", (char)testValue);
+//             std::cout << "currentCharacter: " << testValue << std::endl;
+            currentString.append( std::string(valueToWrite) );
+        }
+    }
+
+    std::cout << "\n" << std::endl;
 }
 

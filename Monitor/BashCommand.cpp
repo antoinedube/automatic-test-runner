@@ -22,25 +22,21 @@
 
 BashCommand::BashCommand ( std::string &command ) {
     this->command = command;
+    this->parser = new Parser();
 }
 
 
-BashCommand::~BashCommand()
-{
-
+BashCommand::~BashCommand() {
+    delete this->parser;
 }
 
 
-std::string BashCommand::execute()
-{
+void BashCommand::execute() {
     FILE *popenOutput;
-    char buffer[500];
 
     popenOutput = popen(this->command.c_str(), "r");
-
-    fgets(buffer, 500, popenOutput);
-
+    this->parser->parse(popenOutput);
     pclose(popenOutput);
 
-    return std::string(buffer);
+//     std::cout << "command: " << this->command << "\toutput: " << buffer << ", " << std::string(buffer) << std::endl;
 }
