@@ -29,7 +29,7 @@
 
 class BashCommand {
 public:
-    BashCommand ( Parser &parser );
+    BashCommand(Parser &parser);
     virtual ~BashCommand();
 
     virtual void execute(std::string &command);

@@ -20,7 +20,7 @@
 #include "TestRunner.h"
 
 
-TestRunner::TestRunner( BashCommand& bashCommand ) {
+TestRunner::TestRunner(BashCommand& bashCommand) {
     this->command = "./TestRunner/testrunner";
     this->bashCommand = &bashCommand;
 }

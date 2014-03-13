@@ -28,7 +28,7 @@ Parser::~Parser( ) {
 }
 
 
-void Parser::parse( FILE *file ) {
+void Parser::parse(FILE *file) {
     int testValue;
     char valueToWrite[100];
     std::string currentString;

@@ -26,8 +26,8 @@
 
 class UnitTestInfo {
 public:
-    UnitTestInfo ( std::string &test_case_name, std::string &test_name, bool &status, std::string &summary, long long int &timeInMillis);
-    virtual ~UnitTestInfo ( );
+    UnitTestInfo(std::string &test_case_name, std::string &test_name, bool &status, std::string &summary, long long int &timeInMillis);
+    virtual ~UnitTestInfo();
 
     std::string test_case_name;
     std::string test_name;

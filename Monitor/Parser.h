@@ -26,7 +26,7 @@
 
 class Parser {
 public:
-    Parser ( );
+    Parser();
     virtual ~Parser();
     virtual void parse(FILE *file);
 

@@ -29,21 +29,24 @@
 int main( ) {
 
     Parser *parser = new Parser();
+
     BashCommand *bashCommand = new BashCommand(*parser);
 
     Compiler *compiler = new Compiler(*bashCommand);
 
-    Notifier *notifier = new Notifier();
-
     std::vector<std::string> watchPaths;
     watchPaths.push_back("../test");
     watchPaths.push_back("../TestRunner");
+
+    Notifier *notifier = new Notifier();
     notifier->addPaths (watchPaths);
+
     notifier->initialize();
 
     TestRunner *testRunner = new TestRunner(*bashCommand);
 
     Monitor *monitor = new Monitor (*compiler, *notifier, *testRunner);
+
     monitor->startWatch();
 
     delete monitor;

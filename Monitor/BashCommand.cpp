@@ -20,7 +20,7 @@
 #include "BashCommand.h"
 
 
-BashCommand::BashCommand ( Parser &parser ) {
+BashCommand::BashCommand(Parser &parser) {
     this->parser = &parser;
 }
 

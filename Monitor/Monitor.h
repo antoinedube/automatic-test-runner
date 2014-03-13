@@ -29,7 +29,7 @@
 
 class Monitor {
 public:
-    Monitor ( Compiler &compiler, Notifier &notifier, TestRunner &testRunner );
+    Monitor(Compiler &compiler, Notifier &notifier, TestRunner &testRunner);
     virtual ~Monitor();
 
     virtual void startWatch();

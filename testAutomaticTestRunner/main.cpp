@@ -28,7 +28,7 @@
 #include "TestNotifier.h"
 
 
-int main ( int argc, char **argv ) {
-    ::testing::InitGoogleMock ( &argc, argv );
+int main(int argc, char **argv) {
+    ::testing::InitGoogleMock(&argc, argv);
     return RUN_ALL_TESTS();
 }
