@@ -28,11 +28,11 @@ Parser::~Parser( ) {
 }
 
 
-void Parser::parse(FILE *file) {
+void Parser::parseOutput(FILE *file) {
     int testValue;
     char valueToWrite[100];
     std::string currentString;
-    std::cout << "Parser" << std::endl;
+    std::cout << "Output Parser" << std::endl;
 
     while (1) {
         testValue = fgetc(file);
@@ -51,4 +51,3 @@ void Parser::parse(FILE *file) {
 
     std::cout << "\n" << std::endl;
 }
-

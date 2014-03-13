@@ -33,6 +33,6 @@ void BashCommand::execute(std::string &command) {
     FILE *popenOutput;
 
     popenOutput = popen(command.c_str(), "r");
-    this->parser->parse(popenOutput);
+    this->parser->parseOutput(popenOutput);
     pclose(popenOutput);
 }
