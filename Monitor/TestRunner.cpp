@@ -20,9 +20,9 @@
 #include "TestRunner.h"
 
 
-TestRunner::TestRunner() {
-//     this->command = "pwd";
-    this->command = "./testrunner";
+TestRunner::TestRunner( BashCommand& bashCommand ) {
+    this->command = "./TestRunner/testrunner";
+    this->bashCommand = &bashCommand;
 }
 
 
@@ -33,8 +33,5 @@ TestRunner::~TestRunner() {
 
 void TestRunner::execute() {
     std::cout << "Running all tests" << std::endl;
-
-    this->bashCommand = new BashCommand(this->command);
-    this->bashCommand->execute();
-    delete this->bashCommand;
+    this->bashCommand->execute(this->command);
 }

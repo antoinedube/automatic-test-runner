@@ -20,9 +20,9 @@
 #include "Compiler.h"
 
 
-Compiler::Compiler ( ) {
-    this->commands.push_back ( "make clean" );
-    this->commands.push_back ( "make" );
+Compiler::Compiler ( BashCommand &bashCommand ) {
+    this->command = "make testrunner";
+    this->bashCommand = &bashCommand;
 }
 
 
@@ -32,9 +32,5 @@ Compiler::~Compiler() {
 
 
 void Compiler::execute() {
-    for ( auto & value : this->commands ) {
-        this->bashCommand = new BashCommand(value);
-        this->bashCommand->execute();
-        delete this->bashCommand;
-    }
+    this->bashCommand->execute(this->command);
 }

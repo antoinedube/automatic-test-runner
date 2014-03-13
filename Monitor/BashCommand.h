@@ -29,13 +29,12 @@
 
 class BashCommand {
 public:
-    BashCommand ( std::string &command );
+    BashCommand ( Parser &parser );
     virtual ~BashCommand();
 
-    virtual void execute();
+    virtual void execute(std::string &command);
 
 private:
-    std::string command;
     Parser *parser;
 };
 

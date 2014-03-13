@@ -30,8 +30,7 @@ public:
     virtual ~Parser();
     virtual void parse(FILE *file);
 
-private:
-    std::string text;
+// private:
 };
 
 #endif // PARSER_H

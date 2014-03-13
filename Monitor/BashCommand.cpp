@@ -20,23 +20,19 @@
 #include "BashCommand.h"
 
 
-BashCommand::BashCommand ( std::string &command ) {
-    this->command = command;
-    this->parser = new Parser();
+BashCommand::BashCommand ( Parser &parser ) {
+    this->parser = &parser;
 }
 
 
 BashCommand::~BashCommand() {
-    delete this->parser;
 }
 
 
-void BashCommand::execute() {
+void BashCommand::execute(std::string &command) {
     FILE *popenOutput;
 
-    popenOutput = popen(this->command.c_str(), "r");
+    popenOutput = popen(command.c_str(), "r");
     this->parser->parse(popenOutput);
     pclose(popenOutput);
-
-//     std::cout << "command: " << this->command << "\toutput: " << buffer << ", " << std::string(buffer) << std::endl;
 }

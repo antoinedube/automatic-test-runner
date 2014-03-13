@@ -17,11 +17,11 @@
 #
 #
 
+cmake_minimum_required (VERSION 2.8)
+project(automatictestrunner)
 
-file (
-    GLOB
-    src_monitor
-    *.cpp
-)
+set(CMAKE_CXX_FLAGS "-g -std=c++11 -Wall -Werror -Wextra")
 
-add_executable(monitor ${src_monitor})
+add_subdirectory(Monitor)
+
+add_subdirectory(TestRunner)

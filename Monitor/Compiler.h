@@ -25,19 +25,17 @@
 #include <vector>
 
 #include "BashCommand.h"
-#include "Parser.h"
 
 
 class Compiler {
 public:
-    Compiler ();
+    Compiler ( BashCommand &bashCommand );
     virtual ~Compiler();
     virtual void  execute();
 
 private:
-    std::vector<std::string> commands;
+    std::string command;
     BashCommand *bashCommand;
-    Parser *parser;
 };
 
 #endif // COMPILER_H

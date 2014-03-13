@@ -29,7 +29,7 @@
 
 class TestRunner {
 public:
-    TestRunner ( );
+    TestRunner ( BashCommand &bashCommand );
     virtual ~TestRunner();
 
     virtual void execute();
@@ -37,7 +37,6 @@ public:
 private:
     std::string command;
     BashCommand *bashCommand;
-    Parser *parser;
 };
 
 #endif // TESTRUNNER_H

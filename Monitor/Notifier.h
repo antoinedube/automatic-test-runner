@@ -32,7 +32,7 @@ public:
     Notifier();
     virtual ~Notifier();
 
-    virtual void addPath ( std::string &path );
+    virtual void addPaths ( std::vector<std::string> &paths );
     virtual void initialize();
     std::string waitForChange();
     virtual void terminate();

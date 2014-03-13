@@ -32,8 +32,8 @@ Notifier::~Notifier() {
 }
 
 
-void Notifier::addPath ( std::string &path ) {
-    this->paths.push_back ( path );
+void Notifier::addPaths ( std::vector<std::string> &paths ) {
+    this->paths = paths;
 }
 
 
