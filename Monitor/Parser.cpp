@@ -27,7 +27,10 @@ Parser::Parser ( ) {
 Parser::~Parser( ) {
 }
 
-
+// A considerer : jsoncpp et transferer les infos en JSON
+// https://www.archlinux.org/packages/extra/x86_64/jsoncpp/
+// http://jsoncpp.sourceforge.net/
+// Exemple : http://www.danielsoltyka.com/programming/2011/04/15/simple-class-serialization-with-jsoncpp/
 void Parser::parseOutput(FILE *file) {
     int testValue;
     char valueToWrite[100];

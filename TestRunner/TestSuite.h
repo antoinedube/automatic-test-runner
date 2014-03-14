@@ -26,6 +26,7 @@
 #include <gtest/gtest.h>
 
 #include "UnitTestInfo.h"
+#include "TestsResults.h"
 
 using ::testing::EmptyTestEventListener;
 using ::testing::InitGoogleTest;
@@ -38,14 +39,13 @@ using ::testing::UnitTest;
 
 class TestSuite : public EmptyTestEventListener {
 public:
-    TestSuite ( );
+    TestSuite ( TestsResults &testsResults );
     virtual ~TestSuite ( );
-    virtual void initialize (int argc, char **argv);
     virtual void runAllTests ( );
 
 private:
     UnitTestInfo *currentTestInfo;
-    std::vector<UnitTestInfo *> unitTestsInfo;
+    TestsResults *testsResults;
 
     virtual void OnTestProgramStart(const UnitTest& /* unit_test */);
     virtual void OnTestProgramEnd(const UnitTest& unit_test);

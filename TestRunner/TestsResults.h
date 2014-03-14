@@ -17,23 +17,28 @@
  *
  */
 
-#ifndef UNITTESTINFO_H
-#define UNITTESTINFO_H
+#ifndef TESTSRESULTS_H
+#define TESTSRESULTS_H
 
 #include <iostream>
 #include <string>
+#include <vector>
+
+#include "UnitTestInfo.h"
 
 
-class UnitTestInfo {
+class TestsResults {
 public:
-    UnitTestInfo();
-    virtual ~UnitTestInfo();
+    TestsResults();
+    virtual ~TestsResults();
 
-    std::string test_case_name;
-    std::string test_name;
-    bool status;
-    std::string summary;
-    long long int timeInMillis;
+    void addResult(const UnitTestInfo& unitTestInfo);
+    void setGeneralStatus(int status);
+    void print();
+
+private:
+    int generalStatus;
+    std::vector<UnitTestInfo *> testsResults;
 };
 
-#endif // UNITTESTINFO_H
+#endif // TESTSRESULTS_H

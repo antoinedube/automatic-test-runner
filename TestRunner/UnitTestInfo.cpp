@@ -20,12 +20,12 @@
 #include "UnitTestInfo.h"
 
 
-UnitTestInfo::UnitTestInfo(std::string &test_case_name, std::string &test_name, bool &status, std::string &summary, long long int &timeInMillis) {
-    this->test_case_name = test_case_name;
-    this->test_name = test_name;
-    this->status = status;
-    this->summary = summary;
-    this->timeInMillis = timeInMillis;
+UnitTestInfo::UnitTestInfo() {
+    this->test_case_name = "";
+    this->test_name = "";
+    this->status = false;
+    this->summary = "";
+    this->timeInMillis = 0;
 }
 
 

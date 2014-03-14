@@ -18,17 +18,26 @@
  */
 
 #include <iostream>
+#include <gtest/gtest.h>
 
+#include "TestsResults.h"
 #include "TestSuite.h"
 
 int main(int argc, char **argv) {
+    InitGoogleTest(&argc, argv);
+    UnitTest& unit_test = *UnitTest::GetInstance();
+    TestEventListeners& listeners = unit_test.listeners();
+    delete listeners.Release(listeners.default_result_printer());
 
-    TestSuite *testSuite = new TestSuite();
-    testSuite->initialize(argc, argv);
+    TestsResults *testsResults = new TestsResults();
+
+    TestSuite *testSuite = new TestSuite(*testsResults);
+    listeners.Append(testSuite);
 
     testSuite->runAllTests();
 
-    delete testSuite;
+    testsResults->print();
+    delete testsResults;
 
     return 0;
 }

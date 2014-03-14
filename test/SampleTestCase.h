@@ -26,13 +26,10 @@
 #include <gtest/gtest.h>
 
 
-TEST(CustomOutputTest, PrintsMessage) {
-    std::cout << "Printing something from the test body..." << std::endl;
+TEST(CustomOutputTest, AssertTrue) {
+    EXPECT_TRUE(true);
 }
 
-TEST(CustomOutputTest, Succeeds) {
-    SUCCEED() << "SUCCEED() has been invoked from here";
-}
 
 TEST(CustomOutputTest, Fails) {
     EXPECT_EQ(1, 2) << "This test fails in order to demonstrate alternative failure messages";

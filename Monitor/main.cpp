@@ -45,7 +45,7 @@ int main( ) {
 
     TestRunner *testRunner = new TestRunner(*bashCommand);
 
-    Monitor *monitor = new Monitor (*compiler, *notifier, *testRunner);
+    Monitor *monitor = new Monitor(*compiler, *notifier, *testRunner);
 
     monitor->startWatch();
 

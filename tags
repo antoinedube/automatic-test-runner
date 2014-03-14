@@ -20,22 +20,31 @@ ARCHITECTURE_ID	build/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	3
 ARCHITECTURE_ID	build/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	306;"	d	file:
 ARCHITECTURE_ID	build/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	309;"	d	file:
 ARCHITECTURE_ID	build/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	313;"	d	file:
-BASHCOMMAND_H	src/BashCommand.h	21;"	d
-BashCommand	src/BashCommand.cpp	/^BashCommand::BashCommand ( std::string &command ) {$/;"	f	class:BashCommand	signature:( std::string &command )
-BashCommand	src/BashCommand.h	/^    BashCommand ( std::string &command );$/;"	p	class:BashCommand	access:public	signature:( std::string &command )
-BashCommand	src/BashCommand.h	/^class BashCommand {$/;"	c
-BashCommand::BashCommand	src/BashCommand.cpp	/^BashCommand::BashCommand ( std::string &command ) {$/;"	f	class:BashCommand	signature:( std::string &command )
-BashCommand::BashCommand	src/BashCommand.h	/^    BashCommand ( std::string &command );$/;"	p	class:BashCommand	access:public	signature:( std::string &command )
-BashCommand::command	src/BashCommand.h	/^    std::string command;$/;"	m	class:BashCommand	access:private
-BashCommand::execute	src/BashCommand.cpp	/^std::string BashCommand::execute()$/;"	f	class:BashCommand	signature:()
-BashCommand::execute	src/BashCommand.h	/^    virtual std::string execute();$/;"	p	class:BashCommand	access:public	signature:()
-BashCommand::~BashCommand	src/BashCommand.cpp	/^BashCommand::~BashCommand()$/;"	f	class:BashCommand	signature:()
-BashCommand::~BashCommand	src/BashCommand.h	/^    virtual ~BashCommand();$/;"	p	class:BashCommand	access:public	signature:()
+Append	TestRunner/TestSuite.cpp	/^    listeners.Append(new TestSuite(*this));$/;"	p	file:	signature:(new TestSuite(*this))
+BASHCOMMAND_H	Monitor/BashCommand.h	21;"	d
+BashCommand	Monitor/BashCommand.cpp	/^BashCommand::BashCommand(Parser &parser) {$/;"	f	class:BashCommand	signature:(Parser &parser)
+BashCommand	Monitor/BashCommand.h	/^    BashCommand(Parser &parser);$/;"	p	class:BashCommand	access:public	signature:(Parser &parser)
+BashCommand	Monitor/BashCommand.h	/^class BashCommand {$/;"	c
+BashCommand::BashCommand	Monitor/BashCommand.cpp	/^BashCommand::BashCommand(Parser &parser) {$/;"	f	class:BashCommand	signature:(Parser &parser)
+BashCommand::BashCommand	Monitor/BashCommand.h	/^    BashCommand(Parser &parser);$/;"	p	class:BashCommand	access:public	signature:(Parser &parser)
+BashCommand::execute	Monitor/BashCommand.cpp	/^void BashCommand::execute(std::string &command) {$/;"	f	class:BashCommand	signature:(std::string &command)
+BashCommand::execute	Monitor/BashCommand.h	/^    virtual void execute(std::string &command);$/;"	p	class:BashCommand	access:public	signature:(std::string &command)
+BashCommand::parser	Monitor/BashCommand.h	/^    Parser *parser;$/;"	m	class:BashCommand	access:private
+BashCommand::~BashCommand	Monitor/BashCommand.cpp	/^BashCommand::~BashCommand() {$/;"	f	class:BashCommand	signature:()
+BashCommand::~BashCommand	Monitor/BashCommand.h	/^    virtual ~BashCommand();$/;"	p	class:BashCommand	access:public	signature:()
 CMAKE_BINARY_DIR	build/Makefile	/^CMAKE_BINARY_DIR = \/home\/antoine\/AutomaticTestRunner\/build$/;"	m
+CMAKE_BINARY_DIR	build/Monitor/Makefile	/^CMAKE_BINARY_DIR = \/home\/antoine\/AutomaticTestRunner\/build$/;"	m
+CMAKE_BINARY_DIR	build/TestRunner/Makefile	/^CMAKE_BINARY_DIR = \/home\/antoine\/AutomaticTestRunner\/build$/;"	m
 CMAKE_COMMAND	build/Makefile	/^CMAKE_COMMAND = \/usr\/bin\/cmake$/;"	m
+CMAKE_COMMAND	build/Monitor/Makefile	/^CMAKE_COMMAND = \/usr\/bin\/cmake$/;"	m
+CMAKE_COMMAND	build/TestRunner/Makefile	/^CMAKE_COMMAND = \/usr\/bin\/cmake$/;"	m
 CMAKE_EDIT_COMMAND	build/Makefile	/^CMAKE_EDIT_COMMAND = \/usr\/bin\/ccmake$/;"	m
+CMAKE_EDIT_COMMAND	build/Monitor/Makefile	/^CMAKE_EDIT_COMMAND = \/usr\/bin\/ccmake$/;"	m
+CMAKE_EDIT_COMMAND	build/TestRunner/Makefile	/^CMAKE_EDIT_COMMAND = \/usr\/bin\/ccmake$/;"	m
 CMAKE_SOURCE_DIR	build/Makefile	/^CMAKE_SOURCE_DIR = \/home\/antoine\/AutomaticTestRunner$/;"	m
-COMPILER_H	src/Compiler.h	21;"	d
+CMAKE_SOURCE_DIR	build/Monitor/Makefile	/^CMAKE_SOURCE_DIR = \/home\/antoine\/AutomaticTestRunner$/;"	m
+CMAKE_SOURCE_DIR	build/TestRunner/Makefile	/^CMAKE_SOURCE_DIR = \/home\/antoine\/AutomaticTestRunner$/;"	m
+COMPILER_H	Monitor/Compiler.h	21;"	d
 COMPILER_ID	build/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	107;"	d	file:
 COMPILER_ID	build/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	112;"	d	file:
 COMPILER_ID	build/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	119;"	d	file:
@@ -208,71 +217,85 @@ COMPILER_VERSION_TWEAK	build/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	
 COMPILER_VERSION_TWEAK	build/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	20;"	d	file:
 COMPILER_VERSION_TWEAK	build/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	149;"	d	file:
 COMPILER_VERSION_TWEAK	build/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	25;"	d	file:
-Compiler	src/Compiler.cpp	/^Compiler::Compiler ( ) {$/;"	f	class:Compiler	signature:( )
-Compiler	src/Compiler.h	/^    Compiler ();$/;"	p	class:Compiler	access:public	signature:()
-Compiler	src/Compiler.h	/^class Compiler {$/;"	c
-Compiler::Compiler	src/Compiler.cpp	/^Compiler::Compiler ( ) {$/;"	f	class:Compiler	signature:( )
-Compiler::Compiler	src/Compiler.h	/^    Compiler ();$/;"	p	class:Compiler	access:public	signature:()
-Compiler::bashCommand	src/Compiler.h	/^    BashCommand *bashCommand;$/;"	m	class:Compiler	access:private
-Compiler::commands	src/Compiler.h	/^    std::vector<std::string> commands;$/;"	m	class:Compiler	access:private
-Compiler::execute	src/Compiler.cpp	/^void Compiler::execute() {$/;"	f	class:Compiler	signature:()
-Compiler::execute	src/Compiler.h	/^    virtual void execute();$/;"	p	class:Compiler	access:public	signature:()
-Compiler::~Compiler	src/Compiler.cpp	/^Compiler::~Compiler() {$/;"	f	class:Compiler	signature:()
-Compiler::~Compiler	src/Compiler.h	/^    virtual ~Compiler();$/;"	p	class:Compiler	access:public	signature:()
+Compiler	Monitor/Compiler.cpp	/^Compiler::Compiler(BashCommand &bashCommand) {$/;"	f	class:Compiler	signature:(BashCommand &bashCommand)
+Compiler	Monitor/Compiler.h	/^    Compiler(BashCommand &bashCommand);$/;"	p	class:Compiler	access:public	signature:(BashCommand &bashCommand)
+Compiler	Monitor/Compiler.h	/^class Compiler {$/;"	c
+Compiler::Compiler	Monitor/Compiler.cpp	/^Compiler::Compiler(BashCommand &bashCommand) {$/;"	f	class:Compiler	signature:(BashCommand &bashCommand)
+Compiler::Compiler	Monitor/Compiler.h	/^    Compiler(BashCommand &bashCommand);$/;"	p	class:Compiler	access:public	signature:(BashCommand &bashCommand)
+Compiler::bashCommand	Monitor/Compiler.h	/^    BashCommand *bashCommand;$/;"	m	class:Compiler	access:private
+Compiler::command	Monitor/Compiler.h	/^    std::string command;$/;"	m	class:Compiler	access:private
+Compiler::execute	Monitor/Compiler.cpp	/^void Compiler::execute() {$/;"	f	class:Compiler	signature:()
+Compiler::execute	Monitor/Compiler.h	/^    virtual void  execute();$/;"	p	class:Compiler	access:public	signature:()
+Compiler::~Compiler	Monitor/Compiler.cpp	/^Compiler::~Compiler() {$/;"	f	class:Compiler	signature:()
+Compiler::~Compiler	Monitor/Compiler.h	/^    virtual ~Compiler();$/;"	p	class:Compiler	access:public	signature:()
 DEC	build/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	324;"	d	file:
 DEC	build/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	317;"	d	file:
 EQUALS	build/Makefile	/^EQUALS = =$/;"	m
-EVENT_BUF_LEN	src/Notifier.h	/^    int EVENT_BUF_LEN;$/;"	m	class:Notifier	access:private
-EVENT_SIZE	src/Notifier.h	/^    int EVENT_SIZE;$/;"	m	class:Notifier	access:private
+EQUALS	build/Monitor/Makefile	/^EQUALS = =$/;"	m
+EQUALS	build/TestRunner/Makefile	/^EQUALS = =$/;"	m
+EVENT_BUF_LEN	Monitor/Notifier.h	/^    int EVENT_BUF_LEN;$/;"	m	class:Notifier	access:private
+EVENT_SIZE	Monitor/Notifier.h	/^    int EVENT_SIZE;$/;"	m	class:Notifier	access:private
 HEX	build/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	335;"	d	file:
 HEX	build/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	328;"	d	file:
 ID_VOID_MAIN	build/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	9;"	d	file:
-MOCKCOMPILER_H	test/MockCompiler.h	21;"	d
-MOCK_METHOD0	test/MockCompiler.h	/^    MOCK_METHOD0 ( execute, void() );$/;"	p	class:MockCompiler	access:public	signature:( execute, void() )
-MONITOR_H	src/Monitor.h	21;"	d
-MockCompiler	test/MockCompiler.h	/^class MockCompiler : public Compiler {$/;"	c	inherits:Compiler
-MockCompiler::MOCK_METHOD0	test/MockCompiler.h	/^    MOCK_METHOD0 ( execute, void() );$/;"	p	class:MockCompiler	access:public	signature:( execute, void() )
-Monitor	src/Monitor.cpp	/^Monitor::Monitor ( ) {$/;"	f	class:Monitor	signature:( )
-Monitor	src/Monitor.cpp	/^Monitor::Monitor ( Compiler &compiler, Notifier &notifier, TestSuite &testSuite ) {$/;"	f	class:Monitor	signature:( Compiler &compiler, Notifier &notifier, TestSuite &testSuite )
-Monitor	src/Monitor.h	/^    Monitor ( );$/;"	p	class:Monitor	access:public	signature:( )
-Monitor	src/Monitor.h	/^    Monitor ( Compiler &compiler, Notifier &notifier, TestSuite &testSuite );$/;"	p	class:Monitor	access:public	signature:( Compiler &compiler, Notifier &notifier, TestSuite &testSuite )
-Monitor	src/Monitor.h	/^class Monitor {$/;"	c
-Monitor::Monitor	src/Monitor.cpp	/^Monitor::Monitor ( ) {$/;"	f	class:Monitor	signature:( )
-Monitor::Monitor	src/Monitor.cpp	/^Monitor::Monitor ( Compiler &compiler, Notifier &notifier, TestSuite &testSuite ) {$/;"	f	class:Monitor	signature:( Compiler &compiler, Notifier &notifier, TestSuite &testSuite )
-Monitor::Monitor	src/Monitor.h	/^    Monitor ( );$/;"	p	class:Monitor	access:public	signature:( )
-Monitor::Monitor	src/Monitor.h	/^    Monitor ( Compiler &compiler, Notifier &notifier, TestSuite &testSuite );$/;"	p	class:Monitor	access:public	signature:( Compiler &compiler, Notifier &notifier, TestSuite &testSuite )
-Monitor::compiler	src/Monitor.h	/^    Compiler *compiler;$/;"	m	class:Monitor	access:private
-Monitor::isValid	src/Monitor.cpp	/^bool Monitor::isValid() {$/;"	f	class:Monitor	signature:()
-Monitor::isValid	src/Monitor.h	/^    virtual bool isValid();$/;"	p	class:Monitor	access:public	signature:()
-Monitor::notifier	src/Monitor.h	/^    Notifier *notifier;$/;"	m	class:Monitor	access:private
-Monitor::startWatch	src/Monitor.cpp	/^void Monitor::startWatch() {$/;"	f	class:Monitor	signature:()
-Monitor::startWatch	src/Monitor.h	/^    virtual void startWatch();$/;"	p	class:Monitor	access:public	signature:()
-Monitor::testSuite	src/Monitor.h	/^    TestSuite *testSuite;$/;"	m	class:Monitor	access:private
-Monitor::~Monitor	src/Monitor.cpp	/^Monitor::~Monitor() {$/;"	f	class:Monitor	signature:()
-Monitor::~Monitor	src/Monitor.h	/^    virtual ~Monitor();$/;"	p	class:Monitor	access:public	signature:()
-NOTIFIER_H	src/Notifier.h	21;"	d
-Notifier	src/Notifier.cpp	/^Notifier::Notifier() {$/;"	f	class:Notifier	signature:()
-Notifier	src/Notifier.h	/^    Notifier();$/;"	p	class:Notifier	access:public	signature:()
-Notifier	src/Notifier.h	/^class Notifier {$/;"	c
-Notifier::EVENT_BUF_LEN	src/Notifier.h	/^    int EVENT_BUF_LEN;$/;"	m	class:Notifier	access:private
-Notifier::EVENT_SIZE	src/Notifier.h	/^    int EVENT_SIZE;$/;"	m	class:Notifier	access:private
-Notifier::Notifier	src/Notifier.cpp	/^Notifier::Notifier() {$/;"	f	class:Notifier	signature:()
-Notifier::Notifier	src/Notifier.h	/^    Notifier();$/;"	p	class:Notifier	access:public	signature:()
-Notifier::addPath	src/Notifier.cpp	/^void Notifier::addPath ( std::string &path ) {$/;"	f	class:Notifier	signature:( std::string &path )
-Notifier::addPath	src/Notifier.h	/^    virtual void addPath ( std::string &path );$/;"	p	class:Notifier	access:public	signature:( std::string &path )
-Notifier::buffer	src/Notifier.h	/^    char *buffer;$/;"	m	class:Notifier	access:private
-Notifier::fileDescriptor	src/Notifier.h	/^    int fileDescriptor;$/;"	m	class:Notifier	access:private
-Notifier::initialize	src/Notifier.cpp	/^void Notifier::initialize() {$/;"	f	class:Notifier	signature:()
-Notifier::initialize	src/Notifier.h	/^    virtual void initialize();$/;"	p	class:Notifier	access:public	signature:()
-Notifier::length	src/Notifier.h	/^    int length;$/;"	m	class:Notifier	access:private
-Notifier::paths	src/Notifier.h	/^    std::vector<std::string> paths;$/;"	m	class:Notifier	access:private
-Notifier::terminate	src/Notifier.cpp	/^void Notifier::terminate() {$/;"	f	class:Notifier	signature:()
-Notifier::terminate	src/Notifier.h	/^    virtual void terminate();$/;"	p	class:Notifier	access:public	signature:()
-Notifier::waitForChange	src/Notifier.cpp	/^std::string Notifier::waitForChange() {$/;"	f	class:Notifier	signature:()
-Notifier::waitForChange	src/Notifier.h	/^    std::string waitForChange();$/;"	p	class:Notifier	access:public	signature:()
-Notifier::watchDescriptor	src/Notifier.h	/^    int watchDescriptor;$/;"	m	class:Notifier	access:private
-Notifier::~Notifier	src/Notifier.cpp	/^Notifier::~Notifier() {$/;"	f	class:Notifier	signature:()
-Notifier::~Notifier	src/Notifier.h	/^    virtual ~Notifier();$/;"	p	class:Notifier	access:public	signature:()
+MOCKCOMPILER_H	testAutomaticTestRunner/MockCompiler.h	21;"	d
+MOCK_METHOD0	testAutomaticTestRunner/MockCompiler.h	/^    MOCK_METHOD0 ( execute, void() );$/;"	p	class:MockCompiler	access:public	signature:( execute, void() )
+MONITOR_H	Monitor/Monitor.h	21;"	d
+MockCompiler	testAutomaticTestRunner/MockCompiler.h	/^class MockCompiler : public Compiler {$/;"	c	inherits:Compiler
+MockCompiler::MOCK_METHOD0	testAutomaticTestRunner/MockCompiler.h	/^    MOCK_METHOD0 ( execute, void() );$/;"	p	class:MockCompiler	access:public	signature:( execute, void() )
+Monitor	Monitor/Monitor.cpp	/^Monitor::Monitor(Compiler &compiler, Notifier &notifier, TestRunner &testRunner) {$/;"	f	class:Monitor	signature:(Compiler &compiler, Notifier &notifier, TestRunner &testRunner)
+Monitor	Monitor/Monitor.h	/^    Monitor(Compiler &compiler, Notifier &notifier, TestRunner &testRunner);$/;"	p	class:Monitor	access:public	signature:(Compiler &compiler, Notifier &notifier, TestRunner &testRunner)
+Monitor	Monitor/Monitor.h	/^class Monitor {$/;"	c
+Monitor::Monitor	Monitor/Monitor.cpp	/^Monitor::Monitor(Compiler &compiler, Notifier &notifier, TestRunner &testRunner) {$/;"	f	class:Monitor	signature:(Compiler &compiler, Notifier &notifier, TestRunner &testRunner)
+Monitor::Monitor	Monitor/Monitor.h	/^    Monitor(Compiler &compiler, Notifier &notifier, TestRunner &testRunner);$/;"	p	class:Monitor	access:public	signature:(Compiler &compiler, Notifier &notifier, TestRunner &testRunner)
+Monitor::compiler	Monitor/Monitor.h	/^    Compiler *compiler;$/;"	m	class:Monitor	access:private
+Monitor::isValid	Monitor/Monitor.cpp	/^bool Monitor::isValid() {$/;"	f	class:Monitor	signature:()
+Monitor::isValid	Monitor/Monitor.h	/^    virtual bool isValid();$/;"	p	class:Monitor	access:public	signature:()
+Monitor::notifier	Monitor/Monitor.h	/^    Notifier *notifier;$/;"	m	class:Monitor	access:private
+Monitor::startWatch	Monitor/Monitor.cpp	/^void Monitor::startWatch() {$/;"	f	class:Monitor	signature:()
+Monitor::startWatch	Monitor/Monitor.h	/^    virtual void startWatch();$/;"	p	class:Monitor	access:public	signature:()
+Monitor::testRunner	Monitor/Monitor.h	/^    TestRunner *testRunner;$/;"	m	class:Monitor	access:private
+Monitor::~Monitor	Monitor/Monitor.cpp	/^Monitor::~Monitor() {$/;"	f	class:Monitor	signature:()
+Monitor::~Monitor	Monitor/Monitor.h	/^    virtual ~Monitor();$/;"	p	class:Monitor	access:public	signature:()
+NOTIFIER_H	Monitor/Notifier.h	21;"	d
+Notifier	Monitor/Notifier.cpp	/^Notifier::Notifier() {$/;"	f	class:Notifier	signature:()
+Notifier	Monitor/Notifier.h	/^    Notifier();$/;"	p	class:Notifier	access:public	signature:()
+Notifier	Monitor/Notifier.h	/^class Notifier {$/;"	c
+Notifier::EVENT_BUF_LEN	Monitor/Notifier.h	/^    int EVENT_BUF_LEN;$/;"	m	class:Notifier	access:private
+Notifier::EVENT_SIZE	Monitor/Notifier.h	/^    int EVENT_SIZE;$/;"	m	class:Notifier	access:private
+Notifier::Notifier	Monitor/Notifier.cpp	/^Notifier::Notifier() {$/;"	f	class:Notifier	signature:()
+Notifier::Notifier	Monitor/Notifier.h	/^    Notifier();$/;"	p	class:Notifier	access:public	signature:()
+Notifier::addPaths	Monitor/Notifier.cpp	/^void Notifier::addPaths(std::vector<std::string> &paths) {$/;"	f	class:Notifier	signature:(std::vector<std::string> &paths)
+Notifier::addPaths	Monitor/Notifier.h	/^    virtual void addPaths(std::vector<std::string> &paths);$/;"	p	class:Notifier	access:public	signature:(std::vector<std::string> &paths)
+Notifier::buffer	Monitor/Notifier.h	/^    char *buffer;$/;"	m	class:Notifier	access:private
+Notifier::fileDescriptor	Monitor/Notifier.h	/^    int fileDescriptor;$/;"	m	class:Notifier	access:private
+Notifier::initialize	Monitor/Notifier.cpp	/^void Notifier::initialize() {$/;"	f	class:Notifier	signature:()
+Notifier::initialize	Monitor/Notifier.h	/^    virtual void initialize();$/;"	p	class:Notifier	access:public	signature:()
+Notifier::length	Monitor/Notifier.h	/^    int length;$/;"	m	class:Notifier	access:private
+Notifier::paths	Monitor/Notifier.h	/^    std::vector<std::string> paths;$/;"	m	class:Notifier	access:private
+Notifier::terminate	Monitor/Notifier.cpp	/^void Notifier::terminate() {$/;"	f	class:Notifier	signature:()
+Notifier::terminate	Monitor/Notifier.h	/^    virtual void terminate();$/;"	p	class:Notifier	access:public	signature:()
+Notifier::waitForChange	Monitor/Notifier.cpp	/^std::string Notifier::waitForChange() {$/;"	f	class:Notifier	signature:()
+Notifier::waitForChange	Monitor/Notifier.h	/^    std::string waitForChange();$/;"	p	class:Notifier	access:public	signature:()
+Notifier::watchDescriptor	Monitor/Notifier.h	/^    int watchDescriptor;$/;"	m	class:Notifier	access:private
+Notifier::~Notifier	Monitor/Notifier.cpp	/^Notifier::~Notifier() {$/;"	f	class:Notifier	signature:()
+Notifier::~Notifier	Monitor/Notifier.h	/^    virtual ~Notifier();$/;"	p	class:Notifier	access:public	signature:()
+OnTestEnd	TestRunner/TestSuite.cpp	/^void TestSuite::OnTestEnd(const TestInfo& test_info) {$/;"	f	class:TestSuite	signature:(const TestInfo& test_info)
+OnTestEnd	TestRunner/TestSuite.h	/^    virtual void OnTestEnd(const TestInfo& test_info);$/;"	p	class:TestSuite	access:private	signature:(const TestInfo& test_info)
+OnTestEnd	testAutomaticTestRunner/TersePrinter.h	/^    virtual void OnTestEnd(const TestInfo& test_info) {$/;"	f	class:TersePrinter	access:private	signature:(const TestInfo& test_info)
+OnTestPartResult	TestRunner/TestSuite.cpp	/^void TestSuite::OnTestPartResult(const TestPartResult& test_part_result) {$/;"	f	class:TestSuite	signature:(const TestPartResult& test_part_result)
+OnTestPartResult	TestRunner/TestSuite.h	/^    virtual void OnTestPartResult(const TestPartResult& test_part_result);$/;"	p	class:TestSuite	access:private	signature:(const TestPartResult& test_part_result)
+OnTestPartResult	testAutomaticTestRunner/TersePrinter.h	/^    virtual void OnTestPartResult(const TestPartResult& test_part_result) {$/;"	f	class:TersePrinter	access:private	signature:(const TestPartResult& test_part_result)
+OnTestProgramEnd	TestRunner/TestSuite.cpp	/^void TestSuite::OnTestProgramEnd(const UnitTest& unit_test) {$/;"	f	class:TestSuite	signature:(const UnitTest& unit_test)
+OnTestProgramEnd	TestRunner/TestSuite.h	/^    virtual void OnTestProgramEnd(const UnitTest& unit_test);$/;"	p	class:TestSuite	access:private	signature:(const UnitTest& unit_test)
+OnTestProgramEnd	testAutomaticTestRunner/TersePrinter.h	/^    virtual void OnTestProgramEnd(const UnitTest& unit_test) {$/;"	f	class:TersePrinter	access:private	signature:(const UnitTest& unit_test)
+OnTestProgramStart	TestRunner/TestSuite.cpp	/^void TestSuite::OnTestProgramStart(const UnitTest& \/* unit_test *\/) {$/;"	f	class:TestSuite	signature:(const UnitTest& )
+OnTestProgramStart	TestRunner/TestSuite.h	/^    virtual void OnTestProgramStart(const UnitTest& \/* unit_test *\/);$/;"	p	class:TestSuite	access:private	signature:(const UnitTest& )
+OnTestProgramStart	testAutomaticTestRunner/TersePrinter.h	/^    virtual void OnTestProgramStart(const UnitTest& \/* unit_test *\/) {$/;"	f	class:TersePrinter	access:private	signature:(const UnitTest& )
+OnTestStart	TestRunner/TestSuite.cpp	/^void TestSuite::OnTestStart(const TestInfo& test_info) {$/;"	f	class:TestSuite	signature:(const TestInfo& test_info)
+OnTestStart	TestRunner/TestSuite.h	/^    virtual void OnTestStart(const TestInfo& test_info);$/;"	p	class:TestSuite	access:private	signature:(const TestInfo& test_info)
+OnTestStart	testAutomaticTestRunner/TersePrinter.h	/^    virtual void OnTestStart(const TestInfo& test_info) {$/;"	f	class:TersePrinter	access:private	signature:(const TestInfo& test_info)
+PARSER_H	Monitor/Parser.h	21;"	d
 PLATFORM_ID	build/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	212;"	d	file:
 PLATFORM_ID	build/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	215;"	d	file:
 PLATFORM_ID	build/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	218;"	d	file:
@@ -325,76 +348,140 @@ PLATFORM_ID	build/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	271;"
 PLATFORM_ID	build/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	274;"	d	file:
 PLATFORM_ID	build/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	277;"	d	file:
 PLATFORM_ID	build/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	280;"	d	file:
+Parser	Monitor/Parser.cpp	/^Parser::Parser ( ) {$/;"	f	class:Parser	signature:( )
+Parser	Monitor/Parser.h	/^    Parser();$/;"	p	class:Parser	access:public	signature:()
+Parser	Monitor/Parser.h	/^class Parser {$/;"	c
+Parser::Parser	Monitor/Parser.cpp	/^Parser::Parser ( ) {$/;"	f	class:Parser	signature:( )
+Parser::Parser	Monitor/Parser.h	/^    Parser();$/;"	p	class:Parser	access:public	signature:()
+Parser::parseOutput	Monitor/Parser.cpp	/^void Parser::parseOutput(FILE *file) {$/;"	f	class:Parser	signature:(FILE *file)
+Parser::parseOutput	Monitor/Parser.h	/^    virtual void parseOutput(FILE *file);$/;"	p	class:Parser	access:public	signature:(FILE *file)
+Parser::~Parser	Monitor/Parser.cpp	/^Parser::~Parser( ) {$/;"	f	class:Parser	signature:( )
+Parser::~Parser	Monitor/Parser.h	/^    virtual ~Parser();$/;"	p	class:Parser	access:public	signature:()
 RM	build/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
+RM	build/Monitor/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
+RM	build/TestRunner/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
+Release	TestRunner/TestSuite.cpp	/^    delete listeners.Release(listeners.default_result_printer());$/;"	p	file:	signature:(listeners.default_result_printer())
+SAMPLETESTCASE_H	test/SampleTestCase.h	21;"	d
 SHELL	build/Makefile	/^SHELL = \/bin\/sh$/;"	m
+SHELL	build/Monitor/Makefile	/^SHELL = \/bin\/sh$/;"	m
+SHELL	build/TestRunner/Makefile	/^SHELL = \/bin\/sh$/;"	m
 SUFFIXES	build/Makefile	/^SUFFIXES =$/;"	m
-TEST	test/TestBashCommand.h	/^TEST ( BashCommand, CanBeCreated ) {$/;"	f	signature:( BashCommand, CanBeCreated )
-TEST	test/TestCompiler.h	/^TEST ( Compiler, CanBeCreated ) {$/;"	f	signature:( Compiler, CanBeCreated )
-TEST	test/TestMonitor.h	/^TEST ( Monitor, CanBeCreated ) {$/;"	f	signature:( Monitor, CanBeCreated )
-TEST	test/TestNotifier.h	/^TEST ( Notifier, CanBeCreated ) {$/;"	f	signature:( Notifier, CanBeCreated )
-TEST	test/TestTest.h	/^TEST ( Test, CanBeCreated ) {$/;"	f	signature:( Test, CanBeCreated )
-TEST	test/TestTestSuite.h	/^TEST ( TestSuite, CanBeCreated ) {$/;"	f	signature:( TestSuite, CanBeCreated )
-TESTBASHCOMMAND_H	test/TestBashCommand.h	21;"	d
-TESTCOMPILER_H	test/TestCompiler.h	21;"	d
-TESTMONITOR_H	test/TestMonitor.h	21;"	d
-TESTNOTIFIER_H	test/TestNotifier.h	21;"	d
-TESTSUITE_H	src/TestSuite.h	21;"	d
-TESTTESTSUITE_H	test/TestTestSuite.h	20;"	d
-TESTTEST_H	test/TestTest.h	21;"	d
-TEST_H	src/Test.h	21;"	d
-Test	src/Test.cpp	/^Test::Test ( ) {$/;"	f	class:Test	signature:( )
-Test	src/Test.h	/^    Test ();$/;"	p	class:Test	access:public	signature:()
-Test	src/Test.h	/^class Test {$/;"	c
-Test::Test	src/Test.cpp	/^Test::Test ( ) {$/;"	f	class:Test	signature:( )
-Test::Test	src/Test.h	/^    Test ();$/;"	p	class:Test	access:public	signature:()
-Test::execute	src/Test.cpp	/^void Test::execute() {$/;"	f	class:Test	signature:()
-Test::execute	src/Test.h	/^    virtual void execute();$/;"	p	class:Test	access:public	signature:()
-Test::name	src/Test.h	/^    std::string name;$/;"	m	class:Test	access:private
-Test::status	src/Test.h	/^    bool status;$/;"	m	class:Test	access:private
-Test::~Test	src/Test.cpp	/^Test::~Test ( ) {$/;"	f	class:Test	signature:( )
-Test::~Test	src/Test.h	/^    virtual ~Test();$/;"	p	class:Test	access:public	signature:()
-TestSuite	src/TestSuite.cpp	/^TestSuite::TestSuite ( ) {$/;"	f	class:TestSuite	signature:( )
-TestSuite	src/TestSuite.h	/^    TestSuite ( );$/;"	p	class:TestSuite	access:public	signature:( )
-TestSuite	src/TestSuite.h	/^class TestSuite {$/;"	c
-TestSuite::TestSuite	src/TestSuite.cpp	/^TestSuite::TestSuite ( ) {$/;"	f	class:TestSuite	signature:( )
-TestSuite::TestSuite	src/TestSuite.h	/^    TestSuite ( );$/;"	p	class:TestSuite	access:public	signature:( )
-TestSuite::executable	src/TestSuite.h	/^    std::string executable;$/;"	m	class:TestSuite	access:private
-TestSuite::execute	src/TestSuite.cpp	/^void TestSuite::execute() {$/;"	f	class:TestSuite	signature:()
-TestSuite::execute	src/TestSuite.h	/^    virtual void execute ( );$/;"	p	class:TestSuite	access:public	signature:( )
-TestSuite::suite	src/TestSuite.h	/^    std::vector<Test *> suite;$/;"	m	class:TestSuite	access:private
-TestSuite::~TestSuite	src/TestSuite.cpp	/^TestSuite::~TestSuite ( ) {$/;"	f	class:TestSuite	signature:( )
-TestSuite::~TestSuite	src/TestSuite.h	/^    virtual ~TestSuite ( );$/;"	p	class:TestSuite	access:public	signature:( )
-addPath	src/Monitor.cpp	/^    this->notifier->addPath ( watchPath );$/;"	p	file:	signature:( watchPath )
-addPath	src/Notifier.cpp	/^void Notifier::addPath ( std::string &path ) {$/;"	f	class:Notifier	signature:( std::string &path )
-addPath	src/Notifier.h	/^    virtual void addPath ( std::string &path );$/;"	p	class:Notifier	access:public	signature:( std::string &path )
-bashCommand	src/Compiler.h	/^    BashCommand *bashCommand;$/;"	m	class:Compiler	access:private
-bashCommand	test/TestBashCommand.h	/^    BashCommand *bashCommand = new BashCommand (testCommand);$/;"	l
-buffer	src/BashCommand.cpp	/^    char buffer[500];$/;"	l
-buffer	src/Notifier.h	/^    char *buffer;$/;"	m	class:Notifier	access:private
-command	src/BashCommand.h	/^    std::string command;$/;"	m	class:BashCommand	access:private
-commandOutput	src/Compiler.cpp	/^        std::cout << "Command output : " << commandOutput;$/;"	l
-commandOutput	src/Compiler.cpp	/^    std::string commandOutput;$/;"	l
-commands	src/Compiler.h	/^    std::vector<std::string> commands;$/;"	m	class:Compiler	access:private
-compiler	src/Monitor.h	/^    Compiler *compiler;$/;"	m	class:Monitor	access:private
-compiler	test/TestCompiler.h	/^    Compiler *compiler = new Compiler ();$/;"	l
-endl	src/Monitor.cpp	/^            std::cout << fileModified << " has been modified" << std::endl;$/;"	m	class:std	file:
-endl	src/Notifier.cpp	/^        std::cout << value << std::endl;$/;"	m	class:std	file:
-endl	src/Notifier.cpp	/^    std::cout << "Start watch on " << std::endl;$/;"	m	class:std	file:
-event	src/Notifier.cpp	/^    struct inotify_event *event = ( struct inotify_event * ) &buffer[i];$/;"	l
-executable	src/TestSuite.h	/^    std::string executable;$/;"	m	class:TestSuite	access:private
-execute	src/BashCommand.cpp	/^std::string BashCommand::execute()$/;"	f	class:BashCommand	signature:()
-execute	src/BashCommand.h	/^    virtual std::string execute();$/;"	p	class:BashCommand	access:public	signature:()
-execute	src/Compiler.cpp	/^void Compiler::execute() {$/;"	f	class:Compiler	signature:()
-execute	src/Compiler.h	/^    virtual void execute();$/;"	p	class:Compiler	access:public	signature:()
-execute	src/Monitor.cpp	/^            this->compiler->execute();$/;"	p	file:	signature:()
-execute	src/Monitor.cpp	/^            this->testSuite->execute();$/;"	p	file:	signature:()
-execute	src/Test.cpp	/^void Test::execute() {$/;"	f	class:Test	signature:()
-execute	src/Test.h	/^    virtual void execute();$/;"	p	class:Test	access:public	signature:()
-execute	src/TestSuite.cpp	/^void TestSuite::execute() {$/;"	f	class:TestSuite	signature:()
-execute	src/TestSuite.h	/^    virtual void execute ( );$/;"	p	class:TestSuite	access:public	signature:( )
-fileDescriptor	src/Notifier.h	/^    int fileDescriptor;$/;"	m	class:Notifier	access:private
-fileModified	src/Monitor.cpp	/^    std::string fileModified;$/;"	l
-i	src/Notifier.cpp	/^    int i = 0;$/;"	l
+SUFFIXES	build/Monitor/Makefile	/^SUFFIXES =$/;"	m
+SUFFIXES	build/TestRunner/Makefile	/^SUFFIXES =$/;"	m
+TERSEPRINTER_H	testAutomaticTestRunner/TersePrinter.h	21;"	d
+TEST	test/SampleTestCase.h	/^TEST(CustomOutputTest, Fails) {$/;"	f	signature:(CustomOutputTest, Fails)
+TEST	test/SampleTestCase.h	/^TEST(CustomOutputTest, PrintsMessage) {$/;"	f	signature:(CustomOutputTest, PrintsMessage)
+TEST	test/SampleTestCase.h	/^TEST(CustomOutputTest, Succeeds) {$/;"	f	signature:(CustomOutputTest, Succeeds)
+TEST	testAutomaticTestRunner/TestBashCommand.h	/^TEST ( BashCommand, CanBeCreated ) {$/;"	f	signature:( BashCommand, CanBeCreated )
+TEST	testAutomaticTestRunner/TestCompiler.h	/^TEST ( Compiler, CanBeCreated ) {$/;"	f	signature:( Compiler, CanBeCreated )
+TEST	testAutomaticTestRunner/TestMonitor.h	/^TEST ( Monitor, CanBeCreated ) {$/;"	f	signature:( Monitor, CanBeCreated )
+TEST	testAutomaticTestRunner/TestNotifier.h	/^TEST ( Notifier, CanBeCreated ) {$/;"	f	signature:( Notifier, CanBeCreated )
+TEST	testAutomaticTestRunner/TestTestSuite.h	/^TEST ( TestSuite, CanBeCreated ) {$/;"	f	signature:( TestSuite, CanBeCreated )
+TESTBASHCOMMAND_H	testAutomaticTestRunner/TestBashCommand.h	21;"	d
+TESTCOMPILER_H	testAutomaticTestRunner/TestCompiler.h	21;"	d
+TESTMONITOR_H	testAutomaticTestRunner/TestMonitor.h	21;"	d
+TESTNOTIFIER_H	testAutomaticTestRunner/TestNotifier.h	21;"	d
+TESTRUNNER_H	Monitor/TestRunner.h	21;"	d
+TESTSUITE_H	TestRunner/TestSuite.h	21;"	d
+TESTTESTSUITE_H	testAutomaticTestRunner/TestTestSuite.h	21;"	d
+TersePrinter	testAutomaticTestRunner/TersePrinter.h	/^class TersePrinter : public EmptyTestEventListener {$/;"	c	inherits:EmptyTestEventListener
+TersePrinter::OnTestEnd	testAutomaticTestRunner/TersePrinter.h	/^    virtual void OnTestEnd(const TestInfo& test_info) {$/;"	f	class:TersePrinter	access:private	signature:(const TestInfo& test_info)
+TersePrinter::OnTestPartResult	testAutomaticTestRunner/TersePrinter.h	/^    virtual void OnTestPartResult(const TestPartResult& test_part_result) {$/;"	f	class:TersePrinter	access:private	signature:(const TestPartResult& test_part_result)
+TersePrinter::OnTestProgramEnd	testAutomaticTestRunner/TersePrinter.h	/^    virtual void OnTestProgramEnd(const UnitTest& unit_test) {$/;"	f	class:TersePrinter	access:private	signature:(const UnitTest& unit_test)
+TersePrinter::OnTestProgramStart	testAutomaticTestRunner/TersePrinter.h	/^    virtual void OnTestProgramStart(const UnitTest& \/* unit_test *\/) {$/;"	f	class:TersePrinter	access:private	signature:(const UnitTest& )
+TersePrinter::OnTestStart	testAutomaticTestRunner/TersePrinter.h	/^    virtual void OnTestStart(const TestInfo& test_info) {$/;"	f	class:TersePrinter	access:private	signature:(const TestInfo& test_info)
+TersePrinter::testResult	testAutomaticTestRunner/TersePrinter.h	/^        const TestResult *testResult = test_info.result();$/;"	l
+TestRunner	Monitor/TestRunner.cpp	/^TestRunner::TestRunner(BashCommand& bashCommand) {$/;"	f	class:TestRunner	signature:(BashCommand& bashCommand)
+TestRunner	Monitor/TestRunner.h	/^    TestRunner(BashCommand &bashCommand);$/;"	p	class:TestRunner	access:public	signature:(BashCommand &bashCommand)
+TestRunner	Monitor/TestRunner.h	/^class TestRunner {$/;"	c
+TestRunner::TestRunner	Monitor/TestRunner.cpp	/^TestRunner::TestRunner(BashCommand& bashCommand) {$/;"	f	class:TestRunner	signature:(BashCommand& bashCommand)
+TestRunner::TestRunner	Monitor/TestRunner.h	/^    TestRunner(BashCommand &bashCommand);$/;"	p	class:TestRunner	access:public	signature:(BashCommand &bashCommand)
+TestRunner::bashCommand	Monitor/TestRunner.h	/^    BashCommand *bashCommand;$/;"	m	class:TestRunner	access:private
+TestRunner::command	Monitor/TestRunner.h	/^    std::string command;$/;"	m	class:TestRunner	access:private
+TestRunner::execute	Monitor/TestRunner.cpp	/^void TestRunner::execute() {$/;"	f	class:TestRunner	signature:()
+TestRunner::execute	Monitor/TestRunner.h	/^    virtual void execute();$/;"	p	class:TestRunner	access:public	signature:()
+TestRunner::~TestRunner	Monitor/TestRunner.cpp	/^TestRunner::~TestRunner() {$/;"	f	class:TestRunner	signature:()
+TestRunner::~TestRunner	Monitor/TestRunner.h	/^    virtual ~TestRunner();$/;"	p	class:TestRunner	access:public	signature:()
+TestSuite	TestRunner/TestSuite.cpp	/^TestSuite::TestSuite ( ) {$/;"	f	class:TestSuite	signature:( )
+TestSuite	TestRunner/TestSuite.h	/^    TestSuite ( );$/;"	p	class:TestSuite	access:public	signature:( )
+TestSuite	TestRunner/TestSuite.h	/^class TestSuite : public EmptyTestEventListener {$/;"	c	inherits:EmptyTestEventListener
+TestSuite::OnTestEnd	TestRunner/TestSuite.cpp	/^void TestSuite::OnTestEnd(const TestInfo& test_info) {$/;"	f	class:TestSuite	signature:(const TestInfo& test_info)
+TestSuite::OnTestEnd	TestRunner/TestSuite.h	/^    virtual void OnTestEnd(const TestInfo& test_info);$/;"	p	class:TestSuite	access:private	signature:(const TestInfo& test_info)
+TestSuite::OnTestPartResult	TestRunner/TestSuite.cpp	/^void TestSuite::OnTestPartResult(const TestPartResult& test_part_result) {$/;"	f	class:TestSuite	signature:(const TestPartResult& test_part_result)
+TestSuite::OnTestPartResult	TestRunner/TestSuite.h	/^    virtual void OnTestPartResult(const TestPartResult& test_part_result);$/;"	p	class:TestSuite	access:private	signature:(const TestPartResult& test_part_result)
+TestSuite::OnTestProgramEnd	TestRunner/TestSuite.cpp	/^void TestSuite::OnTestProgramEnd(const UnitTest& unit_test) {$/;"	f	class:TestSuite	signature:(const UnitTest& unit_test)
+TestSuite::OnTestProgramEnd	TestRunner/TestSuite.h	/^    virtual void OnTestProgramEnd(const UnitTest& unit_test);$/;"	p	class:TestSuite	access:private	signature:(const UnitTest& unit_test)
+TestSuite::OnTestProgramStart	TestRunner/TestSuite.cpp	/^void TestSuite::OnTestProgramStart(const UnitTest& \/* unit_test *\/) {$/;"	f	class:TestSuite	signature:(const UnitTest& )
+TestSuite::OnTestProgramStart	TestRunner/TestSuite.h	/^    virtual void OnTestProgramStart(const UnitTest& \/* unit_test *\/);$/;"	p	class:TestSuite	access:private	signature:(const UnitTest& )
+TestSuite::OnTestStart	TestRunner/TestSuite.cpp	/^void TestSuite::OnTestStart(const TestInfo& test_info) {$/;"	f	class:TestSuite	signature:(const TestInfo& test_info)
+TestSuite::OnTestStart	TestRunner/TestSuite.h	/^    virtual void OnTestStart(const TestInfo& test_info);$/;"	p	class:TestSuite	access:private	signature:(const TestInfo& test_info)
+TestSuite::TestSuite	TestRunner/TestSuite.cpp	/^TestSuite::TestSuite ( ) {$/;"	f	class:TestSuite	signature:( )
+TestSuite::TestSuite	TestRunner/TestSuite.h	/^    TestSuite ( );$/;"	p	class:TestSuite	access:public	signature:( )
+TestSuite::currentTestInfo	TestRunner/TestSuite.h	/^    UnitTestInfo *currentTestInfo;$/;"	m	class:TestSuite	access:private
+TestSuite::initialize	TestRunner/TestSuite.cpp	/^void TestSuite::initialize(int argc, char **argv) {$/;"	f	class:TestSuite	signature:(int argc, char **argv)
+TestSuite::initialize	TestRunner/TestSuite.h	/^    virtual void initialize (int argc, char **argv);$/;"	p	class:TestSuite	access:public	signature:(int argc, char **argv)
+TestSuite::runAllTests	TestRunner/TestSuite.cpp	/^void TestSuite::runAllTests() {$/;"	f	class:TestSuite	signature:()
+TestSuite::runAllTests	TestRunner/TestSuite.h	/^    virtual void runAllTests ( );$/;"	p	class:TestSuite	access:public	signature:( )
+TestSuite::unitTestsInfo	TestRunner/TestSuite.h	/^    std::vector<UnitTestInfo *> unitTestsInfo;$/;"	m	class:TestSuite	access:private
+TestSuite::~TestSuite	TestRunner/TestSuite.cpp	/^TestSuite::~TestSuite ( ) {$/;"	f	class:TestSuite	signature:( )
+TestSuite::~TestSuite	TestRunner/TestSuite.h	/^    virtual ~TestSuite ( );$/;"	p	class:TestSuite	access:public	signature:( )
+UNITTESTINFO_H	TestRunner/UnitTestInfo.h	21;"	d
+UnitTestInfo	TestRunner/UnitTestInfo.cpp	/^UnitTestInfo::UnitTestInfo(std::string &test_case_name, std::string &test_name, bool &status, std::string &summary, long long int &timeInMillis) {$/;"	f	class:UnitTestInfo	signature:(std::string &test_case_name, std::string &test_name, bool &status, std::string &summary, long long int &timeInMillis)
+UnitTestInfo	TestRunner/UnitTestInfo.h	/^    UnitTestInfo(std::string &test_case_name, std::string &test_name, bool &status, std::string &summary, long long int &timeInMillis);$/;"	p	class:UnitTestInfo	access:public	signature:(std::string &test_case_name, std::string &test_name, bool &status, std::string &summary, long long int &timeInMillis)
+UnitTestInfo	TestRunner/UnitTestInfo.h	/^class UnitTestInfo {$/;"	c
+UnitTestInfo::UnitTestInfo	TestRunner/UnitTestInfo.cpp	/^UnitTestInfo::UnitTestInfo(std::string &test_case_name, std::string &test_name, bool &status, std::string &summary, long long int &timeInMillis) {$/;"	f	class:UnitTestInfo	signature:(std::string &test_case_name, std::string &test_name, bool &status, std::string &summary, long long int &timeInMillis)
+UnitTestInfo::UnitTestInfo	TestRunner/UnitTestInfo.h	/^    UnitTestInfo(std::string &test_case_name, std::string &test_name, bool &status, std::string &summary, long long int &timeInMillis);$/;"	p	class:UnitTestInfo	access:public	signature:(std::string &test_case_name, std::string &test_name, bool &status, std::string &summary, long long int &timeInMillis)
+UnitTestInfo::status	TestRunner/UnitTestInfo.h	/^    bool status;$/;"	m	class:UnitTestInfo	access:public
+UnitTestInfo::summary	TestRunner/UnitTestInfo.h	/^    std::string summary;$/;"	m	class:UnitTestInfo	access:public
+UnitTestInfo::test_case_name	TestRunner/UnitTestInfo.h	/^    std::string test_case_name;$/;"	m	class:UnitTestInfo	access:public
+UnitTestInfo::test_name	TestRunner/UnitTestInfo.h	/^    std::string test_name;$/;"	m	class:UnitTestInfo	access:public
+UnitTestInfo::timeInMillis	TestRunner/UnitTestInfo.h	/^    long long int timeInMillis;$/;"	m	class:UnitTestInfo	access:public
+UnitTestInfo::~UnitTestInfo	TestRunner/UnitTestInfo.cpp	/^UnitTestInfo::~UnitTestInfo() {$/;"	f	class:UnitTestInfo	signature:()
+UnitTestInfo::~UnitTestInfo	TestRunner/UnitTestInfo.h	/^    virtual ~UnitTestInfo();$/;"	p	class:UnitTestInfo	access:public	signature:()
+addPaths	Monitor/Notifier.cpp	/^void Notifier::addPaths(std::vector<std::string> &paths) {$/;"	f	class:Notifier	signature:(std::vector<std::string> &paths)
+addPaths	Monitor/Notifier.h	/^    virtual void addPaths(std::vector<std::string> &paths);$/;"	p	class:Notifier	access:public	signature:(std::vector<std::string> &paths)
+addPaths	Monitor/main.cpp	/^    notifier->addPaths (watchPaths);$/;"	p	file:	signature:(watchPaths)
+bashCommand	Monitor/Compiler.h	/^    BashCommand *bashCommand;$/;"	m	class:Compiler	access:private
+bashCommand	Monitor/TestRunner.h	/^    BashCommand *bashCommand;$/;"	m	class:TestRunner	access:private
+bashCommand	Monitor/main.cpp	/^    BashCommand *bashCommand = new BashCommand(*parser);$/;"	l
+bashCommand	testAutomaticTestRunner/TestBashCommand.h	/^    BashCommand *bashCommand = new BashCommand (testCommand);$/;"	l
+buffer	Monitor/Notifier.h	/^    char *buffer;$/;"	m	class:Notifier	access:private
+command	Monitor/Compiler.h	/^    std::string command;$/;"	m	class:Compiler	access:private
+command	Monitor/TestRunner.h	/^    std::string command;$/;"	m	class:TestRunner	access:private
+compiler	Monitor/Monitor.h	/^    Compiler *compiler;$/;"	m	class:Monitor	access:private
+compiler	Monitor/main.cpp	/^    Compiler *compiler = new Compiler(*bashCommand);$/;"	l
+compiler	testAutomaticTestRunner/TestCompiler.h	/^    Compiler *compiler = new Compiler ();$/;"	l
+currentString	Monitor/Parser.cpp	/^    std::string currentString;$/;"	l
+currentTestInfo	TestRunner/TestSuite.h	/^    UnitTestInfo *currentTestInfo;$/;"	m	class:TestSuite	access:private
+endl	Monitor/Monitor.cpp	/^        std::cout << fileModified << " has been modified" << std::endl;$/;"	m	class:std	file:
+endl	Monitor/Notifier.cpp	/^        std::cout << value << std::endl;$/;"	m	class:std	file:
+endl	Monitor/Notifier.cpp	/^    std::cout << "Start watch on " << std::endl;$/;"	m	class:std	file:
+endl	Monitor/Parser.cpp	/^            std::cout << "currentString: " << currentString << std::endl;$/;"	m	class:std	file:
+endl	Monitor/Parser.cpp	/^    std::cout << "Output Parser" << std::endl;$/;"	m	class:std	file:
+endl	Monitor/Parser.cpp	/^    std::cout << "\\n" << std::endl;$/;"	m	class:std	file:
+endl	Monitor/TestRunner.cpp	/^    std::cout << "Running all tests" << std::endl;$/;"	m	class:std	file:
+endl	TestRunner/TestSuite.cpp	/^    std::cout << "--Return value RUN_ALL_TESTS: " << returnValue << std::endl;$/;"	m	class:std	file:
+endl	TestRunner/TestSuite.cpp	/^    std::cout << "--Running Test Suite" << std::endl;$/;"	m	class:std	file:
+endl	TestRunner/TestSuite.cpp	/^    std::cout << "--TestEnd" << std::endl;$/;"	m	class:std	file:
+endl	TestRunner/TestSuite.cpp	/^    std::cout << "--TestPartResult" << std::endl;$/;"	m	class:std	file:
+endl	TestRunner/TestSuite.cpp	/^    std::cout << "--TestProgramEnd: " << unit_test.Passed() << std::endl;$/;"	m	class:std	file:
+endl	TestRunner/TestSuite.cpp	/^    std::cout << "--TestProgramStart" << std::endl;$/;"	m	class:std	file:
+endl	TestRunner/TestSuite.cpp	/^    std::cout << "--TestStart: " << test_info.test_case_name() << ", " << test_info.name() << std::endl;$/;"	m	class:std	file:
+endl	test/SampleTestCase.h	/^    std::cout << "Printing something from the test body..." << std::endl;$/;"	m	class:std
+event	Monitor/Notifier.cpp	/^    struct inotify_event *event = ( struct inotify_event * ) &buffer[i];$/;"	l
+execute	Monitor/BashCommand.cpp	/^void BashCommand::execute(std::string &command) {$/;"	f	class:BashCommand	signature:(std::string &command)
+execute	Monitor/BashCommand.h	/^    virtual void execute(std::string &command);$/;"	p	class:BashCommand	access:public	signature:(std::string &command)
+execute	Monitor/Compiler.cpp	/^    this->bashCommand->execute(this->command);$/;"	p	file:	signature:(this->command)
+execute	Monitor/Compiler.cpp	/^void Compiler::execute() {$/;"	f	class:Compiler	signature:()
+execute	Monitor/Compiler.h	/^    virtual void  execute();$/;"	p	class:Compiler	access:public	signature:()
+execute	Monitor/Monitor.cpp	/^        this->compiler->execute();$/;"	p	file:	signature:()
+execute	Monitor/Monitor.cpp	/^        this->testRunner->execute();$/;"	p	file:	signature:()
+execute	Monitor/TestRunner.cpp	/^    this->bashCommand->execute(this->command);$/;"	p	file:	signature:(this->command)
+execute	Monitor/TestRunner.cpp	/^void TestRunner::execute() {$/;"	f	class:TestRunner	signature:()
+execute	Monitor/TestRunner.h	/^    virtual void execute();$/;"	p	class:TestRunner	access:public	signature:()
+fileDescriptor	Monitor/Notifier.h	/^    int fileDescriptor;$/;"	m	class:Notifier	access:private
+fileModified	Monitor/Monitor.cpp	/^    std::string fileModified;$/;"	l
+i	Monitor/Notifier.cpp	/^    int i = 0;$/;"	l
 info_arch	build/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
 info_arch	build/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
 info_compiler	build/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v
@@ -403,55 +490,100 @@ info_platform	build/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	/^char co
 info_platform	build/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";$/;"	v
 info_version	build/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	/^char const info_version[] = {$/;"	v
 info_version	build/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_version[] = {$/;"	v
-initialize	src/Monitor.cpp	/^    this->notifier->initialize();$/;"	p	file:	signature:()
-initialize	src/Notifier.cpp	/^void Notifier::initialize() {$/;"	f	class:Notifier	signature:()
-initialize	src/Notifier.h	/^    virtual void initialize();$/;"	p	class:Notifier	access:public	signature:()
-isValid	src/Monitor.cpp	/^bool Monitor::isValid() {$/;"	f	class:Monitor	signature:()
-isValid	src/Monitor.h	/^    virtual bool isValid();$/;"	p	class:Monitor	access:public	signature:()
-length	src/Notifier.h	/^    int length;$/;"	m	class:Notifier	access:private
+initialize	Monitor/Notifier.cpp	/^void Notifier::initialize() {$/;"	f	class:Notifier	signature:()
+initialize	Monitor/Notifier.h	/^    virtual void initialize();$/;"	p	class:Notifier	access:public	signature:()
+initialize	Monitor/main.cpp	/^    notifier->initialize();$/;"	p	file:	signature:()
+initialize	TestRunner/TestSuite.cpp	/^void TestSuite::initialize(int argc, char **argv) {$/;"	f	class:TestSuite	signature:(int argc, char **argv)
+initialize	TestRunner/TestSuite.h	/^    virtual void initialize (int argc, char **argv);$/;"	p	class:TestSuite	access:public	signature:(int argc, char **argv)
+initialize	TestRunner/main.cpp	/^    testSuite->initialize(argc, argv);$/;"	p	file:	signature:(argc, argv)
+isValid	Monitor/Monitor.cpp	/^bool Monitor::isValid() {$/;"	f	class:Monitor	signature:()
+isValid	Monitor/Monitor.h	/^    virtual bool isValid();$/;"	p	class:Monitor	access:public	signature:()
+length	Monitor/Notifier.h	/^    int length;$/;"	m	class:Notifier	access:private
+listeners	TestRunner/TestSuite.cpp	/^    TestEventListeners& listeners = unit_test.listeners();$/;"	l
+main	Monitor/main.cpp	/^int main( ) {$/;"	f	signature:( )
+main	TestRunner/main.cpp	/^int main(int argc, char **argv) {$/;"	f	signature:(int argc, char **argv)
 main	build/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	/^int main(int argc, char* argv[])$/;"	f	signature:(int argc, char* argv[])
 main	build/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	/^void main() {}$/;"	f
 main	build/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^int main(int argc, char* argv[])$/;"	f	signature:(int argc, char* argv[])
-main	src/main.cpp	/^int main() {$/;"	f	signature:()
-main	test/main.cpp	/^int main ( int argc, char **argv ) {$/;"	f	signature:( int argc, char **argv )
-monitor	src/main.cpp	/^    Monitor *monitor = new Monitor ( );$/;"	l
-monitor	test/TestMonitor.h	/^    Monitor *monitor = new Monitor ( );$/;"	l
-name	src/Test.h	/^    std::string name;$/;"	m	class:Test	access:private
-notifier	src/Monitor.h	/^    Notifier *notifier;$/;"	m	class:Monitor	access:private
-notifier	test/TestNotifier.h	/^    Notifier *notifier = new Notifier ( );$/;"	l
-paths	src/Notifier.h	/^    std::vector<std::string> paths;$/;"	m	class:Notifier	access:private
-popenOutput	src/BashCommand.cpp	/^    FILE *popenOutput;$/;"	l
-push_back	src/Notifier.cpp	/^    this->paths.push_back ( path );$/;"	p	file:	signature:( path )
+main	testAutomaticTestRunner/main.cpp	/^int main(int argc, char **argv) {$/;"	f	signature:(int argc, char **argv)
+monitor	Monitor/main.cpp	/^    Monitor *monitor = new Monitor (*compiler, *notifier, *testRunner);$/;"	l
+notifier	Monitor/Monitor.h	/^    Notifier *notifier;$/;"	m	class:Monitor	access:private
+notifier	Monitor/main.cpp	/^    Notifier *notifier = new Notifier();$/;"	l
+notifier	testAutomaticTestRunner/TestNotifier.h	/^    Notifier *notifier = new Notifier ( );$/;"	l
+parseOutput	Monitor/BashCommand.cpp	/^    this->parser->parseOutput(popenOutput);$/;"	p	file:	signature:(popenOutput)
+parseOutput	Monitor/Parser.cpp	/^void Parser::parseOutput(FILE *file) {$/;"	f	class:Parser	signature:(FILE *file)
+parseOutput	Monitor/Parser.h	/^    virtual void parseOutput(FILE *file);$/;"	p	class:Parser	access:public	signature:(FILE *file)
+parser	Monitor/BashCommand.h	/^    Parser *parser;$/;"	m	class:BashCommand	access:private
+parser	Monitor/main.cpp	/^    Parser *parser = new Parser();$/;"	l
+paths	Monitor/Notifier.h	/^    std::vector<std::string> paths;$/;"	m	class:Notifier	access:private
+popenOutput	Monitor/BashCommand.cpp	/^    FILE *popenOutput;$/;"	l
+push_back	TestRunner/TestSuite.cpp	/^    this->unitTestsInfo.push_back(new UnitTestInfo(*this->currentTestInfo));$/;"	p	file:	signature:(new UnitTestInfo(*this->currentTestInfo))
 require	build/CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	/^  int require = 0;$/;"	l
 require	build/CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^  int require = 0;$/;"	l
-startWatch	src/Monitor.cpp	/^void Monitor::startWatch() {$/;"	f	class:Monitor	signature:()
-startWatch	src/Monitor.h	/^    virtual void startWatch();$/;"	p	class:Monitor	access:public	signature:()
-startWatch	src/main.cpp	/^    monitor->startWatch();$/;"	p	file:	signature:()
-status	src/Test.h	/^    bool status;$/;"	m	class:Test	access:private
-std::endl	src/Monitor.cpp	/^            std::cout << fileModified << " has been modified" << std::endl;$/;"	m	class:std	file:
-std::endl	src/Notifier.cpp	/^        std::cout << value << std::endl;$/;"	m	class:std	file:
-std::endl	src/Notifier.cpp	/^    std::cout << "Start watch on " << std::endl;$/;"	m	class:std	file:
-suite	src/TestSuite.h	/^    std::vector<Test *> suite;$/;"	m	class:TestSuite	access:private
-terminate	src/Monitor.cpp	/^    this->notifier->terminate();$/;"	p	file:	signature:()
-terminate	src/Notifier.cpp	/^void Notifier::terminate() {$/;"	f	class:Notifier	signature:()
-terminate	src/Notifier.h	/^    virtual void terminate();$/;"	p	class:Notifier	access:public	signature:()
-test	test/TestTest.h	/^    Test *test = new Test ();$/;"	l
-testCommand	test/TestBashCommand.h	/^    std::string testCommand = "ls -lah";$/;"	l
-testSuite	src/Monitor.h	/^    TestSuite *testSuite;$/;"	m	class:Monitor	access:private
-testSuite	test/TestTestSuite.h	/^    TestSuite *testSuite = new TestSuite ();$/;"	l
-waitForChange	src/Notifier.cpp	/^std::string Notifier::waitForChange() {$/;"	f	class:Notifier	signature:()
-waitForChange	src/Notifier.h	/^    std::string waitForChange();$/;"	p	class:Notifier	access:public	signature:()
-watchDescriptor	src/Notifier.h	/^    int watchDescriptor;$/;"	m	class:Notifier	access:private
-watchPath	src/Monitor.cpp	/^    std::string watchPath = "..\/test";$/;"	l
-~BashCommand	src/BashCommand.cpp	/^BashCommand::~BashCommand()$/;"	f	class:BashCommand	signature:()
-~BashCommand	src/BashCommand.h	/^    virtual ~BashCommand();$/;"	p	class:BashCommand	access:public	signature:()
-~Compiler	src/Compiler.cpp	/^Compiler::~Compiler() {$/;"	f	class:Compiler	signature:()
-~Compiler	src/Compiler.h	/^    virtual ~Compiler();$/;"	p	class:Compiler	access:public	signature:()
-~Monitor	src/Monitor.cpp	/^Monitor::~Monitor() {$/;"	f	class:Monitor	signature:()
-~Monitor	src/Monitor.h	/^    virtual ~Monitor();$/;"	p	class:Monitor	access:public	signature:()
-~Notifier	src/Notifier.cpp	/^Notifier::~Notifier() {$/;"	f	class:Notifier	signature:()
-~Notifier	src/Notifier.h	/^    virtual ~Notifier();$/;"	p	class:Notifier	access:public	signature:()
-~Test	src/Test.cpp	/^Test::~Test ( ) {$/;"	f	class:Test	signature:( )
-~Test	src/Test.h	/^    virtual ~Test();$/;"	p	class:Test	access:public	signature:()
-~TestSuite	src/TestSuite.cpp	/^TestSuite::~TestSuite ( ) {$/;"	f	class:TestSuite	signature:( )
-~TestSuite	src/TestSuite.h	/^    virtual ~TestSuite ( );$/;"	p	class:TestSuite	access:public	signature:( )
+returnValue	TestRunner/TestSuite.cpp	/^    int returnValue = RUN_ALL_TESTS();$/;"	l
+runAllTests	TestRunner/TestSuite.cpp	/^void TestSuite::runAllTests() {$/;"	f	class:TestSuite	signature:()
+runAllTests	TestRunner/TestSuite.h	/^    virtual void runAllTests ( );$/;"	p	class:TestSuite	access:public	signature:( )
+runAllTests	TestRunner/main.cpp	/^    testSuite->runAllTests();$/;"	p	file:	signature:()
+startWatch	Monitor/Monitor.cpp	/^void Monitor::startWatch() {$/;"	f	class:Monitor	signature:()
+startWatch	Monitor/Monitor.h	/^    virtual void startWatch();$/;"	p	class:Monitor	access:public	signature:()
+startWatch	Monitor/main.cpp	/^    monitor->startWatch();$/;"	p	file:	signature:()
+status	TestRunner/TestSuite.cpp	/^    bool status = false;$/;"	l
+status	TestRunner/UnitTestInfo.h	/^    bool status;$/;"	m	class:UnitTestInfo	access:public
+std::endl	Monitor/Monitor.cpp	/^        std::cout << fileModified << " has been modified" << std::endl;$/;"	m	class:std	file:
+std::endl	Monitor/Notifier.cpp	/^        std::cout << value << std::endl;$/;"	m	class:std	file:
+std::endl	Monitor/Notifier.cpp	/^    std::cout << "Start watch on " << std::endl;$/;"	m	class:std	file:
+std::endl	Monitor/Parser.cpp	/^            std::cout << "currentString: " << currentString << std::endl;$/;"	m	class:std	file:
+std::endl	Monitor/Parser.cpp	/^    std::cout << "Output Parser" << std::endl;$/;"	m	class:std	file:
+std::endl	Monitor/Parser.cpp	/^    std::cout << "\\n" << std::endl;$/;"	m	class:std	file:
+std::endl	Monitor/TestRunner.cpp	/^    std::cout << "Running all tests" << std::endl;$/;"	m	class:std	file:
+std::endl	TestRunner/TestSuite.cpp	/^    std::cout << "--Return value RUN_ALL_TESTS: " << returnValue << std::endl;$/;"	m	class:std	file:
+std::endl	TestRunner/TestSuite.cpp	/^    std::cout << "--Running Test Suite" << std::endl;$/;"	m	class:std	file:
+std::endl	TestRunner/TestSuite.cpp	/^    std::cout << "--TestEnd" << std::endl;$/;"	m	class:std	file:
+std::endl	TestRunner/TestSuite.cpp	/^    std::cout << "--TestPartResult" << std::endl;$/;"	m	class:std	file:
+std::endl	TestRunner/TestSuite.cpp	/^    std::cout << "--TestProgramEnd: " << unit_test.Passed() << std::endl;$/;"	m	class:std	file:
+std::endl	TestRunner/TestSuite.cpp	/^    std::cout << "--TestProgramStart" << std::endl;$/;"	m	class:std	file:
+std::endl	TestRunner/TestSuite.cpp	/^    std::cout << "--TestStart: " << test_info.test_case_name() << ", " << test_info.name() << std::endl;$/;"	m	class:std	file:
+std::endl	test/SampleTestCase.h	/^    std::cout << "Printing something from the test body..." << std::endl;$/;"	m	class:std
+string	Monitor/Parser.cpp	/^            currentString.append( std::string(valueToWrite) );$/;"	p	file:	signature:(valueToWrite)
+summary	TestRunner/TestSuite.cpp	/^    std::string summary = "";$/;"	l
+summary	TestRunner/UnitTestInfo.h	/^    std::string summary;$/;"	m	class:UnitTestInfo	access:public
+terminate	Monitor/Monitor.cpp	/^    this->notifier->terminate();$/;"	p	file:	signature:()
+terminate	Monitor/Notifier.cpp	/^void Notifier::terminate() {$/;"	f	class:Notifier	signature:()
+terminate	Monitor/Notifier.h	/^    virtual void terminate();$/;"	p	class:Notifier	access:public	signature:()
+testCaseName	TestRunner/TestSuite.cpp	/^    std::string testCaseName = test_info.test_case_name();$/;"	l
+testCommand	testAutomaticTestRunner/TestBashCommand.h	/^    std::string testCommand = "ls -lah";$/;"	l
+testName	TestRunner/TestSuite.cpp	/^    std::string testName = test_info.name();$/;"	l
+testResult	TestRunner/TestSuite.cpp	/^    const TestResult *testResult = test_info.result();$/;"	l
+testResult	testAutomaticTestRunner/TersePrinter.h	/^        const TestResult *testResult = test_info.result();$/;"	l
+testRunner	Monitor/Monitor.h	/^    TestRunner *testRunner;$/;"	m	class:Monitor	access:private
+testRunner	Monitor/main.cpp	/^    TestRunner *testRunner = new TestRunner(*bashCommand);$/;"	l
+testSuite	TestRunner/main.cpp	/^    TestSuite *testSuite = new TestSuite();$/;"	l
+testSuite	testAutomaticTestRunner/TestTestSuite.h	/^    TestSuite *testSuite = new TestSuite ();$/;"	l
+testValue	Monitor/Parser.cpp	/^    int testValue;$/;"	l
+test_case_name	TestRunner/UnitTestInfo.h	/^    std::string test_case_name;$/;"	m	class:UnitTestInfo	access:public
+test_name	TestRunner/UnitTestInfo.h	/^    std::string test_name;$/;"	m	class:UnitTestInfo	access:public
+timeInMillis	TestRunner/TestSuite.cpp	/^    long long int timeInMillis = 0;$/;"	l
+timeInMillis	TestRunner/UnitTestInfo.h	/^    long long int timeInMillis;$/;"	m	class:UnitTestInfo	access:public
+unitTestsInfo	TestRunner/TestSuite.h	/^    std::vector<UnitTestInfo *> unitTestsInfo;$/;"	m	class:TestSuite	access:private
+unit_test	TestRunner/TestSuite.cpp	/^    UnitTest& unit_test = *UnitTest::GetInstance();$/;"	l
+valueToWrite	Monitor/Parser.cpp	/^    char valueToWrite[100];$/;"	l
+waitForChange	Monitor/Notifier.cpp	/^std::string Notifier::waitForChange() {$/;"	f	class:Notifier	signature:()
+waitForChange	Monitor/Notifier.h	/^    std::string waitForChange();$/;"	p	class:Notifier	access:public	signature:()
+watchDescriptor	Monitor/Notifier.h	/^    int watchDescriptor;$/;"	m	class:Notifier	access:private
+watchPaths	Monitor/main.cpp	/^    std::vector<std::string> watchPaths;$/;"	l
+~BashCommand	Monitor/BashCommand.cpp	/^BashCommand::~BashCommand() {$/;"	f	class:BashCommand	signature:()
+~BashCommand	Monitor/BashCommand.h	/^    virtual ~BashCommand();$/;"	p	class:BashCommand	access:public	signature:()
+~Compiler	Monitor/Compiler.cpp	/^Compiler::~Compiler() {$/;"	f	class:Compiler	signature:()
+~Compiler	Monitor/Compiler.h	/^    virtual ~Compiler();$/;"	p	class:Compiler	access:public	signature:()
+~Monitor	Monitor/Monitor.cpp	/^Monitor::~Monitor() {$/;"	f	class:Monitor	signature:()
+~Monitor	Monitor/Monitor.h	/^    virtual ~Monitor();$/;"	p	class:Monitor	access:public	signature:()
+~Notifier	Monitor/Notifier.cpp	/^Notifier::~Notifier() {$/;"	f	class:Notifier	signature:()
+~Notifier	Monitor/Notifier.h	/^    virtual ~Notifier();$/;"	p	class:Notifier	access:public	signature:()
+~Parser	Monitor/Parser.cpp	/^Parser::~Parser( ) {$/;"	f	class:Parser	signature:( )
+~Parser	Monitor/Parser.h	/^    virtual ~Parser();$/;"	p	class:Parser	access:public	signature:()
+~TestRunner	Monitor/TestRunner.cpp	/^TestRunner::~TestRunner() {$/;"	f	class:TestRunner	signature:()
+~TestRunner	Monitor/TestRunner.h	/^    virtual ~TestRunner();$/;"	p	class:TestRunner	access:public	signature:()
+~TestSuite	TestRunner/TestSuite.cpp	/^TestSuite::~TestSuite ( ) {$/;"	f	class:TestSuite	signature:( )
+~TestSuite	TestRunner/TestSuite.h	/^    virtual ~TestSuite ( );$/;"	p	class:TestSuite	access:public	signature:( )
+~UnitTestInfo	TestRunner/UnitTestInfo.cpp	/^UnitTestInfo::~UnitTestInfo() {$/;"	f	class:UnitTestInfo	signature:()
+~UnitTestInfo	TestRunner/UnitTestInfo.h	/^    virtual ~UnitTestInfo();$/;"	p	class:UnitTestInfo	access:public	signature:()

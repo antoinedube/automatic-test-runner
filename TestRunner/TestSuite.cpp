@@ -22,74 +22,48 @@
 #include "SampleTestCase.h"
 
 
-TestSuite::TestSuite ( ) {
-
+TestSuite::TestSuite ( TestsResults &testsResults ) {
+    this->testsResults = &testsResults;
 }
 
 
 TestSuite::~TestSuite ( ) {
-    for ( auto & element : this->unitTestsInfo ) {
-        std::cout << "\tTest case name: " << element->test_case_name << std::endl;
-        std::cout << "\tTest name: " << element->test_name << std::endl;
-        std::cout << "\tTest time: " << element->timeInMillis << std::endl;
-        std::cout << "\tTest status: " << element->status << std::endl;
-        std::cout << "\tTest summary: " << element->summary << std::endl << std::endl;
-        delete element;
-    }
-}
 
-
-void TestSuite::initialize(int argc, char **argv) {
-    InitGoogleTest(&argc, argv);
-    UnitTest& unit_test = *UnitTest::GetInstance();
-    TestEventListeners& listeners = unit_test.listeners();
-    delete listeners.Release(listeners.default_result_printer());
-    listeners.Append(new TestSuite(*this));
 }
 
 
 void TestSuite::runAllTests() {
-    std::cout << "--Running Test Suite" << std::endl;
-    int returnValue = RUN_ALL_TESTS();
-    std::cout << "--Return value RUN_ALL_TESTS: " << returnValue << std::endl;
+    int returnValue;
+    returnValue = RUN_ALL_TESTS();
+    this->testsResults->setGeneralStatus(returnValue);
 }
 
 
 void TestSuite::OnTestProgramStart(const UnitTest& /* unit_test */) {
-    std::cout << "--TestProgramStart" << std::endl;
+
 }
 
 
-void TestSuite::OnTestProgramEnd(const UnitTest& unit_test) {
-    std::cout << "--TestProgramEnd: " << unit_test.Passed() << std::endl;
+void TestSuite::OnTestProgramEnd(const UnitTest& /*unit_test*/) {
+
 }
 
 
 void TestSuite::OnTestStart(const TestInfo& test_info) {
-    std::cout << "--TestStart: " << test_info.test_case_name() << ", " << test_info.name() << std::endl;
-
-    std::string testCaseName = test_info.test_case_name();
-    std::string testName = test_info.name();
-    bool status = false;
-    std::string summary = "";
-    long long int timeInMillis = 0;
-    this->currentTestInfo = new UnitTestInfo(testCaseName, testName, status, summary, timeInMillis);
+    this->currentTestInfo = new UnitTestInfo();
+    this->currentTestInfo->test_case_name = test_info.test_case_name();
+    this->currentTestInfo->test_name = test_info.name();
 }
 
 
 // Called after failed assertion or SUCCEED()
 void TestSuite::OnTestPartResult(const TestPartResult& test_part_result) {
-    std::cout << "--TestPartResult" << std::endl;
-
-    if (test_part_result.failed()) {
-        this->currentTestInfo->status = false;
-        this->currentTestInfo->summary = test_part_result.summary();
-    }
+    this->currentTestInfo->status = !test_part_result.failed();
+    this->currentTestInfo->summary = test_part_result.summary();
 }
 
 
 void TestSuite::OnTestEnd(const TestInfo& test_info) {
-    std::cout << "--TestEnd" << std::endl;
     const TestResult *testResult = test_info.result();
 
     if (testResult->Passed()) {
@@ -99,6 +73,7 @@ void TestSuite::OnTestEnd(const TestInfo& test_info) {
 
     this->currentTestInfo->timeInMillis = testResult->elapsed_time();
 
-    this->unitTestsInfo.push_back(new UnitTestInfo(*this->currentTestInfo));
+    this->testsResults->addResult(*this->currentTestInfo);
+
     delete this->currentTestInfo;
 }
