@@ -17,28 +17,18 @@
  *
  */
 
-#ifndef TESTSRESULTS_H
-#define TESTSRESULTS_H
+#ifndef JSONPRINTER_H
+#define JSONPRINTER_H
 
-#include <iostream>
-#include <string>
-#include <vector>
-
-#include "UnitTestInfo.h"
 #include "Printer.h"
 
-
-class TestsResults {
+class JsonPrinter : public Printer {
 public:
-    TestsResults(Printer &printer);
-    virtual ~TestsResults();
+    JsonPrinter();
+    virtual ~JsonPrinter();
 
-    void addResult(const UnitTestInfo& unitTestInfo);
-    void print();
-
-private:
-    std::vector<UnitTestInfo *> testsResults;
-    Printer *printer;
+    virtual void print();
+// private:
 };
 
-#endif // TESTSRESULTS_H
+#endif // JSONPRINTER_H

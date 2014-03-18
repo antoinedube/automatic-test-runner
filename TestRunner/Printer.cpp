@@ -17,28 +17,15 @@
  *
  */
 
-#ifndef TESTSRESULTS_H
-#define TESTSRESULTS_H
-
-#include <iostream>
-#include <string>
-#include <vector>
-
-#include "UnitTestInfo.h"
 #include "Printer.h"
 
 
-class TestsResults {
-public:
-    TestsResults(Printer &printer);
-    virtual ~TestsResults();
+Printer::Printer() {
 
-    void addResult(const UnitTestInfo& unitTestInfo);
-    void print();
+}
 
-private:
-    std::vector<UnitTestInfo *> testsResults;
-    Printer *printer;
-};
 
-#endif // TESTSRESULTS_H
+Printer::~Printer() {
+
+}
+

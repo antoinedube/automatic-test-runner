@@ -41,7 +41,6 @@ class TestSuite : public EmptyTestEventListener {
 public:
     TestSuite ( TestsResults &testsResults );
     virtual ~TestSuite ( );
-    virtual void runAllTests ( );
 
 private:
     UnitTestInfo *currentTestInfo;

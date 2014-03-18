@@ -20,8 +20,12 @@
 #include <iostream>
 #include <gtest/gtest.h>
 
+#include "CliPrinter.h"
+#include "JsonPrinter.h"
+#include "Printer.h"
 #include "TestsResults.h"
 #include "TestSuite.h"
+
 
 int main(int argc, char **argv) {
     InitGoogleTest(&argc, argv);
@@ -29,15 +33,20 @@ int main(int argc, char **argv) {
     TestEventListeners& listeners = unit_test.listeners();
     delete listeners.Release(listeners.default_result_printer());
 
-    TestsResults *testsResults = new TestsResults();
+
+    Printer *printer = new JsonPrinter();
+
+    TestsResults *testsResults = new TestsResults(*printer);
 
     TestSuite *testSuite = new TestSuite(*testsResults);
     listeners.Append(testSuite);
 
-    testSuite->runAllTests();
+    int returnValue = RUN_ALL_TESTS();
 
     testsResults->print();
-    delete testsResults;
 
-    return 0;
+    delete testsResults;
+    delete printer;
+
+    return returnValue;
 }

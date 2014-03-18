@@ -17,28 +17,19 @@
  *
  */
 
-#ifndef TESTSRESULTS_H
-#define TESTSRESULTS_H
+#ifndef CLIPRINTER_H
+#define CLIPRINTER_H
 
-#include <iostream>
-#include <string>
-#include <vector>
-
-#include "UnitTestInfo.h"
 #include "Printer.h"
 
 
-class TestsResults {
+class CliPrinter : public Printer {
 public:
-    TestsResults(Printer &printer);
-    virtual ~TestsResults();
+    CliPrinter();
+    virtual ~CliPrinter();
 
-    void addResult(const UnitTestInfo& unitTestInfo);
-    void print();
-
-private:
-    std::vector<UnitTestInfo *> testsResults;
-    Printer *printer;
+    virtual void print();
+// private:
 };
 
-#endif // TESTSRESULTS_H
+#endif // CLIPRINTER_H

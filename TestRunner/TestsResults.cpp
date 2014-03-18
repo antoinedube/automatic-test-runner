@@ -17,10 +17,12 @@
  *
  */
 
+#include "Printer.h"
 #include "TestsResults.h"
 
 
-TestsResults::TestsResults() {
+TestsResults::TestsResults(Printer &printer) {
+    this->printer = &printer;
 }
 
 
@@ -36,17 +38,18 @@ void TestsResults::addResult(const UnitTestInfo& unitTestInfo) {
 }
 
 
-void TestsResults::setGeneralStatus(int status) {
-    this->generalStatus = status;
+void TestsResults::print()
+{
+    this->printer->print();
 }
 
-
-void TestsResults::print() {
-    for (auto &element : this->testsResults) {
-        std::cout << "\tTest case name: " << element->test_case_name << std::endl;
-        std::cout << "\tTest name: " << element->test_name << std::endl;
-        std::cout << "\tTest time: " << element->timeInMillis << std::endl;
-        std::cout << "\tTest status: " << element->status << std::endl;
-        std::cout << "\tTest summary: " << element->summary << std::endl << std::endl;
-    }
-}
+// void TestsResults::print(int returnValue) {
+//     std::cout << "\tReturn Value: " << returnValue << std::endl;
+//     for (auto &element : this->testsResults) {
+//         std::cout << "\tTest case name: " << element->test_case_name << std::endl;
+//         std::cout << "\tTest name: " << element->test_name << std::endl;
+//         std::cout << "\tTest time: " << element->timeInMillis << std::endl;
+//         std::cout << "\tTest status: " << element->status << std::endl;
+//         std::cout << "\tTest summary: " << element->summary << std::endl << std::endl;
+//     }
+// }

@@ -32,13 +32,6 @@ TestSuite::~TestSuite ( ) {
 }
 
 
-void TestSuite::runAllTests() {
-    int returnValue;
-    returnValue = RUN_ALL_TESTS();
-    this->testsResults->setGeneralStatus(returnValue);
-}
-
-
 void TestSuite::OnTestProgramStart(const UnitTest& /* unit_test */) {
 
 }
