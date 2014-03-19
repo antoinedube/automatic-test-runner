@@ -22,6 +22,24 @@ project(automatictestrunner)
 
 set(CMAKE_CXX_FLAGS "-g -std=c++11 -Wall -Werror -Wextra")
 
-add_subdirectory(Monitor)
+include_directories("src")
+include_directories("test")
 
-add_subdirectory(TestRunner)
+file (
+    GLOB
+    src_monitor
+    src/monitor/*.cpp
+)
+
+add_executable(monitor ${src_monitor})
+
+
+file (
+    GLOB
+    src_testrunner
+    src/testrunner/*.cpp
+    src/testrunner/printer/*.cpp
+)
+
+add_executable(testrunner ${src_testrunner})
+target_link_libraries(testrunner gtest pthread gmock)
