@@ -29,7 +29,7 @@
 
 class TestRunner {
 public:
-    TestRunner(BashCommand &bashCommand);
+    TestRunner(BashCommand *bashCommand);
     virtual ~TestRunner();
 
     virtual void execute();

@@ -17,7 +17,6 @@
  *
  */
 
-#include <iostream>
 #include <gtest/gtest.h>
 
 #include "testrunner/printer/CliPrinter.h"
@@ -36,9 +35,9 @@ int main(int argc, char **argv) {
 
     Printer *printer = new JsonPrinter();
 
-    TestsResults *testsResults = new TestsResults(*printer);
+    TestsResults *testsResults = new TestsResults(printer);
 
-    TestSuite *testSuite = new TestSuite(*testsResults);
+    TestSuite *testSuite = new TestSuite(testsResults);
     listeners.Append(testSuite);
 
     int returnValue = RUN_ALL_TESTS();

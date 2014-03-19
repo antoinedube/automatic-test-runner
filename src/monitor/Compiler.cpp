@@ -20,9 +20,9 @@
 #include "monitor/Compiler.h"
 
 
-Compiler::Compiler(BashCommand &bashCommand) {
+Compiler::Compiler(BashCommand *bashCommand) {
     this->command = "make testrunner";
-    this->bashCommand = &bashCommand;
+    this->bashCommand = bashCommand;
 }
 
 

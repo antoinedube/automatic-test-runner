@@ -21,8 +21,8 @@
 #include "testrunner/TestsResults.h"
 
 
-TestsResults::TestsResults(Printer &printer) {
-    this->printer = &printer;
+TestsResults::TestsResults(Printer *printer) {
+    this->printer = printer;
 }
 
 
@@ -33,8 +33,8 @@ TestsResults::~TestsResults() {
 }
 
 
-void TestsResults::addResult(const UnitTestInfo& unitTestInfo) {
-    this->testsResults.push_back(new UnitTestInfo(unitTestInfo));
+void TestsResults::addResult(UnitTestInfo *unitTestInfo) {
+    this->testsResults.push_back(new UnitTestInfo(*unitTestInfo));
 }
 
 

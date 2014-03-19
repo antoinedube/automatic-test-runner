@@ -20,8 +20,8 @@
 #include "monitor/BashCommand.h"
 
 
-BashCommand::BashCommand(Parser &parser) {
-    this->parser = &parser;
+BashCommand::BashCommand(Parser *parser) {
+    this->parser = parser;
 }
 
 

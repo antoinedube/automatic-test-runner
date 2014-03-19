@@ -17,13 +17,11 @@
  *
  */
 
-#ifndef TESTSUITE_H
-#define TESTSUITE_H
-
-#include <iostream>
-#include <vector>
+#ifndef SRC_TESTRUNNER_TESTSUITE_H_
+#define SRC_TESTRUNNER_TESTSUITE_H_
 
 #include <gtest/gtest.h>
+#include <vector>
 
 #include "testrunner/UnitTestInfo.h"
 #include "testrunner/TestsResults.h"
@@ -38,11 +36,11 @@ using ::testing::UnitTest;
 
 
 class TestSuite : public EmptyTestEventListener {
-public:
-    TestSuite ( TestsResults &testsResults );
-    virtual ~TestSuite ( );
+ public:
+    explicit TestSuite(TestsResults *testsResults);
+    virtual ~TestSuite();
 
-private:
+ private:
     UnitTestInfo *currentTestInfo;
     TestsResults *testsResults;
 
@@ -53,4 +51,4 @@ private:
     virtual void OnTestEnd(const TestInfo& test_info);
 };
 
-#endif // TESTSUITE_H
+#endif  // SRC_TESTRUNNER_TESTSUITE_H_

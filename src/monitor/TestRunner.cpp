@@ -20,9 +20,9 @@
 #include "monitor/TestRunner.h"
 
 
-TestRunner::TestRunner(BashCommand& bashCommand) {
+TestRunner::TestRunner(BashCommand *bashCommand) {
     this->command = "./testrunner";
-    this->bashCommand = &bashCommand;
+    this->bashCommand = bashCommand;
 }
 
 

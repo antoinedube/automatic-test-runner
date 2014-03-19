@@ -29,7 +29,7 @@
 
 class Compiler {
 public:
-    Compiler(BashCommand &bashCommand);
+    Compiler(BashCommand *bashCommand);
     virtual ~Compiler();
     virtual void  execute();
 

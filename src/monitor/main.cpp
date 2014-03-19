@@ -30,9 +30,9 @@ int main( ) {
 
     Parser *parser = new Parser();
 
-    BashCommand *bashCommand = new BashCommand(*parser);
+    BashCommand *bashCommand = new BashCommand(parser);
 
-    Compiler *compiler = new Compiler(*bashCommand);
+    Compiler *compiler = new Compiler(bashCommand);
 
     std::vector<std::string> watchPaths;
     watchPaths.push_back("../test");
@@ -43,9 +43,9 @@ int main( ) {
 
     notifier->initialize();
 
-    TestRunner *testRunner = new TestRunner(*bashCommand);
+    TestRunner *testRunner = new TestRunner(bashCommand);
 
-    Monitor *monitor = new Monitor(*compiler, *notifier, *testRunner);
+    Monitor *monitor = new Monitor(compiler, notifier, testRunner);
 
     monitor->startWatch();
 

@@ -30,10 +30,10 @@
 
 class TestsResults {
 public:
-    TestsResults(Printer &printer);
+    TestsResults(Printer *printer);
     virtual ~TestsResults();
 
-    void addResult(const UnitTestInfo& unitTestInfo);
+    void addResult(UnitTestInfo *unitTestInfo);
     void print();
 
 private:

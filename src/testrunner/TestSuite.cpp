@@ -22,23 +22,19 @@
 #include "SampleTestCase.h"
 
 
-TestSuite::TestSuite ( TestsResults &testsResults ) {
-    this->testsResults = &testsResults;
+TestSuite::TestSuite(TestsResults *testsResults) {
+    this->testsResults = testsResults;
 }
 
 
-TestSuite::~TestSuite ( ) {
-
-}
+TestSuite::~TestSuite() {}
 
 
 void TestSuite::OnTestProgramStart(const UnitTest& /* unit_test */) {
-
 }
 
 
 void TestSuite::OnTestProgramEnd(const UnitTest& /*unit_test*/) {
-
 }
 
 
@@ -66,7 +62,7 @@ void TestSuite::OnTestEnd(const TestInfo& test_info) {
 
     this->currentTestInfo->timeInMillis = testResult->elapsed_time();
 
-    this->testsResults->addResult(*this->currentTestInfo);
+    this->testsResults->addResult(this->currentTestInfo);
 
     delete this->currentTestInfo;
 }

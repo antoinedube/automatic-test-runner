@@ -20,10 +20,10 @@
 #include "monitor/Monitor.h"
 
 
-Monitor::Monitor(Compiler &compiler, Notifier &notifier, TestRunner &testRunner) {
-    this->compiler = &compiler;
-    this->notifier = &notifier;
-    this->testRunner = &testRunner;
+Monitor::Monitor(Compiler *compiler, Notifier *notifier, TestRunner *testRunner) {
+    this->compiler = compiler;
+    this->notifier = notifier;
+    this->testRunner = testRunner;
 }
 
 
