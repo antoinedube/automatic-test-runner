@@ -17,18 +17,19 @@
  *
  */
 
-#ifndef JSONPRINTER_H
-#define JSONPRINTER_H
+#ifndef SRC_TESTRUNNER_PRINTER_JSONPRINTER_H_
+#define SRC_TESTRUNNER_PRINTER_JSONPRINTER_H_
 
-#include "Printer.h"
+#include "testrunner/printer/Printer.h"
+#include "testrunner/UnitTestInfo.h"
+
 
 class JsonPrinter : public Printer {
-public:
+ public:
     JsonPrinter();
     virtual ~JsonPrinter();
 
-    virtual void print();
-// private:
+    virtual void print(std::vector<UnitTestInfo *> testsResults);
 };
 
-#endif // JSONPRINTER_H
+#endif  // SRC_TESTRUNNER_PRINTER_JSONPRINTER_H_

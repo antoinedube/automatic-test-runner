@@ -17,15 +17,13 @@
  *
  */
 
-#include "Printer.h"
+#include "testrunner/printer/Printer.h"
 
 
 Printer::Printer() {
-
 }
 
 
 Printer::~Printer() {
-
 }
 

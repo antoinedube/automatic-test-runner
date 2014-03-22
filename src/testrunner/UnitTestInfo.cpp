@@ -30,5 +30,4 @@ UnitTestInfo::UnitTestInfo() {
 
 
 UnitTestInfo::~UnitTestInfo() {
-
 }

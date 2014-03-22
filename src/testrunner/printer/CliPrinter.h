@@ -17,19 +17,21 @@
  *
  */
 
-#ifndef CLIPRINTER_H
-#define CLIPRINTER_H
+#ifndef SRC_TESTRUNNER_PRINTER_CLIPRINTER_H_
+#define SRC_TESTRUNNER_PRINTER_CLIPRINTER_H_
+
+#include <vector>
 
 #include "testrunner/printer/Printer.h"
+#include "testrunner/UnitTestInfo.h"
 
 
 class CliPrinter : public Printer {
-public:
+ public:
     CliPrinter();
     virtual ~CliPrinter();
 
-    virtual void print();
-// private:
+    virtual void print(std::vector<UnitTestInfo *> testsResults);
 };
 
-#endif // CLIPRINTER_H
+#endif  // SRC_TESTRUNNER_PRINTER_CLIPRINTER_H_

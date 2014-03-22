@@ -17,10 +17,9 @@
  *
  */
 
-#ifndef TESTSRESULTS_H
-#define TESTSRESULTS_H
+#ifndef SRC_TESTRUNNER_TESTSRESULTS_H_
+#define SRC_TESTRUNNER_TESTSRESULTS_H_
 
-#include <iostream>
 #include <string>
 #include <vector>
 
@@ -29,16 +28,16 @@
 
 
 class TestsResults {
-public:
-    TestsResults(Printer *printer);
+ public:
+    explicit TestsResults(Printer *printer);
     virtual ~TestsResults();
 
     void addResult(UnitTestInfo *unitTestInfo);
     void print();
 
-private:
+ private:
     std::vector<UnitTestInfo *> testsResults;
     Printer *printer;
 };
 
-#endif // TESTSRESULTS_H
+#endif  // SRC_TESTRUNNER_TESTSRESULTS_H_

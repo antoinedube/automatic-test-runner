@@ -17,15 +17,14 @@
  *
  */
 
-#ifndef UNITTESTINFO_H
-#define UNITTESTINFO_H
+#ifndef SRC_TESTRUNNER_UNITTESTINFO_H_
+#define SRC_TESTRUNNER_UNITTESTINFO_H_
 
-#include <iostream>
 #include <string>
 
 
 class UnitTestInfo {
-public:
+ public:
     UnitTestInfo();
     virtual ~UnitTestInfo();
 
@@ -33,7 +32,7 @@ public:
     std::string test_name;
     bool status;
     std::string summary;
-    long long int timeInMillis;
+    int64_t timeInMillis;
 };
 
-#endif // UNITTESTINFO_H
+#endif  // SRC_TESTRUNNER_UNITTESTINFO_H_

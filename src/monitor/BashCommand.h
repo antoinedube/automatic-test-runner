@@ -17,25 +17,19 @@
  *
  */
 
-#ifndef BASHCOMMAND_H
-#define BASHCOMMAND_H
+#ifndef SRC_MONITOR_BASHCOMMAND_H_
+#define SRC_MONITOR_BASHCOMMAND_H_
 
-#include <iostream>
 #include <string>
-#include <stdio.h>
-
-#include "monitor/Parser.h"
 
 
 class BashCommand {
 public:
-    BashCommand(Parser *parser);
+    BashCommand();
     virtual ~BashCommand();
 
     virtual void execute(std::string &command);
-
-private:
-    Parser *parser;
 };
 
-#endif // BASHCOMMAND_H
+#endif // SRC_MONITOR_BASHCOMMAND_H_
+

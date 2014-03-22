@@ -20,17 +20,12 @@
 #ifndef PARSER_H
 #define PARSER_H
 
-#include <iostream>
-#include <string>
-
 
 class Parser {
-public:
+ public:
     Parser();
     virtual ~Parser();
     virtual void parseOutput(FILE *file);
-
-// private:
 };
 
 #endif // PARSER_H

@@ -17,20 +17,30 @@
  *
  */
 
-
-#include <iostream>
-#include "JsonPrinter.h"
+#include <stdio.h>
+#include <jsoncpp/json/writer.h>
+#include "testrunner/printer/JsonPrinter.h"
+#include "testrunner/UnitTestInfo.h"
 
 JsonPrinter::JsonPrinter() {
-
 }
 
 
 JsonPrinter::~JsonPrinter() {
-
 }
 
 
-void JsonPrinter::print() {
-    std::cout << "Json, More work required!" << std::endl;
+void JsonPrinter::print(std::vector<UnitTestInfo *> testsResults) {
+    Json::Value allValues(Json::arrayValue);
+    Json::Value currentValue;
+
+    for (auto &element : testsResults) {
+        currentValue["Test case name"] = element->test_case_name;
+        currentValue["Test name"] = element->test_name;
+        currentValue["status"] = element->status;
+        currentValue["summary"] = element->summary;
+        currentValue["time"] = int(element->timeInMillis);
+        allValues.append(currentValue);
+    }
+    std::cout << allValues << std::endl;
 }

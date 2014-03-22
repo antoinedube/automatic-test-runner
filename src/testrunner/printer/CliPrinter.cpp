@@ -18,23 +18,24 @@
  */
 
 #include <iostream>
+#include <vector>
 #include "testrunner/printer/CliPrinter.h"
 
 
-CliPrinter::CliPrinter()
-{
-
+CliPrinter::CliPrinter() {
 }
 
 
-CliPrinter::~CliPrinter()
-{
-
+CliPrinter::~CliPrinter() {
 }
 
 
-void CliPrinter::print()
-{
-    std::cout << "More work required!" << std::endl;
+void CliPrinter::print(std::vector<UnitTestInfo *> testsResults) {
+    for (auto &element : testsResults) {
+        std::cout << "Test case name: " << element->test_case_name << std::endl;
+        std::cout << "Test name: " << element->test_name << std::endl;
+        std::cout << "Test status: " << element->status << std::endl;
+        std::cout << "Test summary: " << element->summary << std::endl;
+        std::cout << "Test time: " << element->timeInMillis << std::endl << std::endl;
+    }
 }
-

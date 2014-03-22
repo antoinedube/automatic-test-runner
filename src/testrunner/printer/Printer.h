@@ -17,17 +17,19 @@
  *
  */
 
-#ifndef PRINTER_H
-#define PRINTER_H
+#ifndef SRC_TESTRUNNER_PRINTER_PRINTER_H_
+#define SRC_TESTRUNNER_PRINTER_PRINTER_H_
+
+#include <vector>
+#include "testrunner/UnitTestInfo.h"
 
 
 class Printer {
-public:
+ public:
     Printer();
     virtual ~Printer();
 
-    virtual void print() = 0;
-// private:
+    virtual void print(std::vector<UnitTestInfo *> testsResults) = 0;
 };
 
-#endif // PRINTER_H
+#endif  // SRC_TESTRUNNER_PRINTER_PRINTER_H_

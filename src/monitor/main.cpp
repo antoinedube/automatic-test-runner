@@ -17,20 +17,17 @@
  *
  */
 
-#include <iostream>
+#include <string>
 
 #include "monitor/Compiler.h"
 #include "monitor/Monitor.h"
 #include "monitor/Notifier.h"
-#include "monitor/Parser.h"
 #include "monitor/TestRunner.h"
 
 
 int main( ) {
 
-    Parser *parser = new Parser();
-
-    BashCommand *bashCommand = new BashCommand(parser);
+    BashCommand *bashCommand = new BashCommand();
 
     Compiler *compiler = new Compiler(bashCommand);
 
@@ -39,7 +36,7 @@ int main( ) {
     watchPaths.push_back("../TestRunner");
 
     Notifier *notifier = new Notifier();
-    notifier->addPaths (watchPaths);
+    notifier->addPaths(watchPaths);
 
     notifier->initialize();
 
@@ -54,7 +51,7 @@ int main( ) {
     delete notifier;
     delete compiler;
     delete bashCommand;
-    delete parser;
 
     return 0;
 }
+

@@ -17,7 +17,9 @@
  *
  */
 
-#include "monitor/Parser.h"
+#include <iostream>
+#include <string>
+#include "monitor/parser/Parser.h"
 
 
 Parser::Parser ( ) {
@@ -27,30 +29,20 @@ Parser::Parser ( ) {
 Parser::~Parser( ) {
 }
 
-// A considerer : jsoncpp et transferer les infos en JSON
-// https://www.archlinux.org/packages/extra/x86_64/jsoncpp/
-// http://jsoncpp.sourceforge.net/
-// Exemple : http://www.danielsoltyka.com/programming/2011/04/15/simple-class-serialization-with-jsoncpp/
+
 void Parser::parseOutput(FILE *file) {
     int testValue;
     char valueToWrite[100];
     std::string currentString;
     std::cout << "Output Parser" << std::endl;
-
-    while (1) {
+    
+    testValue = fgetc(file);
+    while (testValue!=-1) {
+        sprintf(valueToWrite, "%c", (char)testValue);
+        currentString.append( std::string(valueToWrite) );
         testValue = fgetc(file);
-
-        if (testValue==-1) break;
-        else if (testValue=='\n') {
-            std::cout << "currentString: " << currentString << std::endl;
-            currentString = "";
-        }
-        else {
-            sprintf(valueToWrite, "%c", (char)testValue);
-//             std::cout << "currentCharacter: " << testValue << std::endl;
-            currentString.append( std::string(valueToWrite) );
-        }
     }
 
-    std::cout << "\n" << std::endl;
+    std::cout << "String is: " << std::endl;
+    std::cout << currentString << std::endl;
 }

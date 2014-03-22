@@ -29,6 +29,7 @@ file (
     GLOB
     src_monitor
     src/monitor/*.cpp
+    src/monitor/parser/*.cpp
 )
 
 add_executable(monitor ${src_monitor})
@@ -42,4 +43,4 @@ file (
 )
 
 add_executable(testrunner ${src_testrunner})
-target_link_libraries(testrunner gtest pthread gmock)
+target_link_libraries(testrunner gtest pthread gmock jsoncpp)
