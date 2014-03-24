@@ -22,27 +22,15 @@
 #include "monitor/parser/Parser.h"
 
 
-Parser::Parser ( ) {
+Parser::Parser() {
 }
 
 
-Parser::~Parser( ) {
+Parser::~Parser() {
 }
 
 
-void Parser::parseOutput(FILE *file) {
-    int testValue;
-    char valueToWrite[100];
-    std::string currentString;
-    std::cout << "Output Parser" << std::endl;
-    
-    testValue = fgetc(file);
-    while (testValue!=-1) {
-        sprintf(valueToWrite, "%c", (char)testValue);
-        currentString.append( std::string(valueToWrite) );
-        testValue = fgetc(file);
-    }
-
-    std::cout << "String is: " << std::endl;
-    std::cout << currentString << std::endl;
-}
+void Parser::parse(std::string &text) {
+    std::cout << "Parser not implemented yet!!" << std::endl;
+    std::cout << "Text to parse: " << text << std::endl;
+} 

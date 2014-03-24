@@ -25,7 +25,7 @@ class Parser {
  public:
     Parser();
     virtual ~Parser();
-    virtual void parseOutput(FILE *file);
+    virtual void parse(std::string &text);
 };
 
 #endif // PARSER_H

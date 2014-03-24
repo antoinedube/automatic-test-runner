@@ -17,12 +17,15 @@
  *
  */
 
+#include "monitor/parser/JsonParser.h"
 #include "monitor/TestRunner.h"
 
 
-TestRunner::TestRunner(BashCommand *bashCommand) {
+TestRunner::TestRunner(BashCommand *bashCommand, JsonParser *jsonParser) {
     this->command = "./testrunner";
+    this->output = "";
     this->bashCommand = bashCommand;
+    this->jsonParser = jsonParser;
 }
 
 
@@ -33,5 +36,6 @@ TestRunner::~TestRunner() {
 
 void TestRunner::execute() {
     std::cout << "Running all tests" << std::endl;
-    this->bashCommand->execute(this->command);
+    this->output = this->bashCommand->execute(this->command);
+    this->jsonParser->parse(this->output);
 }

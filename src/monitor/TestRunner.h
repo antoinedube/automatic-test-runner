@@ -24,18 +24,21 @@
 #include <string>
 
 #include "monitor/BashCommand.h"
+#include "monitor/parser/JsonParser.h"
 
 
 class TestRunner {
 public:
-    TestRunner(BashCommand *bashCommand);
+    TestRunner(BashCommand *bashCommand, JsonParser *jsonParser);
     virtual ~TestRunner();
 
     virtual void execute();
 
 private:
     std::string command;
+    std::string output;
     BashCommand *bashCommand;
+    JsonParser *jsonParser;
 };
 
 #endif // TESTRUNNER_H

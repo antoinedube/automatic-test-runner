@@ -28,7 +28,7 @@ public:
     BashCommand();
     virtual ~BashCommand();
 
-    virtual void execute(std::string &command);
+    virtual std::string execute(std::string &command);
 };
 
 #endif // SRC_MONITOR_BASHCOMMAND_H_

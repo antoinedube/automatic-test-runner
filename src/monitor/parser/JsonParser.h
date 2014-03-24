@@ -17,22 +17,17 @@
  *
  */
 
-#include "monitor/Compiler.h"
+#ifndef SRC_MONITOR_PARSER_JSONPARSER_H_
+#define SRC_MONITOR_PARSER_JSONPARSER_H_
 
+#include <string>
+#include "monitor/parser/Parser.h"
 
-Compiler::Compiler(BashCommand *bashCommand) {
-    this->command = "make testrunner";
-    this->bashCommand = bashCommand;
-    this->output = "";
-}
+class JsonParser : public Parser {
+ public:
+    JsonParser();
+    virtual ~JsonParser();
+    virtual void parse(std::string &text);
+};
 
-
-Compiler::~Compiler() {
-
-}
-
-
-void Compiler::execute() {
-    this->output = this->bashCommand->execute(this->command);
-}
-
+#endif  // SRC_MONITOR_PARSER_JSONPARSER_H_

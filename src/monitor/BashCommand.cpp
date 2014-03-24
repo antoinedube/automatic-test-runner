@@ -33,24 +33,23 @@ BashCommand::~BashCommand() {
 }
 
 
-void BashCommand::execute(std::string &command) {
+std::string BashCommand::execute(std::string &command) {
     FILE *popenOutput;
     int testValue;
     char valueToWrite[100];
     std::string currentString;
- 
+
     popenOutput = popen(command.c_str(), "r");
 
     testValue = fgetc(popenOutput);
     while (testValue!=-1) {
         sprintf(valueToWrite, "%c", (char)testValue);
-        currentString.append( std::string(valueToWrite) );
+        currentString.append(std::string(valueToWrite));
         testValue = fgetc(popenOutput);
     }
 
-    std::cout << "String is: " << std::endl;
-    std::cout << currentString << std::endl;
-
     pclose(popenOutput);
+
+    return currentString;
 }
 

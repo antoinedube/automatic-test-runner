@@ -33,7 +33,7 @@ file (
 )
 
 add_executable(monitor ${src_monitor})
-
+target_link_libraries(monitor jsoncpp)
 
 file (
     GLOB

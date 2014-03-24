@@ -20,6 +20,7 @@
 #include <string>
 
 #include "monitor/Compiler.h"
+#include "monitor/parser/JsonParser.h"
 #include "monitor/Monitor.h"
 #include "monitor/Notifier.h"
 #include "monitor/TestRunner.h"
@@ -40,7 +41,8 @@ int main( ) {
 
     notifier->initialize();
 
-    TestRunner *testRunner = new TestRunner(bashCommand);
+    JsonParser *jsonParser = new JsonParser();
+    TestRunner *testRunner = new TestRunner(bashCommand, jsonParser);
 
     Monitor *monitor = new Monitor(compiler, notifier, testRunner);
 
@@ -48,6 +50,7 @@ int main( ) {
 
     delete monitor;
     delete testRunner;
+    delete jsonParser;
     delete notifier;
     delete compiler;
     delete bashCommand;

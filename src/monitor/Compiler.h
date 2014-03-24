@@ -35,6 +35,7 @@ public:
 
 private:
     std::string command;
+    std::string output;
     BashCommand *bashCommand;
 };
 
