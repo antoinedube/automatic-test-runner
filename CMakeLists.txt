@@ -30,6 +30,7 @@ file (
     src_monitor
     src/monitor/*.cpp
     src/monitor/parser/*.cpp
+    src/monitor/display/*.cpp
 )
 
 add_executable(monitor ${src_monitor})
