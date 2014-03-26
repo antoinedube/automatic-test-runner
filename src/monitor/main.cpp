@@ -18,6 +18,9 @@
  */
 
 #include <string>
+#include <vector>
+
+// #include "display/TableWidget.h"
 
 #include "monitor/Compiler.h"
 #include "monitor/parser/JsonParser.h"
@@ -25,8 +28,13 @@
 #include "monitor/Notifier.h"
 #include "monitor/TestRunner.h"
 
+void INIT_DISPLAY() {
+// http://www.cplusplus.com/reference/thread/thread/
+}
 
-int main( ) {
+int main() {
+
+//     TableWidget *tableWidget = new TableWidget();
 
     BashCommand *bashCommand = new BashCommand();
 
@@ -54,6 +62,7 @@ int main( ) {
     delete notifier;
     delete compiler;
     delete bashCommand;
+//     delete tableWidget;
 
     return 0;
 }
