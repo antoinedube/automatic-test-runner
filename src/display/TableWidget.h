@@ -22,13 +22,16 @@
 
 #include <QtWidgets/QTableWidget>
 
+
 class TableWidget {
  public:
-     TableWidget();
-     virtual ~TableWidget();
+    TableWidget();
+    virtual ~TableWidget();
+    virtual void run();
 
  private:
-     QTableWidget *tableWidget;
+    QTableWidget *tableWidget;
 };
 
 #endif  // SRC_MONITOR_DISPLAY_TABLEWIDGET_H_
+

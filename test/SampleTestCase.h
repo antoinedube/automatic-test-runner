@@ -37,3 +37,4 @@ TEST(CustomOutputTest, Fails) {
 
 
 #endif // SAMPLETESTCASE_H
+

@@ -17,21 +17,20 @@
  *
  */
 
-#include <QApplication>
 #include <QtWidgets/QTableWidget>
 #include "display/TableWidget.h"
 
 
 TableWidget::TableWidget() {
-    int argc = 0;
-    char *argv[0];
-
-    QApplication app(argc, argv);
-    this->tableWidget = new QTableWidget(5,5);
-    this->tableWidget->show();
-    app.exec();
+   this->tableWidget = new QTableWidget(5,5);
 }
+
 
 TableWidget::~TableWidget() {
     delete this->tableWidget;
+}
+
+
+void TableWidget::run() {
+    this->tableWidget->show();
 }

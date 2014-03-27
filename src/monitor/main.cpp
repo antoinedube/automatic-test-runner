@@ -18,9 +18,12 @@
  */
 
 #include <string>
+#include <thread>
 #include <vector>
 
-// #include "display/TableWidget.h"
+#include <QApplication>
+
+#include "display/TableWidget.h"
 
 #include "monitor/Compiler.h"
 #include "monitor/parser/JsonParser.h"
@@ -28,13 +31,20 @@
 #include "monitor/Notifier.h"
 #include "monitor/TestRunner.h"
 
-void INIT_DISPLAY() {
-// http://www.cplusplus.com/reference/thread/thread/
+
+void START_MONITOR_THREAD(Monitor *monitor) {
+    monitor->startWatch();
 }
 
-int main() {
 
-//     TableWidget *tableWidget = new TableWidget();
+int main() {
+    int argc = 0;
+    char *argv[0];
+
+    QApplication *app = new QApplication(argc, argv); 
+
+    TableWidget *tableWidget = new TableWidget();
+    tableWidget->run();
 
     BashCommand *bashCommand = new BashCommand();
 
@@ -54,7 +64,11 @@ int main() {
 
     Monitor *monitor = new Monitor(compiler, notifier, testRunner);
 
-    monitor->startWatch();
+    std::thread monitorThread(START_MONITOR_THREAD, monitor);
+
+    app->exec();
+
+    monitorThread.join();
 
     delete monitor;
     delete testRunner;
@@ -62,7 +76,8 @@ int main() {
     delete notifier;
     delete compiler;
     delete bashCommand;
-//     delete tableWidget;
+    delete tableWidget;
+    delete app;
 
     return 0;
 }

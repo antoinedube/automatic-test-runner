@@ -25,19 +25,20 @@ set(CMAKE_CXX_FLAGS "-g -std=c++11 -Wall -Werror -Wextra")
 include_directories("src")
 include_directories("test")
 
-#find_package(Qt5Widgets)
+find_package(Qt5Widgets)
 
 file (
     GLOB
     src_monitor
     src/monitor/*.cpp
     src/monitor/parser/*.cpp
-    # src/display/*.cpp
+    src/display/*.cpp
 )
+
 
 add_executable(monitor ${src_monitor})
 target_link_libraries(monitor jsoncpp)
-#qt5_use_modules(monitor Widgets)
+qt5_use_modules(monitor Widgets)
 
 file (
     GLOB
