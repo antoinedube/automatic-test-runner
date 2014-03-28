@@ -22,7 +22,7 @@
 
 
 TableWidget::TableWidget() {
-   this->tableWidget = new QTableWidget(5,5);
+   this->tableWidget = new QTableWidget(1,5);
 }
 
 
@@ -34,3 +34,8 @@ TableWidget::~TableWidget() {
 void TableWidget::run() {
     this->tableWidget->show();
 }
+
+
+void TableWidget::updateValues() {
+}
+

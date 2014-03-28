@@ -37,9 +37,7 @@ void START_MONITOR_THREAD(Monitor *monitor) {
 }
 
 
-int main() {
-    int argc = 0;
-    char *argv[0];
+int main(int argc, char *argv[]) {
 
     QApplication *app = new QApplication(argc, argv); 
 

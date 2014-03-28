@@ -28,6 +28,7 @@ class TableWidget {
     TableWidget();
     virtual ~TableWidget();
     virtual void run();
+    virtual void updateValues();
 
  private:
     QTableWidget *tableWidget;
