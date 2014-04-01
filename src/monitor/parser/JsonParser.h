@@ -21,13 +21,17 @@
 #define SRC_MONITOR_PARSER_JSONPARSER_H_
 
 #include <string>
+#include "display/TableWidget.h"
 #include "monitor/parser/Parser.h"
 
 class JsonParser : public Parser {
  public:
-    JsonParser();
+    JsonParser(TableWidget *tableWidget);
     virtual ~JsonParser();
     virtual void parse(std::string &text);
+
+ private:
+    TableWidget *tableWidget;
 };
 
 #endif  // SRC_MONITOR_PARSER_JSONPARSER_H_

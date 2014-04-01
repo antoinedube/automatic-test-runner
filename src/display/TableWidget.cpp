@@ -17,12 +17,15 @@
  *
  */
 
+#include <iostream>
 #include <QtWidgets/QTableWidget>
+#include <QtWidgets/QTableWidgetItem>
 #include "display/TableWidget.h"
 
 
 TableWidget::TableWidget() {
    this->tableWidget = new QTableWidget(1,5);
+   qRegisterMetaType<QVector<int> >("QVector<int>");
 }
 
 
@@ -37,5 +40,12 @@ void TableWidget::run() {
 
 
 void TableWidget::updateValues() {
+    std::cout << "\n\tUpdating stuff!\n" << std::endl;
+    QTableWidgetItem *itemToAdd = new QTableWidgetItem;
+    itemToAdd->setText("Stuff stuff stuff");
+
+
+
+    this->tableWidget->setItem(0, 0, itemToAdd);
 }
 

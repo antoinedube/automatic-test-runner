@@ -23,11 +23,12 @@
 
 #include "monitor/parser/JsonParser.h"
 
-JsonParser::JsonParser ( ) {
+JsonParser::JsonParser(TableWidget *tableWidget) {
+    this->tableWidget = tableWidget;
 }
 
 
-JsonParser::~JsonParser( ) {
+JsonParser::~JsonParser() {
 }
 
 
@@ -52,5 +53,7 @@ void JsonParser::parse(std::string &text) {
         std::cout << "Test summary: " << currentValue["summary"].asString() << std::endl;
         std::cout << "Test time: " << currentValue["time"].asInt() << std::endl;
     }
+
+    this->tableWidget->updateValues();
 }
 

@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
 
     notifier->initialize();
 
-    JsonParser *jsonParser = new JsonParser();
+    JsonParser *jsonParser = new JsonParser(tableWidget);
     TestRunner *testRunner = new TestRunner(bashCommand, jsonParser);
 
     Monitor *monitor = new Monitor(compiler, notifier, testRunner);
