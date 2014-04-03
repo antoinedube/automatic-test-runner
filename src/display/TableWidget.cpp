@@ -18,14 +18,33 @@
  */
 
 #include <iostream>
+#include <string>
+#include <vector>
+
+#include <QtCore/QString>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QTableWidgetItem>
+
 #include "display/TableWidget.h"
 
 
 TableWidget::TableWidget() {
-   this->tableWidget = new QTableWidget(1,5);
-   qRegisterMetaType<QVector<int> >("QVector<int>");
+    this->tableWidget = new QTableWidget(0,5);
+    qRegisterMetaType<QVector<int> >("QVector<int>");
+
+    this->tableWidget->setFixedSize(800,400);
+
+    this->tableWidget->setHorizontalHeaderItem(0, new QTableWidgetItem("Test case name"));
+    this->tableWidget->setHorizontalHeaderItem(1, new QTableWidgetItem("Test name"));
+    this->tableWidget->setHorizontalHeaderItem(2, new QTableWidgetItem("Status"));
+    this->tableWidget->setHorizontalHeaderItem(3, new QTableWidgetItem("Summary"));
+    this->tableWidget->setHorizontalHeaderItem(4, new QTableWidgetItem("Elapsed time"));
+
+    this->tableWidget->setColumnWidth(0,150);
+    this->tableWidget->setColumnWidth(1,150);
+    this->tableWidget->setColumnWidth(2,75);
+    this->tableWidget->setColumnWidth(3,300);
+    this->tableWidget->setColumnWidth(4,100);
 }
 
 
@@ -39,13 +58,15 @@ void TableWidget::run() {
 }
 
 
-void TableWidget::updateValues() {
-    std::cout << "\n\tUpdating stuff!\n" << std::endl;
-    QTableWidgetItem *itemToAdd = new QTableWidgetItem;
-    itemToAdd->setText("Stuff stuff stuff");
-
-
-
-    this->tableWidget->setItem(0, 0, itemToAdd);
+void TableWidget::updateValues(std::vector<std::string> *testValues) {
+    int rowCount = this->tableWidget->rowCount();
+    int column = 0;
+    this->tableWidget->insertRow(rowCount);
+        
+    for (auto element : *testValues) {
+        QTableWidgetItem *currentItem = new QTableWidgetItem(QString::fromStdString(element));
+        this->tableWidget->setItem(rowCount, column, currentItem);
+        column++;
+    }
 }
 

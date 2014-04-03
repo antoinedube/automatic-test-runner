@@ -25,6 +25,7 @@ set(CMAKE_CXX_FLAGS "-g -std=c++11 -Wall -Werror -Wextra")
 include_directories("src")
 include_directories("test")
 
+find_package(Qt5Core)
 find_package(Qt5Widgets)
 
 file (
@@ -38,6 +39,7 @@ file (
 
 add_executable(monitor ${src_monitor})
 target_link_libraries(monitor jsoncpp)
+qt5_use_modules(monitor Core)
 qt5_use_modules(monitor Widgets)
 
 file (

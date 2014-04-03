@@ -19,9 +19,11 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include <jsoncpp/json/reader.h>
 
 #include "monitor/parser/JsonParser.h"
+
 
 JsonParser::JsonParser(TableWidget *tableWidget) {
     this->tableWidget = tableWidget;
@@ -38,22 +40,23 @@ void JsonParser::parse(std::string &text) {
     Json::Reader reader;
     reader.parse(text, values);
 
-    if (reader.parse(text, values)) {
-        std::cout << "Success" << std::endl;
-    }
-    else {
-        std::cout << "Failure" << std::endl;
-    }
+    std::vector<std::string> *testValues;
 
     for (auto element: values) {
         currentValue = element;
-        std::cout << "Test case name: " << currentValue["Test case name"].asString() << std::endl;
-        std::cout << "Test name: " << currentValue["Test name"].asString() << std::endl;
-        std::cout << "Test status: " << currentValue["status"].asString() << std::endl;
-        std::cout << "Test summary: " << currentValue["summary"].asString() << std::endl;
-        std::cout << "Test time: " << currentValue["time"].asInt() << std::endl;
+
+        testValues = new std::vector<std::string>;
+
+        testValues->push_back(currentValue["Test case name"].asString());
+        testValues->push_back(currentValue["Test name"].asString());
+        testValues->push_back(currentValue["status"].asString());
+        testValues->push_back(currentValue["summary"].asString());
+        testValues->push_back(std::to_string(currentValue["time"].asInt()));
+
+        this->tableWidget->updateValues(testValues);
+
+        delete testValues;
     }
 
-    this->tableWidget->updateValues();
 }
 

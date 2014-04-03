@@ -20,6 +20,8 @@
 #ifndef SRC_MONITOR_DISPLAY_TABLEWIDGET_H_
 #define SRC_MONITOR_DISPLAY_TABLEWIDGET_H_
 
+#include <string>
+#include <vector>
 #include <QtWidgets/QTableWidget>
 
 
@@ -28,7 +30,7 @@ class TableWidget {
     TableWidget();
     virtual ~TableWidget();
     virtual void run();
-    virtual void updateValues();
+    virtual void updateValues(std::vector<std::string> *testValues);
 
  private:
     QTableWidget *tableWidget;

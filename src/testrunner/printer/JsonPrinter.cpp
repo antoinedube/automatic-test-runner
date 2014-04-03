@@ -37,7 +37,12 @@ void JsonPrinter::print(std::vector<UnitTestInfo *> testsResults) {
     for (auto &element : testsResults) {
         currentValue["Test case name"] = element->test_case_name;
         currentValue["Test name"] = element->test_name;
-        currentValue["status"] = element->status;
+        if (element->status) {
+            currentValue["status"] = "Pass";
+        }
+        else {
+            currentValue["status"] = "Fail";
+        }
         currentValue["summary"] = element->summary;
         currentValue["time"] = int(element->timeInMillis);
         allValues.append(currentValue);
