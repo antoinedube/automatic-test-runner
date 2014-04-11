@@ -47,6 +47,7 @@ file (
     src_testrunner
     src/testrunner/*.cpp
     src/testrunner/printer/*.cpp
+    test/*.cpp
 )
 
 add_executable(testrunner ${src_testrunner})

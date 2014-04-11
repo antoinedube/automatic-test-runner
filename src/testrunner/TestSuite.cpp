@@ -19,8 +19,6 @@
 
 #include "testrunner/TestSuite.h"
 
-#include "SampleTestCase.h"
-
 
 TestSuite::TestSuite(TestsResults *testsResults) {
     this->testsResults = testsResults;
